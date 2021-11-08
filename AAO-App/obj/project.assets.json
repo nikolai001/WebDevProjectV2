@@ -737,22 +737,31 @@
   },
   "packageFolders": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "C:\\Users\\edna\\.nuget\\packages\\": {}
 =======
     "/Users/3abooda/.nuget/packages/": {}
+>>>>>>> Stashed changes
+=======
+    "/Users/henrietteabbednaes/.nuget/packages/": {}
 >>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\AAO-App.csproj",
+=======
+      "projectUniqueName": "/Users/henrietteabbednaes/Desktop/1 semester - Alex Andersen Ølund/AAO-App/AAO-App.csproj",
+>>>>>>> Stashed changes
       "projectName": "AAO-App",
-      "projectPath": "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\AAO-App.csproj",
-      "packagesPath": "C:\\Users\\edna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\obj\\",
+      "projectPath": "/Users/henrietteabbednaes/Desktop/1 semester - Alex Andersen Ølund/AAO-App/AAO-App.csproj",
+      "packagesPath": "/Users/henrietteabbednaes/.nuget/packages/",
+      "outputPath": "/Users/henrietteabbednaes/Desktop/1 semester - Alex Andersen Ølund/AAO-App/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< Updated upstream
         "C:\\Users\\edna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
 =======
@@ -765,12 +774,14 @@
       "configFilePaths": [
         "/Users/3abooda/.config/NuGet/NuGet.Config"
 >>>>>>> Stashed changes
+=======
+        "/Users/henrietteabbednaes/.config/NuGet/NuGet.Config"
+>>>>>>> Stashed changes
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -812,7 +823,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
