@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< Updated upstream
     "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\AAO-App.csproj": {}
   },
   "projects": {
@@ -16,6 +17,22 @@
         "configFilePaths": [
           "C:\\Users\\edna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj": {}
+  },
+  "projects": {
+    "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj",
+        "projectName": "AAO-App",
+        "projectPath": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj",
+        "packagesPath": "/Users/3abooda/.nuget/packages/",
+        "outputPath": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/3abooda/.config/NuGet/NuGet.Config"
+>>>>>>> Stashed changes
         ],
         "originalTargetFrameworks": [
           "net5.0"

@@ -736,11 +736,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< Updated upstream
     "C:\\Users\\edna\\.nuget\\packages\\": {}
+=======
+    "/Users/3abooda/.nuget/packages/": {}
+>>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\AAO-App.csproj",
       "projectName": "AAO-App",
       "projectPath": "C:\\Users\\edna\\source\\repos\\WU\\AAO-App\\AAO-App.csproj",
@@ -750,6 +755,16 @@
       "configFilePaths": [
         "C:\\Users\\edna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj",
+      "projectName": "AAO-App",
+      "projectPath": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj",
+      "packagesPath": "/Users/3abooda/.nuget/packages/",
+      "outputPath": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/3abooda/.config/NuGet/NuGet.Config"
+>>>>>>> Stashed changes
       ],
       "originalTargetFrameworks": [
         "net5.0"
