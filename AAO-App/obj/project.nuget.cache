@@ -1,68 +1,31 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  "dgSpecHash": "iBAfeye8WiEkPJR7BSSIwJGr9t1M3ipDjjjgcezl/VuQwV3Z+rdgZ9VbLq1zdiw1rJUNgHW8MejhZePVhVZczw==",
-=======
-  "dgSpecHash": "wNzq50nXPR0+gPl1V36pvrs7kMyUMUFAJDZoyuRBlrbaK/wigngZOR4TNAylEjoFM9shsNm1GJJTQEBe5kkucw==",
->>>>>>> Stashed changes
+  "dgSpecHash": "AAejjOGpvKGpEvQHBuKaje/6qrhU+iH/CB7I28cDS2h0gyGfBAR8dP6uFZoRGvQxn4DgpnhQi/dprLhaGYSXsg==",
   "success": true,
-  "projectFilePath": "/Users/henrietteabbednaes/Desktop/1 semester - Alex Andersen Ølund/AAO-App/AAO-App.csproj",
+  "projectFilePath": "C:\\Users\\45213\\Source\\Repos\\WebDeveloperProject\\AAO-App\\AAO-App.csproj",
   "expectedPackageFiles": [
-<<<<<<< Updated upstream
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.11\\microsoft.aspnetcore.mvc.razor.extensions.5.0.11.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.11\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.11.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.11\\microsoft.aspnetcore.razor.language.5.0.11.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.codeanalysis.common\\3.8.0\\microsoft.codeanalysis.common.3.8.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.codeanalysis.csharp\\3.8.0\\microsoft.codeanalysis.csharp.3.8.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.codeanalysis.razor\\5.0.11\\microsoft.codeanalysis.razor.5.0.11.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "C:\\Users\\edna\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
-=======
-  "dgSpecHash": "C9nOFy+L4qUM08v+VF0wBncZTRnpDeLAzuoKzn2miSInLtD7cZlPZyRE23k+DZHkSUF5L1QBqbI537kn9tpIew==",
-  "success": true,
-  "projectFilePath": "/Users/3abooda/Projects/WebDeveloperProject/AAO-App/AAO-App.csproj",
-  "expectedPackageFiles": [
-    "/Users/3abooda/.nuget/packages/microsoft.aspnetcore.mvc.razor.extensions/5.0.11/microsoft.aspnetcore.mvc.razor.extensions.5.0.11.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.aspnetcore.mvc.razor.runtimecompilation/5.0.11/microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.11.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.aspnetcore.razor.language/5.0.11/microsoft.aspnetcore.razor.language.5.0.11.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.codeanalysis.analyzers/3.0.0/microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.codeanalysis.common/3.8.0/microsoft.codeanalysis.common.3.8.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.codeanalysis.csharp/3.8.0/microsoft.codeanalysis.csharp.3.8.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.codeanalysis.razor/5.0.11/microsoft.codeanalysis.razor.5.0.11.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.extensions.dependencymodel/5.0.0/microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/microsoft.netcore.platforms/2.1.2/microsoft.netcore.platforms.2.1.2.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.reflection.metadata/5.0.0/system.reflection.metadata.5.0.0.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.text.encoding.codepages/4.5.1/system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "/Users/3abooda/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
->>>>>>> Stashed changes
-=======
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.aspnetcore.mvc.razor.extensions/5.0.11/microsoft.aspnetcore.mvc.razor.extensions.5.0.11.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.aspnetcore.mvc.razor.runtimecompilation/5.0.11/microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.11.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.aspnetcore.razor.language/5.0.11/microsoft.aspnetcore.razor.language.5.0.11.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.codeanalysis.analyzers/3.0.0/microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.codeanalysis.common/3.8.0/microsoft.codeanalysis.common.3.8.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.codeanalysis.csharp/3.8.0/microsoft.codeanalysis.csharp.3.8.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.codeanalysis.razor/5.0.11/microsoft.codeanalysis.razor.5.0.11.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.extensions.dependencymodel/5.0.0/microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/microsoft.netcore.platforms/2.1.2/microsoft.netcore.platforms.2.1.2.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.reflection.metadata/5.0.0/system.reflection.metadata.5.0.0.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.text.encoding.codepages/4.5.1/system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "/Users/henrietteabbednaes/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
->>>>>>> Stashed changes
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.11\\microsoft.aspnetcore.mvc.razor.extensions.5.0.11.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\5.0.11\\microsoft.aspnetcore.mvc.razor.runtimecompilation.5.0.11.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.11\\microsoft.aspnetcore.razor.language.5.0.11.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.codeanalysis.common\\3.8.0\\microsoft.codeanalysis.common.3.8.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.codeanalysis.csharp\\3.8.0\\microsoft.codeanalysis.csharp.3.8.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.codeanalysis.razor\\5.0.11\\microsoft.codeanalysis.razor.5.0.11.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.extensions.dependencymodel\\5.0.0\\microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\45213\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\45213\\Source\\Repos\\WebDeveloperProject\\AAO-App\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
