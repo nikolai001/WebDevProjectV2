@@ -1,0 +1,1 @@
+{"version":3,"sources":["Styles.scss","Styles.css"],"names":[],"mappings":"AACA,WAEA,WAAA,CADA,UCCA","file":"Styles.css","sourcesContent":["body {\r\n#Test{\r\nwidth:100%;\r\nheight:100%;\r\n    }\r\n}\r\n","body #Test {\n  width: 100%;\n  height: 100%;\n}"]}
