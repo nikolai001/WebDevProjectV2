@@ -13,6 +13,16 @@ namespace AAO_App.Models
         public int Id { get; set; }
         public string Username { get; set; }
 
-        private string Password { get; set; }
+        private string password;
+
+        //public string GetPassword()
+        //{
+        //    return password;
+        //}
+
+        //public void SetPassword(string value)
+        //{
+        //    password = value;
+        //}
     }
 }
