@@ -1,6 +1,8 @@
-﻿body {
+﻿@import '_Colours.scss';
+
+body {
 #Test{
-    background-color: aqua;
+    background-color:$BackgroundColour;
 width:100%;
 height:100%;
 
