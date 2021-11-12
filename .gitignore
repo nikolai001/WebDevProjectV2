@@ -59,6 +59,9 @@ BenchmarkDotNet.Artifacts/
 # .NET Core
 project.lock.json
 project.fragment.lock.json
+*.nuget.dgspec.json
+*.asset.json
+*.cache
 artifacts/
 
 # StyleCop
@@ -194,6 +197,7 @@ PublishScripts/
 #!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
+*.nuget.g.props
 *.nuget.targets
 
 # Microsoft Azure Build Output
