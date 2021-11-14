@@ -10,19 +10,9 @@ namespace AAO_App.Models
     public class Login
     {
         [Key]
-        public int Id { get; set; }
+        public int LoginId { get; set; }
         public string Username { get; set; }
 
-        private string password;
-
-        //public string GetPassword()
-        //{
-        //    return password;
-        //}
-
-        //public void SetPassword(string value)
-        //{
-        //    password = value;
-        //}
+        public string Password { get; set; }
     }
 }

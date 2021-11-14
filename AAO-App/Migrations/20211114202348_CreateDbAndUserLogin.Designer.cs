@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211112213856_CreateDriverLoginToDatabase")]
-    partial class CreateDriverLoginToDatabase
+    [Migration("20211114202348_CreateDbAndUserLogin")]
+    partial class CreateDbAndUserLogin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,17 +22,20 @@ namespace AAO_App.Migrations
 
             modelBuilder.Entity("AAO_App.Models.Login", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("LoginId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LoginId");
 
-                    b.ToTable("DriverLogin");
+                    b.ToTable("UserLogin");
                 });
 #pragma warning restore 612, 618
         }
