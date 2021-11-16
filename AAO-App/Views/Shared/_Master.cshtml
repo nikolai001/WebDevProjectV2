@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="header__nav nav-bar">
+            <div class="toggle-menu">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-list-item"><a href="" class="nav-link">Ture</a></li>
+                <li class="nav-list-item"><a href="" class="nav-link">Rådighedskalender</a></li>
+                <li class="nav-list-item"><a href="" class="nav-link">Mine Kørte Ture</a></li>
+                <li class="nav-list-item"><a href="" class="nav-link">Kontakter</a></li>
+                <li class="nav-list-item"><a href="" class="nav-link">Intranet</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="footer_item">
+            <a class="footer_grid"><i class="far fa-user-circle"></i>Profil</a>
+        </div>
+        <div class="footer_item">
+            <a class="footer_grid"><i class="far fa-bell"></i>Notifikationer</a>
+        </div>
+        <div class="footer_item">
+            <a class="footer_grid"><i class="fas fa-cog"></i>Indstillinger</a>
+        </div>
+    </footer>
+</body>
+</html>
