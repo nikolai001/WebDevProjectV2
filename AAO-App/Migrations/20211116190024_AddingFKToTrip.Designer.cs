@@ -4,14 +4,16 @@ using AAO_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211116190024_AddingFKToTrip")]
+    partial class AddingFKToTrip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,29 +104,6 @@ namespace AAO_App.Migrations
                     b.HasKey("CountryId");
 
                     b.ToTable("Countries");
-                });
-
-            modelBuilder.Entity("AAO_App.Models.Department", b =>
-                {
-                    b.Property<int>("DepId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CityName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DepId");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Driver", b =>
@@ -327,17 +306,6 @@ namespace AAO_App.Migrations
                         .IsRequired();
 
                     b.Navigation("Countries");
-                });
-
-            modelBuilder.Entity("AAO_App.Models.Department", b =>
-                {
-                    b.HasOne("AAO_App.Models.City", "Cities")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cities");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Driver", b =>
