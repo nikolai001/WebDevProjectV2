@@ -1,0 +1,15 @@
+﻿@import '_Colours.scss';
+
+@mixin Buttons($background-colour:$CTAColourPrim){
+    
+}
+
+.ButtonModal{
+    width:20%;
+    @include Buttons;
+}
+
+.WideButton {
+    @include Buttons;
+    width:90%;
+}
