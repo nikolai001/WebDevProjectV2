@@ -1,2 +1,2 @@
-body #Test{background-color:#fff;height:100%;width:100%}
+.ButtonModal{width:20%}.ButtonModal,.WideButton{background-color:#00904a;border:none;border-radius:.3em;color:#fdfdfd;outline:none;padding:5px 0}.WideButton{width:90%}h1,h2,h3,h4,h5,h6{margin:0;padding:0}body{margin:0;padding:0 8%}body main,body main form{-ms-grid-columns:1fr;display:-ms-grid;display:grid;grid-template-columns:1fr;justify-items:center;width:100%}body main form{grid-column:1/-1}body main form input{box-sizing:border-box;width:100%}body main form label{-ms-grid-column-align:start;justify-self:start;margin-bottom:1px}body main form .WideButton{width:100%}
 /*# sourceMappingURL=Styles.css.map */

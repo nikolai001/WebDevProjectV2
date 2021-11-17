@@ -1,7 +1,12 @@
 ﻿@import '_Colours.scss';
 
-@mixin Buttons($background-colour:$CTAColourPrim){
-    
+@mixin Buttons(){
+    background-color:$CTAColourPrim;
+    color:$SecondaryTextColour;
+    padding:5px 0;
+    outline:none;
+    border:none;
+    border-radius:0.3em;
 }
 
 .ButtonModal{
