@@ -13,12 +13,17 @@ body {
     background-size: 110%;
     background-position: top;
     background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1fr;
 
     main {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
+        max-width: 500px;
+        grid-column: 1/-1;
+        justify-self: center;
 
         #CreateAccountHeader {
             color: $DefaultTextColour;
@@ -62,6 +67,7 @@ body {
             font-family: 'Asap';
             font-weight: normal;
             margin-bottom: 70px;
+            box-shadow: rgba($DefaultTextColour,16%) 0 3px 6px;
         }
 
         form {
