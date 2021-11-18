@@ -1,13 +1,6 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
+﻿//Nikolais gamle legacy kode.,. virker stadig til formålet dog
 
 const SlideShow = document.querySelector("#CreateUserForm");
-
-let next = new CustomEvent('next');
-let prev = new CustomEvent('prev');
 
 const Slides = [];
 
