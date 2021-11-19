@@ -1,11 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿@import '_Colours.scss';
+@import '_ButtonTemplate.scss';
 
-namespace AAO_App.wwwroot.css
-{
-    public class Profile
-    {
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+
+    h1#Profil {
+        text-align: center;
+    }
+
+    img#UserPic {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    div#TextBody {
+        margin-left: 10px;
     }
 }
