@@ -4,9 +4,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/MasterStyle.css" />
+
 </head>
 <body>
-    <div class="container">
+    @*Master header*@
+    <header class="header_container">
         <nav class="header__nav nav-bar">
             <div class="toggle-menu">
                 <div class="line line1"></div>
@@ -14,29 +18,49 @@
                 <div class="line line3"></div>
             </div>
             <ul class="nav-list">
-                <li class="nav-list-item"><a href="" class="nav-link">Ture</a></li>
-                <li class="nav-list-item"><a href="" class="nav-link">Rådighedskalender</a></li>
-                <li class="nav-list-item"><a href="" class="nav-link">Mine Kørte Ture</a></li>
-                <li class="nav-list-item"><a href="" class="nav-link">Kontakter</a></li>
-                <li class="nav-list-item"><a href="" class="nav-link">Intranet</a></li>
+                <li class="nav-list-item"><a asp-controller="Trip" asp-action="Index" class="nav-link">Ture</a></li>
+                <li class="nav-list-item"><a asp-controller="Availability" asp-action="Index" class="nav-link">Rådighedskalender</a></li>
+                <li class="nav-list-item"><a asp-controller="DriverHistory" asp-action="Index" class="nav-link">Mine Kørte Ture</a></li>
+                <li class="nav-list-item"><a asp-controller="Contact" asp-action="Index" class="nav-link">Kontakter</a></li>
+                <li class="nav-list-item"><a class="nav-link">Intranet</a></li>
             </ul>
         </nav>
-    </div>
+    </header>
 
-    <div>
+    @*Master Contents*@
+    <main>
         @RenderBody()
-    </div>
+    </main>
 
+    @*Master Footer*@
     <footer>
         <div class="footer_item">
-            <a class="footer_grid"><i class="far fa-user-circle"></i>Profil</a>
+            <a class="footer_wrap">
+                <i class="material-icons" style="font-size:24px;color:white">account_circle</i>
+                <span>Profil</span>
+            </a>
         </div>
         <div class="footer_item">
-            <a class="footer_grid"><i class="far fa-bell"></i>Notifikationer</a>
+            <a class="footer_wrap">
+                <i class="material-icons" style="font-size:24px;color:white">notifications</i>
+                <span>Notifikation</span>
+            </a>
         </div>
         <div class="footer_item">
-            <a class="footer_grid"><i class="fas fa-cog"></i>Indstillinger</a>
+            <a class="footer_wrap">
+                <i class="material-icons" style="font-size:24px;color:white">settings</i>
+                <span>Indstillinger</span>
+            </a>
         </div>
     </footer>
+    <script asp-append-version="true">
+        //Menu Javascript here
+
+        var toggleButton = document.querySelector('.toggle-menu');
+        var navBar = document.querySelector('.nav-bar');
+        toggleButton.addEventListener('click', function () {
+            navBar.classList.toggle('toggle');
+        });
+    </script>
 </body>
 </html>
