@@ -5,6 +5,8 @@
     ViewData["Title"] = "Create user";
 }
 
+<img id="Icon" src="images/logo.svg" alt="Alex Andersen logo"/>
+
 <div id="DotHolder">
 
 </div>
@@ -27,9 +29,16 @@
 
     <div class="Formula">
         <label asp-for="Location">Lokation</label>
-        <input asp-for="Location">
+        <select asp-for="Location">
+            <option>Odense</option>
+            <option>Luxemborg</option>
+        </select>
+
         <label asp-for="DriverLicensType">Kørekort type</label>
-        <input asp-for="DriverLicensType">
+        <select asp-for="DriverLicensType">
+            <option>BC1</option>
+            <option>CE</option>
+        </select>
 
         <div class="ButtonContainer" id="SecondContainer">
             <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
@@ -45,10 +54,7 @@
         <input asp-for="DriverLicensType">
 
         <div class="ButtonContainer" id="ThirdContainer">
-            <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
-
             <input type="Submit" value="Anmod om registrering" class="WideButton">
-
         </div>
     </div>
 </form>

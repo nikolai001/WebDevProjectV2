@@ -32,6 +32,11 @@ body {
             justify-content: space-evenly;
         }
 
+        img{
+            width:20%;
+            margin:33px 0 24px 0;
+        }
+
         .Dot {
             outline: none;
             width: 3.5vw;
@@ -83,7 +88,7 @@ body {
                 display: block;
             }
 
-            input {
+            input, select {
                 width: 100%;
                 box-sizing: border-box;
                 margin-bottom: 21px;
@@ -92,6 +97,8 @@ body {
                 border-radius: 0.4em;
                 text-indent: 5px;
             }
+
+
 
             .WideButton {
                 width: 100%;
