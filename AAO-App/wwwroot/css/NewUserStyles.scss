@@ -27,6 +27,7 @@ body {
 
         #DotHolder {
             width: 30%;
+            max-width:100px;
             display: flex;
             justify-self: center;
             justify-content: space-evenly;
@@ -39,8 +40,8 @@ body {
 
         .Dot {
             outline: none;
-            width: 3.5vw;
-            height: 3.5vw;
+            width: 10px;
+            height: 10px;
             border: 1.5px solid $DetailColour;
             border-radius: 100%;
             padding: 0;
