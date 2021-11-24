@@ -11,11 +11,21 @@ namespace AAO_App.Controllers
 {
     public class ProfileController : Controller
     {
+
+        //dependency Injection
+        private readonly ApplicationDbContext _db;
+
+        public LoginController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
         }
+
         
     }
 }
