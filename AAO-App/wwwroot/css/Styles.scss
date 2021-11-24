@@ -58,6 +58,13 @@ body {
             font-weight: bold;
         }
 
+        #Viewbag{
+            color:$DangerColour;
+            font-family:"Raleway";
+            font-weight:normal;
+            margin:0 0 10px 0;
+        }
+
         .ButtonModal {
             background-color: $DetailColour;
             justify-self: start;
