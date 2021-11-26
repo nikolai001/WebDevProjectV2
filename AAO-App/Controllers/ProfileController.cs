@@ -15,7 +15,7 @@ namespace AAO_App.Controllers
         //dependency Injection
         private readonly ApplicationDbContext _db;
 
-        public LoginController(ApplicationDbContext db)
+        public ProfileController(ApplicationDbContext db)
         {
             _db = db;
         }

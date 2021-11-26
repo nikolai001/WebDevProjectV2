@@ -1,14 +1,17 @@
 ﻿@import '_Colours.scss';
 @import '_ButtonTemplate.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Raleway:wght@700&display=swap');
 
 * {
     padding: 0;
     margin: 0;
 }
-
+main{
+    display: none;
+}
 .header_container {
     width: 100%;
-    height: 100vh;
     position: relative;
 
     .nav-bar {
@@ -56,21 +59,27 @@
             list-style: none;
             z-index: 100;
             width: 100%;
-            height: 71%;
-            line-height: 48px;
+            height: 80%;
+            line-height: 60px;
             text-align: center;
             background: white;
 
             .nav-list-item {
                 text-align: center;
                 padding: 10px 0;
+                font-family: 'asap';
+                background-color: $DefaultBoxColour;
+                margin: 10px 10px;
+                border-radius: 10px;
+                height: 8vh;
 
                 .nav-link {
                     color: #000;
-                    font-size: 40px;
+                    font-size: 30px;
                     text-decoration: none;
                     position: relative;
                     padding-bottom: 4px;
+
 
                     .nav-link::before {
                         position: absolute;
@@ -87,6 +96,10 @@
                         -moz-transition: transform 0.4s ease-in-out;
                         /* -ms-transition: transform 0.4s ease-in-out;*/
                         -o-transition: transform 0.4s ease-in-out;
+                    }
+
+                    .nav-list-item:hover {
+                        color: darkgray;
                     }
 
                     .nav-link:hover::before {
