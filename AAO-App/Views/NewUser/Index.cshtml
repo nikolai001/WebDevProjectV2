@@ -5,37 +5,38 @@
     ViewData["Title"] = "Create user";
 }
 
-<img id="Icon" src="images/logo.svg" alt="Alex Andersen logo"/>
+<img id="Icon" src="images/logo.svg" alt="Alex Andersen logo" />
 
 <div id="DotHolder">
 
 </div>
 
-<form id="CreateUserForm" method="POST" asp-controller="Login" asp-action="Index">
+<form id="CreateUserForm" method="POST" asp-controller="NewUser" asp-action="Index">
 
     <div class="Formula Displayed">
-        <label asp-for="Firstname">Fornavn</label>
-        <input asp-for="Firstname">
-        <label asp-for="Lastname">Efternavn</label>
-        <input asp-for="Lastname">
-        <label asp-for="Phone">Telefon nr</label>
-        <input asp-for="Phone">
-        <label asp-for="Address">Bopæl</label>
-        <input asp-for="Address">
+        <label>Fornavn</label>
+        <input asp-for="@Model.Firstname">
+        <label>Efternavn</label>
+        <input asp-for="@Model.Lastname">
+        <label>Telefon nr</label>
+        <input asp-for="@Model.Phone">
+
+        <label>Bopæl</label>
+        <input asp-for="@Model.Address">
         <div class="ButtonContainer">
             <button type="button" id="Next" onclick="NextSlide()" class="ButtonModal">Næste</button>
         </div>
     </div>
 
     <div class="Formula">
-        <label asp-for="Location">Lokation</label>
-        <select asp-for="Location">
+        <label>Lokation</label>
+        <select asp-for="@Model.Location">
             <option>Odense</option>
             <option>Luxemborg</option>
         </select>
 
-        <label asp-for="DriverLicensType">Kørekort type</label>
-        <select asp-for="DriverLicensType">
+        <label>Kørekort type</label>
+        <select asp-for="@Model.DriverLicensType">
             <option>BC1</option>
             <option>CE</option>
         </select>
@@ -43,17 +44,6 @@
         <div class="ButtonContainer" id="SecondContainer">
             <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
 
-            <button type="button" id="Next" onclick="NextSlide()" class="ButtonModal">Næste</button>
-        </div>
-    </div>
-
-    <div class="Formula">
-        <label asp-for="Location">Lokation</label>
-        <input asp-for="Location">
-        <label asp-for="DriverLicensType">Kørekort type</label>
-        <input asp-for="DriverLicensType">
-
-        <div class="ButtonContainer" id="ThirdContainer">
             <input type="Submit" value="Anmod om registrering" class="WideButton">
         </div>
     </div>
