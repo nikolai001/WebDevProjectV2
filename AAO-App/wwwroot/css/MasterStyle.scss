@@ -7,8 +7,9 @@
     padding: 0;
     margin: 0;
 }
-main{
-    display: none;
+main {
+    width: 100%;
+    margin: 0 auto;
 }
 .header_container {
     width: 100%;
@@ -80,7 +81,6 @@ main{
                     position: relative;
                     padding-bottom: 4px;
 
-
                     .nav-link::before {
                         position: absolute;
                         content: '';
@@ -107,6 +107,15 @@ main{
                     }
                 }
             }
+
+            .logud {
+                background-color: red;
+                position: relative;
+                top: 160px;
+                .nav-link{
+                    color: white;
+                }
+            }
         }
     }
 
@@ -114,45 +123,45 @@ main{
         left: 0;
     }
 }
+    //this is X
+    .toggle .line1 {
+        background-color: #000000;
+        transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
+    }
 
-//this is X
-.toggle .line1 {
-    background-color: #000000;
-    transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
-}
+    .toggle .line2 {
+        display: none;
+    }
 
-.toggle .line2 {
-    display: none;
-}
-
-.toggle .line3 {
-    background-color: #000000;
-    transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
-}
-
-/*Master footer*/
-footer {
-    background-color: $CTAColourPrim;
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 5rem;
-
-    .footer_item {
+    .toggle .line3 {
+        background-color: #000000;
+        transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+    }
+    /*Master footer*/
+    footer {
+        visibility: visible;
+        background-color: $CTAColourPrim;
+        position: relative;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 50px;
-        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 5rem;
 
-        .footer_wrap {
-            text-decoration: none;
-            color: #fff;
-            margin-left: 5px;
+        .footer_item {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 50px;
+            text-align: center;
+
+            .footer_wrap {
+                text-decoration: none;
+                color: #fff;
+                margin-left: 5px;
+            }
         }
     }
-}
+

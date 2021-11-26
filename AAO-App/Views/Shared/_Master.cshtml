@@ -6,7 +6,7 @@
     <title>@ViewBag.Title</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="~/css/MasterStyle.css" />
-
+    
 </head>
 <body>
     @*Master header*@
@@ -23,6 +23,8 @@
                 <li class="nav-list-item"><a asp-controller="DriverHistory" asp-action="Index" class="nav-link">Mine Kørte Ture</a></li>
                 <li class="nav-list-item"><a asp-controller="Contact" asp-action="Index" class="nav-link">Kontakter</a></li>
                 <li class="nav-list-item"><a class="nav-link">Intranet</a></li>
+
+                <li class="nav-list-item logud"><a class="nav-link" asp-controller="Login">Logud</a></li>
             </ul>
         </nav>
     </header>
@@ -32,27 +34,6 @@
         @RenderBody()
     </main>
 
-    @*Master Footer*@
-    <footer>
-        <div class="footer_item">
-            <a class="footer_wrap" asp-controller="Profile"  asp-action="Index">
-                <i class="material-icons" style="font-size:24px;color:white">account_circle</i>
-                <span>Profil</span>
-            </a>
-        </div>
-        <div class="footer_item">
-            <a class="footer_wrap" asp-controller="Notification"  asp-action="Index">
-                <i class="material-icons" style="font-size:24px;color:white">notifications</i>
-                <span>Notifikation</span>
-            </a>
-        </div>
-        <div class="footer_item">
-            <a class="footer_wrap" asp-controller="Setting"  asp-action="Index">
-                <i class="material-icons" style="font-size:24px;color:white">settings</i>
-                <span>Indstillinger</span>
-            </a>
-        </div>
-    </footer>
     <script asp-append-version="true">
         //Menu Javascript here
 
@@ -60,6 +41,7 @@
         var navBar = document.querySelector('.nav-bar');
         toggleButton.addEventListener('click', function () {
             navBar.classList.toggle('toggle');
+            document.querySelector('footer').style.visibility="hidden";
         });
 
     </script>
