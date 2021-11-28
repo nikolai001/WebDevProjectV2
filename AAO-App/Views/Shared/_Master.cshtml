@@ -17,13 +17,15 @@
                 <div class="line line2"></div>
                 <div class="line line3"></div>
             </div>
+            <div class="logo">
+                <a asp-controller="Homepage" asp-action="Index" class="nav-link"><img src="~/images/logo.svg" alt="logo" /></a>
+            </div>
             <ul class="nav-list">
                 <li class="nav-list-item"><a asp-controller="Trip" asp-action="Index" class="nav-link">Ture</a></li>
-                <li class="nav-list-item"><a asp-controller="Availability" asp-action="Index" class="nav-link">Rådighedskalender</a></li>
+                <li class="nav-list-item"><a asp-controller="Calendar" asp-action="Index" class="nav-link">Rådighedskalender</a></li>
                 <li class="nav-list-item"><a asp-controller="DriverHistory" asp-action="Index" class="nav-link">Mine Kørte Ture</a></li>
                 <li class="nav-list-item"><a asp-controller="Contact" asp-action="Index" class="nav-link">Kontakter</a></li>
                 <li class="nav-list-item"><a class="nav-link">Intranet</a></li>
-
                 <li class="nav-list-item logud"><a class="nav-link" asp-controller="Login">Logud</a></li>
             </ul>
         </nav>
@@ -39,10 +41,21 @@
 
         var toggleButton = document.querySelector('.toggle-menu');
         var navBar = document.querySelector('.nav-bar');
+        var menuClosed = true;
         toggleButton.addEventListener('click', function () {
-            navBar.classList.toggle('toggle');
-            document.querySelector('footer').style.visibility="hidden";
+            if (menuClosed) {
+                navBar.classList.toggle('toggle');
+                document.querySelector('main').style.display = "none";
+                document.querySelector('footer').style.display = "none";
+                menuClosed = false;
+            } else {
+                navBar.classList.toggle('toggle');
+                document.querySelector('main').style.display = "grid";
+                document.querySelector('footer').style.display = "flex";
+                menuClosed = true;
+            }
         });
+
 
     </script>
 </body>
