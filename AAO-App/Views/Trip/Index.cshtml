@@ -1,1 +1,93 @@
-﻿
+﻿@model IEnumerable<AAO_App.Models.Trip>
+
+@{ Layout = "~/Views/Shared/_Master.cshtml";
+    ViewData["Title"] = "Trips"; }
+<link rel="stylesheet" href="~/css/TripStyle.css" />
+<script src="/js/TripJs.js"></script>
+<script src="https://kit.fontawesome.com/f8c369dae8.js" crossorigin="anonymous"></script>
+
+
+<h1>Ture</h1>
+
+<div class="MenuTripContainer">
+    <div onclick="MyTrip()" class="Item MenuTripItem1" id="TripItem1">
+        <p>Mine ture</p>
+    </div>
+    <div onclick="AvaTrip()" class="Item MenuTripItem2" id="TripItem2">
+        <p>Ledige ture</p>
+    </div>
+</div>
+<div id="line" class="Line"></div>
+
+<div class="TripInfoContainer">
+    <div class="Filter">
+        <div onclick="OpenCloseFilter()" class="FilterArrow">
+            <p>Filter</p>
+            <div class="arrow down"></div>
+        </div>
+
+        <div id="Filter" class="FilterContaioner" style="display:none">
+            <div class="FilterItem">
+                <label>Odense DK</label>
+                <input type="checkbox" />
+                <label>Århus DK</label>
+                <input type="checkbox" />
+                <label>Greve DK</label>
+                <input type="checkbox" />
+                <label>Aalsmeer NL</label>
+                <input type="checkbox" />
+                <label>Helsingborg SE</label>
+                <input type="checkbox" />
+                <label>Eskilstuna SE</label>
+                <input type="checkbox" />
+                <label>Moss NO</label>
+                <input type="checkbox" />
+            </div>
+            <div class="FilterItem">
+                <label>National</label>
+                <input type="checkbox" />
+                <label>International</label>
+                <input type="checkbox" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="NewTrips">
+        <div onclick="ShowInfo(this)" class="TripsHolder">
+            <div id="Date" class="Date">
+                <p class="Number">6</p>
+                <p class="Month">SEP</p>
+            </div>
+            <div class="Info">
+                <p>Afgangsted:  @Html.DisplayFor(modelItem => item.Cities.CityId)</p>
+                <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
+                <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
+            </div>
+            <div class="Time">
+                <p>12t</p>
+            </div>
+            <div id="Country" class="Country">
+                <p>DK-DK</p>
+            </div>
+        </div>
+        <div id="Info" class="MoreInfo" style="display:none">
+            <div class="TripInformation">
+                <p>@Html.DisplayFor(modelItem => item.TripInfo)</p>
+                <p>@Html.DisplayFor(modelItem => item.MessageContents)</p>
+                <p>Kontakt person:@Html.DisplayFor(modelItem => item.EmpId)</p>
+                <p>Afdeling?</p>
+            </div>
+
+            <div class="Contact">
+                <p><i class="fas fa-phone-alt"></i>22 33 44 55</p>
+                <p><i class="fas fa-envelope"></i>kontakt@mail.com</p>
+            </div>
+            <button class="Btn">Anmod om tur</button>
+        </div>
+    </div>
+}
+
