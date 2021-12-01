@@ -12,17 +12,17 @@ namespace AAO_App
 {
     public class TripController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
 
-        public TripController(ApplicationDbContext context)
+        public TripController(ApplicationDbContext db)
         {
-            _context = context;
+            _db = db;
         }
 
         // GET: Trip
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Trips.Include(t => t.Cities).Include(t => t.Drivers);
+            var applicationDbContext = _db.Trips.Include(t => t.Cities).Include(t => t.Drivers);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace AAO_App
                 return NotFound();
             }
 
-            var trip = await _context.Trips
+            var trip = await _db.Trips
                 .Include(t => t.Cities)
                 .Include(t => t.Drivers)
                 .FirstOrDefaultAsync(m => m.TripId == id);
@@ -50,8 +50,8 @@ namespace AAO_App
         // GET: Trip/Create
         public IActionResult Create()
         {
-            ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId");
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId");
+            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId");
+            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId");
             return View();
         }
 
@@ -64,12 +64,12 @@ namespace AAO_App
         {
             if (ModelState.IsValid)
             {
-                _context.Add(trip);
-                await _context.SaveChangesAsync();
+                _db.Add(trip);
+                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", trip.CityId);
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", trip.DriverId);
+            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", trip.CityId);
+            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", trip.DriverId);
             return View(trip);
         }
 
@@ -81,13 +81,13 @@ namespace AAO_App
                 return NotFound();
             }
 
-            var trip = await _context.Trips.FindAsync(id);
+            var trip = await _db.Trips.FindAsync(id);
             if (trip == null)
             {
                 return NotFound();
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", trip.CityId);
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", trip.DriverId);
+            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", trip.CityId);
+            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", trip.DriverId);
             return View(trip);
         }
 
@@ -107,8 +107,8 @@ namespace AAO_App
             {
                 try
                 {
-                    _context.Update(trip);
-                    await _context.SaveChangesAsync();
+                    _db.Update(trip);
+                    await _db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -123,8 +123,8 @@ namespace AAO_App
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", trip.CityId);
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", trip.DriverId);
+            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", trip.CityId);
+            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", trip.DriverId);
             return View(trip);
         }
 
@@ -136,7 +136,7 @@ namespace AAO_App
                 return NotFound();
             }
 
-            var trip = await _context.Trips
+            var trip = await _db.Trips
                 .Include(t => t.Cities)
                 .Include(t => t.Drivers)
                 .FirstOrDefaultAsync(m => m.TripId == id);
@@ -153,15 +153,15 @@ namespace AAO_App
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var trip = await _context.Trips.FindAsync(id);
-            _context.Trips.Remove(trip);
-            await _context.SaveChangesAsync();
+            var trip = await _db.Trips.FindAsync(id);
+            _db.Trips.Remove(trip);
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TripExists(int id)
         {
-            return _context.Trips.Any(e => e.TripId == id);
+            return _db.Trips.Any(e => e.TripId == id);
         }
     }
 }
