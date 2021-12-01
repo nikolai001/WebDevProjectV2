@@ -5,23 +5,22 @@
     Layout = "_Master";
 
 }
+
+@*Alle jeres css i skal bruge til siderne tilføjer i _Master Layout - vi skal kun bruge en styling hele vejen igennem*@
+
+
 <link href="~/css/Profile.css" rel="stylesheet" type="text/css" />
-
-<h1 id="Profil">Profil</h1>
-<img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-<div id="TextBody">
-    <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-    <div class="ProfileSpace" id="ProfName">Navn: <input type="text" /></div>
-    <div class="ProfileSpace" id="ProfAddress">Addresse: <input type="text" /></div>
-    <p class="ProfileSpace" id="ProfKørekort">Kørekort oplysninger: </p>
-    <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-    <div class="ProfileSpace" id="ProfLokation">Lokation: </div>
-    <div class="ProfileSpace" id="ProfType">Type: </div>
-</div>
-
+<main>
+    <h1 id="Profil">Profil</h1>
+    <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
+    <div id="TextBody">
+        <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
+        <div class="ProfileSpace" id="ProfName">Navn: <input type="text" /></div>
+        <div class="ProfileSpace" id="ProfAddress">Addresse: <input type="text" /></div>
+        <p class="ProfileSpace" id="ProfKørekort">Kørekort oplysninger: </p>
+        <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
+        <div class="ProfileSpace" id="ProfLokation">Lokation: </div>
+        <div class="ProfileSpace" id="ProfType">Type: </div>
+    </div>
+</main>
 <hr /> <!-- indtil footer og header er lavet-->
-
-@{
-    @await Html.PartialAsync("_FooterPartial")
-}
-

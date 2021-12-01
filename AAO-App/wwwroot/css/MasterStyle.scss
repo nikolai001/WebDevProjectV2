@@ -13,6 +13,12 @@ main {
     width: 100%;
     position: relative;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+
+    .logo_left {
+        margin-top: 10px;
+    }
 
     .nav-bar {
         position: absolute;
@@ -64,12 +70,10 @@ main {
 
             .nav-list-item {
                 text-align: center;
-                padding: 10px 0;
                 font-family: 'asap';
                 background-color: $DefaultBoxColour;
-                margin: 10px 10px;
+                margin: 20px;
                 border-radius: 10px;
-                height: 8vh;
 
                 .nav-link {
                     color: #000;
@@ -107,15 +111,14 @@ main {
 
             .logud {
                 background-color: red;
-                position: relative;
-                top: 71px;
 
                 .nav-link {
                     color: white;
                 }
             }
         }
-        .logo{
+
+        .logo {
             margin: 20px 10px;
         }
     }
@@ -166,4 +169,3 @@ main {
             }
         }
     }
-

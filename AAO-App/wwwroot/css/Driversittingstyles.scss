@@ -5,45 +5,12 @@
 @import "routes";
 @import "alert";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: white;
-  font-family: $font-stack;
-  line-height: 1.6;
-}
-
-nav {
-  height: $navbar-height;
-  background-color: red;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-  img {
-    height: 1.4rem;
-    width: 1.4rem;
-  }
-}
-
 h1 {
   text-align: center;
 }
 
 .container {
-  margin-top: $navbar-height;
   padding: 1rem;
-  margin-bottom: $footer-height;
 }
 
 .row {

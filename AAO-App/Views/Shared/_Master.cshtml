@@ -7,12 +7,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="~/css/MasterStyle.css" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Raleway:wght@700&display=swap"/>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Raleway:wght@700&display=swap" />
+    <link href="~/css/Driversittingstyles.css" rel="stylesheet" />
 
 </head>
 <body>
     @*Master header*@
     <header class="header_container">
+        <div class="logo_left">
+            <a class="nav-link"><img src="~/images/logo.svg" alt="logo" width="50" height="50" /></a>
+        </div>
         <nav class="header__nav nav-bar">
             <div class="toggle-menu">
                 <div class="line line1"></div>
@@ -38,6 +42,28 @@
         @RenderBody()
     </main>
 
+    @*Master Footer*@
+    <footer>
+        <div class="footer_item">
+            <a class="footer_wrap" asp-controller="Profile" asp-action="Index">
+                <i class="material-icons" style="font-size:24px;color:white">account_circle</i>
+                <span>Profil</span>
+            </a>
+        </div>
+        <div class="footer_item">
+            <a class="footer_wrap" asp-controller="Notification" asp-action="Index">
+                <i class="material-icons" style="font-size:24px;color:white">notifications</i>
+                <span>Notifikation</span>
+            </a>
+        </div>
+        <div class="footer_item">
+            <a class="footer_wrap" asp-controller="Indstillinger" asp-action="Index">
+                <i class="material-icons" style="font-size:24px;color:white">settings</i>
+                <span>Indstillinger</span>
+            </a>
+        </div>
+    </footer>
+
     <script asp-append-version="true">
         //Menu Javascript here
 
@@ -49,11 +75,13 @@
                 navBar.classList.toggle('toggle');
                 document.querySelector('main').style.display = "none";
                 document.querySelector('footer').style.display = "none";
+                document.getElementsByClassName('logo_left')[0].style.display = 'none';
                 menuClosed = false;
             } else {
                 navBar.classList.toggle('toggle');
                 document.querySelector('main').style.display = "grid";
                 document.querySelector('footer').style.display = "flex";
+                document.getElementsByClassName('logo_left')[0].style.display = 'block';
                 menuClosed = true;
             }
         });
