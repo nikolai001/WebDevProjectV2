@@ -1,0 +1,327 @@
+.btn-success, .btn-danger {
+    display: inline-block;
+    border-radius: 5px;
+    border-width: 0;
+    padding: 8px 20px;
+    margin: 3px;
+}
+
+    .btn-success:hover, .btn-danger:hover {
+        transform: scale(0.98);
+    }
+
+.btn-danger {
+    background-color: #dc2f34;
+    color: white;
+}
+
+.btn-success {
+    background-color: #00904a;
+    color: white;
+}
+
+.btn-width-100 {
+    width: calc(100% - 2rem);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+input:checked + .slider {
+    background-color: #00904a;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #00904a;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.touchable {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 1rem;
+}
+
+    .container .item {
+        height: 2.5rem;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        background-color: #eaeaea;
+        padding: 2px 0 2px 8px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+        .container .item .route {
+            text-align: left;
+            flex: 1;
+        }
+
+        .container .item .code {
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            color: #eaeaea;
+            padding: 0 2px;
+        }
+
+        .container .item .time {
+            color: #eaeaea;
+            width: 2rem;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            background-color: #00904a;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding-left: 0.25rem;
+        }
+
+.alert-container {
+    background-color: #eaeaea;
+    /*  height: 100vh;
+  width: 100vw;*/
+    align-items: center;
+    justify-content: center;
+}
+/*.alert-container*/
+.card {
+    padding: 3rem 2rem 2rem 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 20rem;
+    background-color: white;
+    /* Customize the label (the container) */
+}
+    /*.alert-container*/
+    .card h2 {
+        line-height: 1.6rem;
+        font-weight: bolder;
+    }
+/*.alert-container*/
+/*.card*/
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+/*.alert-container .card*/
+.radio-container {
+    margin: 1rem 0;
+    position: relative;
+    margin-left: 0.1rem;
+}
+    /*.alert-container .card*/
+    .radio-container label {
+        align-items: center;
+        cursor: pointer;
+    }
+    /*.alert-container .card*/
+    .radio-container input {
+        margin-right: 0.3rem;
+    }
+/*.alert-container .card*/
+.checkbox-round {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #dc2f34;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+    /*.alert-container .card*/
+    .checkbox-round:checked {
+        background-color: #dc2f34;
+    }
+/*.alert-container .card*/
+.btn-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+nav {
+    height: 4rem;
+    background-color: white;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+    nav img {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 4rem;
+    padding: 1rem;
+    margin-bottom: 3.5rem;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+    .row p {
+        width: 75%;
+    }
+
+.language {
+    margin-top: 1rem;
+    flex: 1;
+    flex-direction: column;
+}
+
+    .language input {
+        display: none;
+    }
+
+    .language img {
+        cursor: pointer;
+        height: 2.1rem;
+        width: 2.1rem;
+        border-radius: 1.05rem;
+        margin-right: 0.6rem;
+    }
+
+    .language input:checked + img {
+        outline: 0.2rem solid #00904a;
+    }
+
+.floating-button {
+    position: absolute;
+    bottom: 4rem;
+    left: 1rem;
+    right: 1rem;
+}
+
+.tab {
+    display: flex;
+    height: 3.5rem;
+    background-color: #00904a;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.2rem 2rem;
+}
+
+    .tab .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .tab .menu img {
+            height: 1.7rem;
+            margin: 0;
+        }
+
+        .tab .menu div {
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+/*# sourceMappingURL=styles.css.map */
+
+
+
+.alert-container .card {
+    transform: translate(-60%, 26%) !important;
+}
