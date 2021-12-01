@@ -6,7 +6,7 @@
 }
 
 <link rel="stylesheet" href="~/css/TripStyle.css" />
-<script src="/js/TripJs.js"></script>
+<script src="/js/TripJs.js" defer></script>
 <script src="https://kit.fontawesome.com/f8c369dae8.js" crossorigin="anonymous"></script>
 
 
@@ -60,7 +60,7 @@
 @foreach (var item in Model)
 {
     <div class="NewTrips">
-        <div onclick="ShowInfo(this)" class="TripsHolder">
+        <div id="TripHolder" class="TripsHolder">
             <div id="Date" class="Date">
                 <p class="Number">6</p>
                 <p class="Month">SEP</p>

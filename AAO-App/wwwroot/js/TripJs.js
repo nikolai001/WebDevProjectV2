@@ -30,6 +30,8 @@ function AvaTrip() {
 }
 
 /*VISER INFORMATIONER OM TUREN*/
+document.getElementById("TripHolder").addEventListener("click", ShowInfo); 
+
 function ShowInfo() {
     var Info = document.getElementById("Info");
     var Date = document.getElementById("Date");
