@@ -25,8 +25,7 @@
         <div class="month">
             <i style="font-size:24px" class="fa prev">&#xf104;</i>
             <div class="date">
-                <h1></h1>
-                <p>-</p>
+                <h2></h2>
                 <p></p>
             </div>
             <i style="font-size:24px" class="fa next">&#xf105;</i>
@@ -49,30 +48,32 @@
 <table class="table_container">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Drivers)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AvailabilityTypes)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Start)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.End)
             </th>
-            <th></th>
+            <th>
+                Ændringer
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Drivers.DriverId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AvailabilityTypes.AvailabilityTypeId)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Start)
             </td>
@@ -135,7 +136,7 @@
             "December",
         ];
 
-        document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+        document.querySelector(".date h2").innerHTML = months[date.getMonth()];
 
         document.querySelector(".date p").innerHTML = new Date().toDateString();
 
