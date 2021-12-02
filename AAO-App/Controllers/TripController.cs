@@ -26,8 +26,9 @@ namespace AAO_App
             return View(await applicationDbContext.ToListAsync());
         }
 
+        /*
+
         // GET: Trip/Details/5
-        [Route("3")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -162,6 +163,6 @@ namespace AAO_App
         private bool TripExists(int id)
         {
             return _db.Trips.Any(e => e.TripId == id);
-        }
+        }*/
     }
 }

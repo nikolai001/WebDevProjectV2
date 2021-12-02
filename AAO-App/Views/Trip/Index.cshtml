@@ -31,6 +31,7 @@
 
         <div id="Filter" class="FilterContaioner" style="display:none">
             <div class="FilterItem">
+                <p>Afgangssted:</p>
                 <label>Odense DK</label>
                 <input type="checkbox" />
                 <label>Århus DK</label>
@@ -47,6 +48,7 @@
                 <input type="checkbox" />
             </div>
             <div class="FilterItem">
+                <p>Type:</p>
                 <label>National</label>
                 <input type="checkbox" />
                 <label>International</label>
@@ -65,6 +67,7 @@
                 <div id="Date" class="Date">
                     <p class="Number">@Html.DisplayFor(modelItem => item.DateStart.Day)</p>
                     <p class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
+                    <!--if item.DateStart.Month == 1 show JAN-->
                 </div>
                 <div class="Info">
                     <p>Afgangsted:  @Html.DisplayFor(modelItem => item.Cities.CityName)</p>
@@ -75,7 +78,7 @@
                     <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
                 </div>
                 <div id="Country" class="Country">
-                    <p>@Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Cities.CountryId) - @Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
                 </div>
             </div>
             <div id="Info" class="MoreInfo" style="display:none">
@@ -83,8 +86,8 @@
                     <p>@Html.DisplayFor(modelItem => item.TripInfo)</p>
                     <p>@Html.DisplayFor(modelItem => item.MessageContents)</p>
                     <p>Kontakt person:@Html.DisplayFor(modelItem => item.EmpId)</p>
-                    <p>Afdeling</p>
-                </div>
+                    <p>Afdeling:</p>
+                </div>  
 
                 <div class="Contact">
                     <p><i class="fas fa-phone-alt"></i>22 33 44 55</p>
