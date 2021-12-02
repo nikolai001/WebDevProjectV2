@@ -56,43 +56,46 @@
     </div>
 </div>
 
+<div id="TripContainer">
 
-@foreach (var item in Model)
-{
-    <div class="NewTrips">
-        <div id="TripHolder" class="TripsHolder">
-            <div id="Date" class="Date">
-                <p class="Number">6</p>
-                <p class="Month">SEP</p>
+    @foreach (var item in Model)
+    {
+        <div id="NewTrips" class="NewTrips">
+            <div onclick="ShowInfo(this)" class="TripsHolder">
+                <div id="Date" class="Date">
+                    <p class="Number">@Html.DisplayFor(modelItem => item.DateStart.Day)</p>
+                    <p class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
+                </div>
+                <div class="Info">
+                    <p>Afgangsted:  @Html.DisplayFor(modelItem => item.Cities.CityName)</p>
+                    <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
+                    <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
+                </div>
+                <div class="Time">
+                    <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+                </div>
+                <div id="Country" class="Country">
+                    <p>@Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
+                </div>
             </div>
-            <div class="Info">
-                <p>Afgangsted:  @Html.DisplayFor(modelItem => item.Cities.CityId)</p>
-                <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
-                <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
-            </div>
-            <div class="Time">
-                <p>12t</p>
-            </div>
-            <div id="Country" class="Country">
-                <p>DK-DK</p>
+            <div id="Info" class="MoreInfo" style="display:none">
+                <div class="TripInformation">
+                    <p>@Html.DisplayFor(modelItem => item.TripInfo)</p>
+                    <p>@Html.DisplayFor(modelItem => item.MessageContents)</p>
+                    <p>Kontakt person:@Html.DisplayFor(modelItem => item.EmpId)</p>
+                    <p>Afdeling</p>
+                </div>
+
+                <div class="Contact">
+                    <p><i class="fas fa-phone-alt"></i>22 33 44 55</p>
+                    <p><i class="fas fa-envelope"></i>kontakt@mail.com</p>
+                </div>
+                <button class="Btn">Anmod om tur</button>
             </div>
         </div>
-        <div id="Info" class="MoreInfo" style="display:none">
-            <div class="TripInformation">
-                <p>@Html.DisplayFor(modelItem => item.TripInfo)</p>
-                <p>@Html.DisplayFor(modelItem => item.MessageContents)</p>
-                <p>Kontakt person:@Html.DisplayFor(modelItem => item.EmpId)</p>
-                <p>Afdeling?</p>
-            </div>
+    }
+</div>
 
-            <div class="Contact">
-                <p><i class="fas fa-phone-alt"></i>22 33 44 55</p>
-                <p><i class="fas fa-envelope"></i>kontakt@mail.com</p>
-            </div>
-            <button class="Btn">Anmod om tur</button>
-        </div>
-    </div>
-}
 @*@{
-    @await Html.PartialAsync("_FooterPartial")
-}*@
+        @await Html.PartialAsync("_FooterPartial")
+    }*@
