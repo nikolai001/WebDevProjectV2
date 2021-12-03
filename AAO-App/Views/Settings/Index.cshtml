@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Notification";
+    Layout = "_Master";
+}
+
+<main>
+    <div class="container">
+        <h1>Indstillinger</h1>
+        <div class="content">
+            <h3>Notifikationer</h3>
+            <div class="row">
+                <p class="notification-text">
+                    Slå push beskeder til, hvis du
+                    vil have besked, når der sker
+                    noget i appen.
+                </p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <div class="content">
+            <h3>Standard sprog</h3>
+            <div class="row">
+                <p>
+                    Vælg hvilket sprog der skal
+                    være dit standard sprog
+                </p>
+            </div>
+        </div>
+        <div class="language">
+            <label> <input type="radio" name="language"> <img src="~/images/uk-flag.png" alt="english"></label>
+            <label> <input type="radio" name="language"> <img src="~/images/DK-Denmark-Flag-icon.png" alt="english"></label>
+        </div>
+
+        <button class="btn-danger floating-button btn-width-100" onclick="ShowAlert()">Slet profil</button>
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="">
+                    <div class="alert-container">
+                        <div class="card">
+                            <img class="close touchable" src="~/icons/close.svg" alt="close" data-dismiss="modal">
+
+                            <h2 style="font-size: 1rem;">
+                                Er du sikker på at du vil
+                                slette din profil?
+                            </h2>
+
+                            <div class="radio-container">
+                                <label for="check">
+                                    <input id="check" type="checkbox" class="checkbox-round" checked="checked">
+                                    Tryk for at slette profil
+                                </label>
+                            </div>
+
+                            <div class="btn-container">
+                                <button class="btn btn-success">Annuler</button>
+                                <button class="btn btn-danger" data-dismiss="modal">Slet</button>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -285,3 +285,81 @@ a {
 a:hover {
     color: $DangerColour;
 }
+
+
+//Kontakter Styling
+.contact_container, .message_container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wrapper_contact {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: $DefaultBoxColour;
+    border-radius: 10px;
+    margin-top: 25px;
+    padding: 10px 10px;
+}
+
+.contact_info {
+    text-align: left;
+    letter-spacing: 1px;
+    margin-left:10px;
+    margin-top: 10px;
+}
+/*Message styling*/
+.wrapper_text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message_info {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.wrapper_message {
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+    height: 40px;
+}
+
+.item1 {
+    width: 20%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: $CTAColourSecond;
+    color: white;
+    font-weight: bold;
+}
+
+.item2 {
+    width: 50%;
+    background-color: $DefaultBoxColour;
+}
+
+.item3 {
+    width: 15%;
+    background-color: #000;
+    color: white;
+}
+
+.item4 {
+    background-color: $CTAColourPrim;
+    width: 15%;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+p {
+    font-size: 14px;
+}

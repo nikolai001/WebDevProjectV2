@@ -16,6 +16,9 @@
 <body>
     @*Master header*@
     <header class="header_container">
+        @*<div class="backbutton">
+            <a asp-action="Index"><i style="font-size:30px" class="fa">&#xf104;</i></a>
+        </div>*@
         <div class="logo_left">
             <a class="nav-link"><img src="~/images/logo.svg" alt="logo" width="50" height="50" /></a>
         </div>
@@ -59,7 +62,7 @@
             </a>
         </div>
         <div class="footer_item">
-            <a class="footer_wrap" asp-controller="Indstillinger" asp-action="Index">
+            <a class="footer_wrap" asp-controller="Settings" asp-action="Index">
                 <i class="material-icons" style="font-size:24px;color:white">settings</i>
                 <span>Indstillinger</span>
             </a>

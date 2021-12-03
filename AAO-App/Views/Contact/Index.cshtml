@@ -1,5 +1,76 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<AAO_App.Models.Employee>
 @{
+    ViewData["Title"] = "Kontakter";
+    Layout = "_Master";
 }
+
+<main>
+    @*<a asp-action="Index"> <i style="font-size:24px" class="fa">&#xf060; Back</i></a>*@
+    <div class="contact_container">
+        <div class="headingtext">
+            <h1>Kontakter</h1>
+        </div>
+        @*@foreach (var item in Model)
+            {*@
+        <div class="wrapper_contact">
+            <img src="~/images/userpic.svg" alt="employee image" />
+            <div class="contact_info">
+
+
+                <p>Navn:  @*@Html.DisplayNameFor(model => model.Firstname) +  @Html.DisplayNameFor(model => model.Lastname)*@  </p>
+                <p>  Tlf:  @*@Html.DisplayNameFor(model => model.Phone)*@ </p>
+                <p>Email:  @*@Html.DisplayNameFor(model => model.Email)*@ </p>
+                <p>Afdeling:  @*@Html.DisplayNameFor(model => model.Firstname)*@ </p>
+
+
+            </div>
+        </div>
+        @*}*@
+        <div class="wrapper_contact">
+            <img src="~/images/userpic.svg" alt="employee image" />
+            <div class="contact_info">
+
+
+                <p>Navn:  @*@Html.DisplayNameFor(model => model.Firstname) +  @Html.DisplayNameFor(model => model.Lastname)*@  </p>
+                <p>  Tlf:  @*@Html.DisplayNameFor(model => model.Phone)*@ </p>
+                <p>Email:  @*@Html.DisplayNameFor(model => model.Email)*@ </p>
+                <p>Afdeling:  @*@Html.DisplayNameFor(model => model.Firstname)*@ </p>
+
+
+            </div>
+        </div>
+        <div class="wrapper_contact">
+            <img src="~/images/userpic.svg" alt="employee image" />
+            <div class="contact_info">
+
+
+                <p>Navn:  @*@Html.DisplayNameFor(model => model.Firstname) +  @Html.DisplayNameFor(model => model.Lastname)*@  </p>
+                <p>  Tlf:  @*@Html.DisplayNameFor(model => model.Phone)*@ </p>
+                <p>Email:  @*@Html.DisplayNameFor(model => model.Email)*@ </p>
+                <p>Afdeling:  @*@Html.DisplayNameFor(model => model.Firstname)*@ </p>
+
+
+            </div>
+        </div>
+        <div class="wrapper_contact">
+            <img src="~/images/userpic.svg" alt="employee image" />
+            <div class="contact_info">
+
+
+                <p>Navn:  @*@Html.DisplayNameFor(model => model.Firstname) +  @Html.DisplayNameFor(model => model.Lastname)*@  </p>
+                <p>  Tlf:  @*@Html.DisplayNameFor(model => model.Phone)*@ </p>
+                <p>Email:  @*@Html.DisplayNameFor(model => model.Email)*@ </p>
+                <p>Afdeling:  @*@Html.DisplayNameFor(model => model.Firstname)*@ </p>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="back_list">
+        <a asp-controller="Homepage" asp-action="Index">
+            <i style="font-size:24px" class="fa">&#xf100; Back</i>
+        </a>
+    </div>
+</main>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
