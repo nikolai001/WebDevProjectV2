@@ -56,43 +56,56 @@ for (let e = 0; e < n.length; e++) {
 /*SÅ FILTERET TIL AT VIRKE*/
 function CheckboxValues(name) {
     const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+    const CountryCheckboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
     let values = [];
+    let CountryValues = [];
+
     checkboxes.forEach((checkbox) => {
         values.push(checkbox.value);
     });
 
-    return values;
-}
+    CountryCheckboxes.forEach((CountryCheckbox) => {
+        CountryValues.push(CountryCheckbox.value);
+    });
 
-/*
-
-function StartTjeck() {
-    if (Start.innerHTML != values) {
-        Box.style.display = "none";
-    }
+    return [values, CountryValues];
 }
-*/
 
 var Start = document.getElementsByClassName('StartPoint');
 var Box = document.getElementsByClassName('TripsHolder');
+var Ctype = document.getElementsByClassName('CType');
 
 document.querySelectorAll(".btn").forEach(btn => {  
     btn.addEventListener('click', event => {
-        console.log(CheckboxValues('check'));
+        console.log(CheckboxValues('check')[0]);
+        console.log(CheckboxValues('CountryTypeCheck')[1]);
 
         for (let i = 0; i < Box.length; i++) {
 
-            if (CheckboxValues('check').includes(Start[i].innerHTML.split(":").pop())) {
+            if ( //Du har valgt en by ogd u har ikke valgt national eller international
+                (CheckboxValues('check')[0].includes(Start[i].innerHTML.split(":").pop()) && 
+                (CheckboxValues('CountryTypeCheck')[1].length == 0)) ||                       
+                //Du har valgt en by og du har valgt national
+                (CheckboxValues('check')[0].includes(Start[i].innerHTML.split(":").pop()) &&       
+                (CheckboxValues('CountryTypeCheck')[1].includes("National") && Ctype[i].innerHTML == "1 - 1")) || 
+                //Du har valgt en by og du har valgt international
+                (CheckboxValues('check')[0].includes(Start[i].innerHTML.split(":").pop()) && 
+                (CheckboxValues('CountryTypeCheck')[1].includes("International") && Ctype[i].innerHTML != "1 - 1")) ||
+                //Du har ikke valgt en by og du har valgt national
+                (CheckboxValues('check')[0].length == 0 &&                                         
+                (CheckboxValues('CountryTypeCheck')[1].includes("National") && Ctype[i].innerHTML == "1 - 1")) || 
+                //Du har ikke valgt en by og du har valgt international
+                (CheckboxValues('check')[0].length == 0 && 
+                (CheckboxValues('CountryTypeCheck')[1].includes("International") && Ctype[i].innerHTML != "1 - 1")) ||
+                //Du har ikke valgt noget
+                (CheckboxValues('check')[0].length == 0 && (CheckboxValues('CountryTypeCheck')[1].length == 0)) 
+            ) {
                 Box[i].style.display = "grid";
             }
-
             else {
                 Box[i].style.display = "none";
             }
-
-            if (CheckboxValues('check').length == 0) {
-                Box[i].style.display = "grid";
-            }
+            
          }
     })
 });

@@ -50,9 +50,9 @@
             <div class="FilterItem">
                 <p>Type:</p>
                 <label>National</label>
-                <input type="checkbox" />
+                <input class="btn" name="CountryTypeCheck" value="National" type="checkbox" />
                 <label>International</label>
-                <input type="checkbox" />
+                <input class="btn" name="CountryTypeCheck" value="International"type="checkbox" />
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@
                     <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
                 </div>
                 <div id="Country" class="Country">
-                    <p>@Html.DisplayFor(modelItem => item.Cities.CountryId) - @Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
+                    <p class="CType">@Html.DisplayFor(modelItem => item.Cities.CountryId) - @Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
                 </div>
             </div>
             <div id="Info" class="MoreInfo" style="display:none">
