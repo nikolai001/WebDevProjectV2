@@ -52,3 +52,50 @@ for (let e = 0; e < n.length; e++) {
 
     });
 }
+
+/*SÅ FILTERET TIL AT VIRKE*/
+function CheckboxValues(name) {
+    const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+    let values = [];
+    checkboxes.forEach((checkbox) => {
+        values.push(checkbox.value);
+    });
+
+    return values;
+}
+
+/*
+
+function StartTjeck() {
+    if (Start.innerHTML != values) {
+        Box.style.display = "none";
+    }
+}
+*/
+
+var Start = document.getElementsByClassName('StartPoint');
+var Box = document.getElementsByClassName('TripsHolder');
+
+document.querySelectorAll(".btn").forEach(btn => {  
+    btn.addEventListener('click', event => {
+        console.log(CheckboxValues('check'));
+
+        for (let i = 0; i < Box.length; i++) {
+
+            if (CheckboxValues('check').includes(Start[i].innerHTML.split(":").pop())) {
+                Box[i].style.display = "grid";
+            }
+
+            else {
+                Box[i].style.display = "none";
+            }
+
+            if (CheckboxValues('check').length == 0) {
+                Box[i].style.display = "grid";
+            }
+         }
+    })
+});
+
+
+

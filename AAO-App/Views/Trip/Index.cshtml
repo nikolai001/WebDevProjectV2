@@ -33,19 +33,19 @@
             <div class="FilterItem">
                 <p>Afgangssted:</p>
                 <label>Odense DK</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Odense" type="checkbox" />
                 <label>Århus DK</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Aarhus" type="checkbox" />
                 <label>Greve DK</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Greve" type="checkbox" />
                 <label>Aalsmeer NL</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Aalsmeer" type="checkbox" />
                 <label>Helsingborg SE</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Helsingborg" type="checkbox" />
                 <label>Eskilstuna SE</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Eskilstund" type="checkbox" />
                 <label>Moss NO</label>
-                <input type="checkbox" />
+                <input class="btn" name="check" value="Moss" type="checkbox" />
             </div>
             <div class="FilterItem">
                 <p>Type:</p>
@@ -69,7 +69,7 @@
                     <!--if item.DateStart.Month == 1 show JAN-->
                 </div>
                 <div class="Info">
-                    <p>Afgangsted:  @Html.DisplayFor(modelItem => item.Cities.CityName)</p>
+                    <p class="StartPoint">Afgangsted:@Html.DisplayFor(modelItem => item.Cities.CityName)</p>
                     <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
                     <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
                 </div>
