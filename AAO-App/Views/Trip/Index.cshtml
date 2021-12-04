@@ -58,12 +58,11 @@
     </div>
 </div>
 
-<div id="TripContainer">
 
     @foreach (var item in Model)
     {
         <div id="NewTrips" class="NewTrips">
-            <div onclick="ShowInfo(this)" class="TripsHolder">
+            <div class="TripsHolder">
                 <div id="Date" class="Date">
                     <p class="Number">@Html.DisplayFor(modelItem => item.DateStart.Day)</p>
                     <p class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
@@ -97,7 +96,6 @@
             </div>
         </div>
     }
-</div>
 
 @*@{
         @await Html.PartialAsync("_FooterPartial")
