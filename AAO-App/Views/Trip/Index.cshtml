@@ -65,11 +65,10 @@
             <div class="TripsHolder">
                 <div id="Date" class="Date">
                     <p class="Number">@Html.DisplayFor(modelItem => item.DateStart.Day)</p>
-                    <p class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
-                    <!--if item.DateStart.Month == 1 show JAN-->
+                    <p id="Month" class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
                 </div>
                 <div class="Info">
-                    <p class="StartPoint">Afgangsted:@Html.DisplayFor(modelItem => item.Cities.CityName)</p>
+                    <p class="StartPoint">Afgangsted: @Html.DisplayFor(modelItem => item.Cities.CityName)</p>
                     <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
                     <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
                 </div>
@@ -77,20 +76,20 @@
                     <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
                 </div>
                 <div id="Country" class="Country">
-                    <p class="CType">@Html.DisplayFor(modelItem => item.Cities.CountryId) - @Html.DisplayFor(modelItem => item.Cities.CountryId)</p>
+                    <p class="CType">@Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode) - @Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode)</p>
                 </div>
             </div>
             <div id="Info" class="MoreInfo" style="display:none">
                 <div class="TripInformation">
-                    <p>@Html.DisplayFor(modelItem => item.TripInfo)</p>
-                    <p>@Html.DisplayFor(modelItem => item.MessageContents)</p>
-                    <p>Kontakt person:@Html.DisplayFor(modelItem => item.EmpId)</p>
-                    <p>Afdeling:</p>
+                    <p><span style="text-decoration:underline">Din tur går til:</span> @Html.DisplayFor(modelItem => item.TripInfo)</p>
+                    <p><span style="text-decoration:underline">Besked:</span> @Html.DisplayFor(modelItem => item.MessageContents)</p>
+                    <p><span style="text-decoration:underline">Kontakt person:</span> @Html.DisplayFor(modelItem => item.Employees.Firstname) @Html.DisplayFor(modelItem => item.Employees.Lastname) </p>
+                    <p><span style="text-decoration:underline">Afdeling:</span></p>
                 </div>  
 
                 <div class="Contact">
-                    <p><i class="fas fa-phone-alt"></i>22 33 44 55</p>
-                    <p><i class="fas fa-envelope"></i>kontakt@mail.com</p>
+                    <p><i class="fas fa-phone-alt"></i> @Html.DisplayFor(modelItem => item.Employees.Phone)</p>
+                    <p><i class="fas fa-envelope"></i> @Html.DisplayFor(modelItem => item.Employees.Email)</p>
                 </div>
                 <button class="Btn">Anmod om tur</button>
             </div>
