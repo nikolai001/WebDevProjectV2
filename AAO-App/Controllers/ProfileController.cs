@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using AAO_App.Data;
 using AAO_App.Models;
-using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace AAO_App.Controllers
+namespace AAO_App
 {
     public class ProfileController : Controller
     {
@@ -20,20 +20,11 @@ namespace AAO_App.Controllers
         {
             _db = db;
         }
-
-        
-        // GET: /<controller>/
-        public IActionResult Index()
+        //GET: Driver
+        public async Task<IActionResult> Index()
         {
-            /*var DriverID = Driver.Identity.GetDriverId();
-
-            Profile.Firstname = Driver.FirstName;
-            Profile.Address = Driver.Address;
-            Profile.Location = Driver.Location;
-            Profile.DriverLicensType = Driver.DriverLicensType;
-            */
-
-            return View();
+            var applicationDbContext = _db.Drivers;
+            return View(await applicationDbContext.ToListAsync());
         }
 
         

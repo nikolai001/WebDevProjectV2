@@ -25,11 +25,5 @@ namespace AAO_App.Models
         public DateTime Birthday { get; set; }
 
 
-
-
-
-
-
-
     }
 }

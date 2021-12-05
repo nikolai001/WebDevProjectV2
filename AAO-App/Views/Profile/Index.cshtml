@@ -1,8 +1,8 @@
-﻿@model AAO_App.Models.Driver
+﻿@model IEnumerable<AAO_App.Models.Driver>
 
 @{
     ViewData["Title"] = "Profile";
-    Layout = "_Master";
+    Layout = "~/Views/Shared/_Master.cshtml";
 
 }
 
@@ -11,16 +11,20 @@
 
 <link href="~/css/Profile.css" rel="stylesheet" type="text/css" />
 <main>
-    <h1 id="Profil">Profil</h1>
-    <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-    <div id="TextBody">
-        <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-        <div class="ProfileSpace" id="ProfName">Navn: <input type="text" /></div>
-        <div class="ProfileSpace" id="ProfAddress">Addresse: <input type="text" /></div>
-        <p class="ProfileSpace" id="ProfKørekort">Kørekort oplysninger: </p>
-        <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-        <div class="ProfileSpace" id="ProfLokation">Lokation: </div>
-        <div class="ProfileSpace" id="ProfType">Type: </div>
-    </div>
+    @foreach (var item in Model)
+    {
+
+        <h1 id="Profil">Profil</h1>
+        <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
+        <div id="TextBody">
+            <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
+            <div class="ProfileSpace" id="ProfName"> @Html.DisplayFor(modelItem => item.Firstname) Navn: <input type="text" /></div>
+            <div class="ProfileSpace" id="ProfAddress"> @Html.DisplayFor(modelItem => item.Address)Addresse: <input type="text" /></div>
+            <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
+            <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
+            <div class="ProfileSpace" id="ProfLokation"> @Html.DisplayFor(modelItem => item.Location) Lokation: </div>
+            <div class="ProfileSpace" id="ProfType"> @Html.DisplayFor(modelItem => item.DriverLicensType)Type: </div>
+        </div>
+    }
 </main>
 <hr /> <!-- indtil footer og header er lavet-->
