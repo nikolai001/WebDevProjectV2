@@ -9,7 +9,7 @@
 
 /*Top menu*/
 p, label {
-    font-family: 'Asap', sans-serif;
+    font-family: $Asap, sans-serif;
 }
 
 
@@ -26,7 +26,7 @@ p, label {
 
 .Item p {
     font-weight: 700;
-    font-size: 14px;
+    font-size: $ContactBoxTextSize;
     color: $BackgroundColour;
     text-align: center;
     vertical-align: middle;
@@ -57,7 +57,7 @@ p, label {
 
 .Filter p {
     font-weight: bold;
-    font-size: 14px;
+    font-size:$ContactBoxTextSize;
 }
 
 .FilterArrow {
@@ -91,7 +91,7 @@ p, label {
 .FilterItem label {
     display: inline-block;
     padding: 5px;
-    font-size: 12px;
+    font-size: $ContactBoxTextSize;
     width: 80%;
 }
 
@@ -122,7 +122,7 @@ input[type=checkbox] {
         grid-column: 1/-1;
         grid-template-rows: 1fr fr;
         color: $SecondaryTextColour;
-        font-family: 'asap';
+        font-family: $Asap;
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
 
 
@@ -138,12 +138,12 @@ input[type=checkbox] {
             padding: 5% 0 5% 0;
 
             .Month {
-                font-size: 20px;
+                font-size: $DefaultTextSize;
                 font-weight: normal;
             }
 
             .Number {
-                font-size: 40px;
+                font-size:$UltraBigNumber;
                 font-weight: bold;
             }
         }
@@ -171,7 +171,7 @@ input[type=checkbox] {
             flex-direction: column;
             justify-content: center;
             border-radius: 0 0.25em 0 0;
-            font-size: 14px;
+            font-size:$ContactBoxTextSize;
             font-weight: normal;
         }
 
@@ -184,7 +184,7 @@ input[type=checkbox] {
             flex-direction: column;
             justify-content: center;
             border-radius: 0 0 0.25em 0;
-            font-size: 14px;
+            font-size:$ContactBoxTextSize;
             font-weight: normal;
         }
     }
@@ -214,7 +214,7 @@ input[type=checkbox] {
             color: $BackgroundColour;
             border-radius: 5px;
             padding: 10px 0;
-            font-size: 18px;
+            font-size: $DefaultTextSize;
             font-weight: 200;
             margin: 0 20px 10px 20px;
         }

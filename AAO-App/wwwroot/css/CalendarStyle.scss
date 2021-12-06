@@ -14,7 +14,7 @@
         margin-bottom: 20px;
 
         .headingtext h1 {
-            font-size: 30px;
+            font-size: $HeadlineTextSize;
         }
     }
 
@@ -33,18 +33,18 @@
 
         .leftred {
             display: flex;
-            font-size: 15px;
+            font-size: $ContactBoxTextSize;
 
             .red {
                 display: flex;
                 justify-content: flex-start;
-                background: red;
+                background: $DangerColour;
             }
         }
 
         .rightgreen {
             display: flex;
-            font-size: 15px;
+            font-size: $ContactBoxTextSize;
 
             .green {
                 display: flex;
@@ -62,7 +62,7 @@
 }
 
 .create {
-    font-size: 18px;
+    font-size: $DefaultTextSize;
 }
 
 .create a {
@@ -96,7 +96,7 @@
 }
 
 .weekdays div {
-    font-size: 16px;
+    font-size: $ContactBoxTextSize;
     font-weight: 400;
     letter-spacing: 0.1rem;
     width: calc(40.0rem / 7);
@@ -137,7 +137,7 @@
 }
 
 .month i {
-    font-size: 20px;
+    font-size: $DefaultTextSize;
     cursor: pointer;
     color: #000;
 }
@@ -146,7 +146,7 @@
 }
 
 .month .date p {
-    font-size: 14px;
+    font-size: $ContactBoxTextSize;
     font-weight: lighter;
 }
 
@@ -169,7 +169,7 @@ td, th {
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
-    background: red;
+    background: $DangerColour;
 }
 /* Zebra striping */
 tr:nth-of-type(even) {
@@ -227,7 +227,7 @@ form {
 }
 
 label {
-    font-size: 25px;
+    font-size: $CTATextSize;
     color: #000;
 }
 
@@ -273,7 +273,7 @@ button:hover {
 }
 
 .back_list i {
-    color: #000;
+    color: $DefaultTextColour;
     text-decoration: none;
     font-style: normal;
 }
@@ -338,7 +338,7 @@ a:hover {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     background-color: $CTAColourSecond;
-    color: white;
+    color: $BackgroundColour;
     font-weight: bold;
 }
 
@@ -349,8 +349,8 @@ a:hover {
 
 .item3 {
     width: 15%;
-    background-color: #000;
-    color: white;
+    background-color: $DefaultTextColour;
+    color: $BackgroundColour;
 }
 
 .item4 {
@@ -361,5 +361,5 @@ a:hover {
 }
 
 p {
-    font-size: 14px;
+    font-size: $ContactBoxTextSize;
 }

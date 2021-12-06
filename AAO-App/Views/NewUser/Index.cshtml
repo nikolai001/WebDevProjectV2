@@ -41,6 +41,11 @@
             <option>CE</option>
         </select>
 
+        <label>User login</label>
+        <select asp-for="@Model.UserLogin.LoginId">
+            <option>1</option>
+        </select>
+
         <div class="ButtonContainer" id="SecondContainer">
             <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
 
@@ -49,4 +54,14 @@
     </div>
 </form>
 
+<button id="Help" class="ModalTrigger">Help</button>
+
+<div id="Modal" style="display:none;">
+    <button onclick="closeHelp()" id="Cross">X</button>
+    <h3 id="ModalTitle">Dummy</h3>
+    <p id="ModalContent">DummyDummyDummyDummyDummyDummyDummyDummyDummyDummyDummy</p>
+    <button onclick="closeHelp()" id="CloseButton">Ok</button>
+</div>
+
 <script src="../../js/CreateUserScript.min.js"></script>
+<script src="../../js/Modal.js"></script>

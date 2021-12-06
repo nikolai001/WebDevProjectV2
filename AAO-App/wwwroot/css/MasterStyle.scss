@@ -4,7 +4,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Asap', sans-serif;
+    font-family: $Asap, sans-serif;
 }
 main {
     width: 100%;
@@ -72,13 +72,13 @@ main {
 
             .nav-list-item {
                 text-align: center;
-                font-family: 'Asap', sans-serif;
+                font-family: $Asap, sans-serif;
                 background-color: $DefaultBoxColour;
                 margin: 20px;
                 border-radius: 15px;
 
                 .nav-link {
-                    color: #000;
+                    color: $DefaultTextColour;
                     font-size: 30px;
                     text-decoration: none;
                     position: relative;
@@ -91,7 +91,7 @@ main {
                         bottom: 0;
                         width: 100%;
                         height: 1px;
-                        background-color: #000;
+                        background-color: $DefaultTextColour;
                         transform: scaleX(0);
                         transition: transform 0.4s ease-in-out;
                         transform-origin: left;
@@ -112,10 +112,10 @@ main {
             }
 
             .logud {
-                background-color: red;
+                background-color: $DangerColour;
 
                 .nav-link {
-                    color: white;
+                    color: $BackgroundColour;
                 }
             }
         }
@@ -132,7 +132,7 @@ main {
 }
     //this is X
     .toggle .line1 {
-        background-color: #000000;
+        background-color: $DefaultTextColour;
         transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
     }
 
@@ -140,10 +140,10 @@ main {
         display: none;
     }
 
-    .toggle .line3 {
-        background-color: #000000;
-        transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
-    }
+.toggle .line3 {
+    background-color: $DefaultTextColour;
+    transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+}
     /*Master footer*/
     footer {
         visibility: visible;
@@ -166,7 +166,7 @@ main {
 
             .footer_wrap {
                 text-decoration: none;
-                color: #fff;
+                color: $BackgroundColour;
                 margin-left: 5px;
             }
         }
