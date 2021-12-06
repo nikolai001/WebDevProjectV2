@@ -11,5 +11,7 @@ namespace AAO_App.Models
         public Department Departments { get; set; }
         public int EmppId { get; set; }
         public Employee Employees { get; set; }
+        //har opdateret db
     }
+
 }
