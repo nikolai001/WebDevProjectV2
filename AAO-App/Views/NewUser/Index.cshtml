@@ -5,6 +5,8 @@
     ViewData["Title"] = "Create user";
 }
 
+<link rel="stylesheet" href="/css/ModalStyles.css" />
+
 <img id="Icon" src="images/logo.svg" alt="Alex Andersen logo" />
 
 <div id="DotHolder">
@@ -56,10 +58,10 @@
 
 <button id="Help" class="ModalTrigger">Help</button>
 
-<div id="Modal" style="display:none;">
+<div id="Modal">
     <button onclick="closeHelp()" id="Cross">X</button>
-    <h3 id="ModalTitle">Dummy</h3>
-    <p id="ModalContent">DummyDummyDummyDummyDummyDummyDummyDummyDummyDummyDummy</p>
+    <h3 id="ModalTitle"></h3>
+    <p id="ModalContent"></p>
     <button onclick="closeHelp()" id="CloseButton">Ok</button>
 </div>
 
