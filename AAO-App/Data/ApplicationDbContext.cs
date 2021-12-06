@@ -36,5 +36,7 @@ namespace AAO_App.Data
 
         public DbSet<Department> Departments { get; set; }
 
+        public DbSet<DepartmentHasEmployee> DepartmentHasEmployees { get; set; }
+
     }
 }
