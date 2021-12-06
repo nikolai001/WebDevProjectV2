@@ -14,7 +14,7 @@ namespace AAO_App.Models
         public Driver Drivers { get; set; }
         public int CityId { get; set; }
         public City Cities { get; set; }
-        public int EmpId { get; set; }
+        public int EmployeeId { get; set; }
         public Employee Employees { get; set; }
        
         public DateTime DateStart { get; set; }
