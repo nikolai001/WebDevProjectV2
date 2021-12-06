@@ -11,9 +11,7 @@ namespace AAO_App.Models
 
         [Key]
         public int DriverId { get; set; }
-        public int LoginId { get; set; }
-        public Login UserLogin { get; set; }
-        public int DriverLicensType { get; set; }
+        public int DriverLicensTypeId { get; set; }
         public DriverLicensType DriverLicensTypes { get; set; }
         public int CityId { get; set; }
 

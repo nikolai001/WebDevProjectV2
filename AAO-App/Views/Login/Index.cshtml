@@ -1,5 +1,5 @@
-﻿@model AAO_App.Models.Login
-
+﻿<!--AAO_App.Models.Login-->
+<!--HAR SLETTET LOGIN CONTROLLER --- DU SKAL TILFØJE SIDNE TIL NEWUSERCONTROLLER OG BRUGER NEWUSERCONTROLLER TIL DENNE SIDE-->
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Login.cshtml";
@@ -16,7 +16,7 @@
 <img id="UserPic" src="../../images/userpic.svg" alt="User image" />
 
 <p id="Viewbag">@ViewBag.error</p>
-
+<!--
 <form method="POST" asp-controller="Login" asp-action="Index">
     <label asp-for="Username">Brugernavn:</label>
     <input asp-for="Username">
@@ -25,7 +25,7 @@
     <input type="Submit" value="Log ind" class="WideButton">
 </form>
 <button id="Help" class="ButtonModal">Hjælp</button>
-
+-->
 
 <h3 id="CreateAccountHeader">Har du endnu ikke en konto?</h3>
 <a id="CreateAccount" asp-controller="NewUser" asp-action="Index">OPRET NY BRUGER</a>

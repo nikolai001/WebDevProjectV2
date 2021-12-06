@@ -14,7 +14,6 @@ namespace AAO_App.Data
 
         }
         // Setting Up your table here
-        public DbSet<Login> UserLogin { get; set; }
 
         public DbSet<AvailabilityType> AvailabilityTypes { get; set; }
 

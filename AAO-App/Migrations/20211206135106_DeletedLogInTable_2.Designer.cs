@@ -4,14 +4,16 @@ using AAO_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211206135106_DeletedLogInTable_2")]
+    partial class DeletedLogInTable_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,7 +173,10 @@ namespace AAO_App.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DriverLicensTypeId")
+                    b.Property<int>("DriverLicensType")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DriverLicensTypesDriverLicensTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Firstname")
@@ -188,7 +193,7 @@ namespace AAO_App.Migrations
 
                     b.HasKey("DriverId");
 
-                    b.HasIndex("DriverLicensTypeId");
+                    b.HasIndex("DriverLicensTypesDriverLicensTypeId");
 
                     b.ToTable("Drivers");
                 });
@@ -363,9 +368,7 @@ namespace AAO_App.Migrations
                 {
                     b.HasOne("AAO_App.Models.DriverLicensType", "DriverLicensTypes")
                         .WithMany("Driver")
-                        .HasForeignKey("DriverLicensTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DriverLicensTypesDriverLicensTypeId");
 
                     b.Navigation("DriverLicensTypes");
                 });

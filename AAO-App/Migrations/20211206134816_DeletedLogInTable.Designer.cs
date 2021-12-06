@@ -4,14 +4,16 @@ using AAO_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211206134816_DeletedLogInTable")]
+    partial class DeletedLogInTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,7 +173,7 @@ namespace AAO_App.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DriverLicensTypeId")
+                    b.Property<int>("DriverLicensType")
                         .HasColumnType("int");
 
                     b.Property<string>("Firstname")
@@ -187,8 +189,6 @@ namespace AAO_App.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DriverId");
-
-                    b.HasIndex("DriverLicensTypeId");
 
                     b.ToTable("Drivers");
                 });
@@ -207,6 +207,11 @@ namespace AAO_App.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("DriverLicensTypeId");
+
+                    b.HasIndex("DriverId")
+                        .IsUnique();
+
+                    b.HasIndex("LicensTypeId");
 
                     b.ToTable("DriverLicensTypes");
                 });
@@ -242,9 +247,6 @@ namespace AAO_App.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DriverLicensTypeId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("LicensExpDate")
                         .HasColumnType("datetime2");
 
@@ -255,8 +257,6 @@ namespace AAO_App.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LicensTypeId");
-
-                    b.HasIndex("DriverLicensTypeId");
 
                     b.ToTable("LicensTypes");
                 });
@@ -359,22 +359,23 @@ namespace AAO_App.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.Driver", b =>
+            modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
                 {
-                    b.HasOne("AAO_App.Models.DriverLicensType", "DriverLicensTypes")
-                        .WithMany("Driver")
-                        .HasForeignKey("DriverLicensTypeId")
+                    b.HasOne("AAO_App.Models.Driver", "Driver")
+                        .WithOne("DriverLicensTypes")
+                        .HasForeignKey("AAO_App.Models.DriverLicensType", "DriverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DriverLicensTypes");
-                });
+                    b.HasOne("AAO_App.Models.LicensType", "LicensType")
+                        .WithMany()
+                        .HasForeignKey("LicensTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("AAO_App.Models.LicensType", b =>
-                {
-                    b.HasOne("AAO_App.Models.DriverLicensType", null)
-                        .WithMany("LicensType")
-                        .HasForeignKey("DriverLicensTypeId");
+                    b.Navigation("Driver");
+
+                    b.Navigation("LicensType");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Trip", b =>
@@ -404,11 +405,9 @@ namespace AAO_App.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
+            modelBuilder.Entity("AAO_App.Models.Driver", b =>
                 {
-                    b.Navigation("Driver");
-
-                    b.Navigation("LicensType");
+                    b.Navigation("DriverLicensTypes");
                 });
 #pragma warning restore 612, 618
         }
