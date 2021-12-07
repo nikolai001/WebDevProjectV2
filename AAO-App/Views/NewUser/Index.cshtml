@@ -38,9 +38,9 @@
         </select>
 
         <label>Kørekort type</label>
-        <select asp-for="@Model.DriverLicensType">
-            <option>BC1</option>
-            <option>CE</option>
+        <select><!--asp-for="Model.DriverLicensType"-->
+        <option>BC1</option>
+        <option>CE</option>
         </select>
 
         <label>User login</label>
@@ -54,16 +54,16 @@
             <input type="Submit" value="Anmod om registrering" class="WideButton">
         </div>
     </div>
-</form>
+    </form>
 
-<button id="Help" class="ModalTrigger">Help</button>
+    <button id="Help" class="ModalTrigger">Help</button>
 
-<div id="Modal">
-    <button onclick="closeHelp()" id="Cross">X</button>
-    <h3 id="ModalTitle"></h3>
-    <p id="ModalContent"></p>
-    <button onclick="closeHelp()" id="CloseButton">Ok</button>
-</div>
+    <div id="Modal">
+        <button onclick="closeHelp()" id="Cross">X</button>
+        <h3 id="ModalTitle"></h3>
+        <p id="ModalContent"></p>
+        <button onclick="closeHelp()" id="CloseButton">Ok</button>
+    </div>
 
-<script src="../../js/CreateUserScript.min.js"></script>
-<script src="../../js/Modal.js"></script>
+    <script src="../../js/CreateUserScript.min.js"></script>
+    <script src="../../js/Modal.js"></script>
