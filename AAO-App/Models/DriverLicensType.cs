@@ -15,8 +15,5 @@ namespace AAO_App.Models
         public int DriverId { get; set; }
         public Driver Drivers { get; set; }
 
-        public int LicensTypeId { get; set; }
-        public LicensType LicensTypes { get; set; }
-
     }
 }
