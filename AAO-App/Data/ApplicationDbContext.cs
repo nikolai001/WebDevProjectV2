@@ -35,5 +35,8 @@ namespace AAO_App.Data
 
         public DbSet<DepartmentHasEmployee> DepartmentHasEmployees { get; set; }
 
+        public DbSet<DriverHasTrip> DriverHasTrips { get; set; }
+
+
     }
 }

@@ -4,14 +4,16 @@ using AAO_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211207202429_DeletFKDriverFromTrip")]
+    partial class DeletFKDriverFromTrip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,7 +102,7 @@ namespace AAO_App.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DepartmentName")
+                    b.Property<string>("CityName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DepId");
@@ -177,31 +179,6 @@ namespace AAO_App.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Drivers");
-                });
-
-            modelBuilder.Entity("AAO_App.Models.DriverHasTrip", b =>
-                {
-                    b.Property<int>("DriverHasTripId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DriverId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RequestStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TripId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DriverHasTripId");
-
-                    b.HasIndex("DriverId");
-
-                    b.HasIndex("TripId");
-
-                    b.ToTable("DriverHasTrips");
                 });
 
             modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
@@ -367,25 +344,6 @@ namespace AAO_App.Migrations
                         .IsRequired();
 
                     b.Navigation("Cities");
-                });
-
-            modelBuilder.Entity("AAO_App.Models.DriverHasTrip", b =>
-                {
-                    b.HasOne("AAO_App.Models.Driver", "Drivers")
-                        .WithMany()
-                        .HasForeignKey("DriverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AAO_App.Models.Trip", "Trips")
-                        .WithMany()
-                        .HasForeignKey("TripId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Drivers");
-
-                    b.Navigation("Trips");
                 });
 
             modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>

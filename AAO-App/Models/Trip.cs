@@ -10,8 +10,6 @@ namespace AAO_App.Models
     {
         [Key]
         public int TripId { get; set; }
-        public int DriverId { get; set; }
-        public Driver Drivers { get; set; }
         public int CityId { get; set; }
         public City Cities { get; set; }
         public int EmployeeId { get; set; }

@@ -12,7 +12,7 @@ namespace AAO_App.Models
         public int DepId { get; set; }
         public int CityId { get; set; }
         public City Cities { get; set; }
-        public string CityName { get; set; }
+        public string DepartmentName { get; set; }
         public string Address { get; set; }
     }
 }
