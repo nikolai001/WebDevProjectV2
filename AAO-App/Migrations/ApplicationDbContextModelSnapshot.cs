@@ -117,10 +117,7 @@ namespace AAO_App.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DepId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DepartmentsDepId")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<int>("EmployeeId")
@@ -128,7 +125,7 @@ namespace AAO_App.Migrations
 
                     b.HasKey("DepartmentHasEmployeesId");
 
-                    b.HasIndex("DepartmentsDepId");
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("EmployeeId");
 
@@ -345,7 +342,9 @@ namespace AAO_App.Migrations
                 {
                     b.HasOne("AAO_App.Models.Department", "Departments")
                         .WithMany()
-                        .HasForeignKey("DepartmentsDepId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AAO_App.Models.Employee", "Employees")
                         .WithMany()

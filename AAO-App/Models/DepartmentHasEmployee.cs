@@ -7,7 +7,7 @@ namespace AAO_App.Models
     {
         [Key]
         public int DepartmentHasEmployeesId { get; set; }
-        public int DepId { get; set; }
+        public int DepartmentId { get; set; }
         public Department Departments { get; set; }
         public int EmployeeId { get; set; }
         public Employee Employees { get; set; }
