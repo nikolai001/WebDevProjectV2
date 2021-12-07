@@ -11,10 +11,9 @@ namespace AAO_App.Models
 
         [Key]
         public int DriverId { get; set; }
-        public int LoginId { get; set; }
-        public Login UserLogin { get; set; }
         public int CityId { get; set; }
-      
+        public City Cities { get; set; }
+
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Address { get; set; }
@@ -24,7 +23,6 @@ namespace AAO_App.Models
         public string Password { get; set; }
         public int IsValidated { get; set; }
         public Byte[] ProfileImage { get; set; }
-        public Byte[] LicensImage { get; set; }
 
     }
 }

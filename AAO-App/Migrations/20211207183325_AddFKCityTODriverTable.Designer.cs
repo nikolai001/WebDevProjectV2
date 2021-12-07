@@ -4,14 +4,16 @@ using AAO_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AAO_App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211207183325_AddFKCityTODriverTable")]
+    partial class AddFKCityTODriverTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,8 +182,14 @@ namespace AAO_App.Migrations
                     b.Property<string>("Lastname")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("LicensImage")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LoginId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
@@ -196,6 +204,8 @@ namespace AAO_App.Migrations
 
                     b.HasIndex("CityId");
 
+                    b.HasIndex("LoginId");
+
                     b.ToTable("Drivers");
                 });
 
@@ -209,14 +219,9 @@ namespace AAO_App.Migrations
                     b.Property<int>("DriverId")
                         .HasColumnType("int");
 
-                    b.Property<int>("LicensTypeId")
-                        .HasColumnType("int");
-
                     b.HasKey("DriverLicensTypeId");
 
                     b.HasIndex("DriverId");
-
-                    b.HasIndex("LicensTypeId");
 
                     b.ToTable("DriverLicensTypes");
                 });
@@ -390,7 +395,15 @@ namespace AAO_App.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("AAO_App.Models.Login", "UserLogin")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cities");
+
+                    b.Navigation("UserLogin");
                 });
 
             modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
@@ -401,15 +414,7 @@ namespace AAO_App.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AAO_App.Models.LicensType", "LicensTypes")
-                        .WithMany()
-                        .HasForeignKey("LicensTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Drivers");
-
-                    b.Navigation("LicensTypes");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Trip", b =>
