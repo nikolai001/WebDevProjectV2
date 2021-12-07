@@ -127,34 +127,6 @@ namespace AAO_App.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.DepartmentHasEmployee", b =>
-                {
-                    b.Property<int>("DepartmentHasEmployeesId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("DepId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DepartmentsDepId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EmployeesEmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EmppId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DepartmentHasEmployeesId");
-
-                    b.HasIndex("DepartmentsDepId");
-
-                    b.HasIndex("EmployeesEmployeeId");
-
-                    b.ToTable("DepartmentHasEmployees");
-                });
-
             modelBuilder.Entity("AAO_App.Models.Driver", b =>
                 {
                     b.Property<int>("DriverId")
@@ -171,7 +143,7 @@ namespace AAO_App.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DriverLicensTypeId")
+                    b.Property<int>("DriverLicensType")
                         .HasColumnType("int");
 
                     b.Property<string>("Firstname")
@@ -183,12 +155,15 @@ namespace AAO_App.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("LoginId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DriverId");
 
-                    b.HasIndex("DriverLicensTypeId");
+                    b.HasIndex("LoginId");
 
                     b.ToTable("Drivers");
                 });
@@ -208,12 +183,17 @@ namespace AAO_App.Migrations
 
                     b.HasKey("DriverLicensTypeId");
 
+                    b.HasIndex("DriverId")
+                        .IsUnique();
+
+                    b.HasIndex("LicensTypeId");
+
                     b.ToTable("DriverLicensTypes");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Employee", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("EmpId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -230,7 +210,7 @@ namespace AAO_App.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("EmpId");
 
                     b.ToTable("Employees");
                 });
@@ -241,9 +221,6 @@ namespace AAO_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DriverLicensTypeId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("LicensExpDate")
                         .HasColumnType("datetime2");
@@ -256,9 +233,25 @@ namespace AAO_App.Migrations
 
                     b.HasKey("LicensTypeId");
 
-                    b.HasIndex("DriverLicensTypeId");
-
                     b.ToTable("LicensTypes");
+                });
+
+            modelBuilder.Entity("AAO_App.Models.Login", b =>
+                {
+                    b.Property<int>("LoginId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LoginId");
+
+                    b.ToTable("UserLogin");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Trip", b =>
@@ -283,7 +276,10 @@ namespace AAO_App.Migrations
                     b.Property<int>("DriverId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("EmpId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EmployeesEmpId")
                         .HasColumnType("int");
 
                     b.Property<string>("MessageContents")
@@ -298,7 +294,7 @@ namespace AAO_App.Migrations
 
                     b.HasIndex("DriverId");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("EmployeesEmpId");
 
                     b.ToTable("Trips");
                 });
@@ -344,37 +340,34 @@ namespace AAO_App.Migrations
                     b.Navigation("Cities");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.DepartmentHasEmployee", b =>
-                {
-                    b.HasOne("AAO_App.Models.Department", "Departments")
-                        .WithMany()
-                        .HasForeignKey("DepartmentsDepId");
-
-                    b.HasOne("AAO_App.Models.Employee", "Employees")
-                        .WithMany()
-                        .HasForeignKey("EmployeesEmployeeId");
-
-                    b.Navigation("Departments");
-
-                    b.Navigation("Employees");
-                });
-
             modelBuilder.Entity("AAO_App.Models.Driver", b =>
                 {
-                    b.HasOne("AAO_App.Models.DriverLicensType", "DriverLicensTypes")
-                        .WithMany("Driver")
-                        .HasForeignKey("DriverLicensTypeId")
+                    b.HasOne("AAO_App.Models.Login", "UserLogin")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DriverLicensTypes");
+                    b.Navigation("UserLogin");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.LicensType", b =>
+            modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
                 {
-                    b.HasOne("AAO_App.Models.DriverLicensType", null)
-                        .WithMany("LicensType")
-                        .HasForeignKey("DriverLicensTypeId");
+                    b.HasOne("AAO_App.Models.Driver", "Drivers")
+                        .WithOne("DriverLicensTypes")
+                        .HasForeignKey("AAO_App.Models.DriverLicensType", "DriverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AAO_App.Models.LicensType", "LicensTypes")
+                        .WithMany()
+                        .HasForeignKey("LicensTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drivers");
+
+                    b.Navigation("LicensTypes");
                 });
 
             modelBuilder.Entity("AAO_App.Models.Trip", b =>
@@ -393,9 +386,7 @@ namespace AAO_App.Migrations
 
                     b.HasOne("AAO_App.Models.Employee", "Employees")
                         .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeesEmpId");
 
                     b.Navigation("Cities");
 
@@ -404,11 +395,9 @@ namespace AAO_App.Migrations
                     b.Navigation("Employees");
                 });
 
-            modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>
+            modelBuilder.Entity("AAO_App.Models.Driver", b =>
                 {
-                    b.Navigation("Driver");
-
-                    b.Navigation("LicensType");
+                    b.Navigation("DriverLicensTypes");
                 });
 #pragma warning restore 612, 618
         }

@@ -18,14 +18,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20211206120844_UpdateTripTableEmployee.cs" />
-    <Compile Remove="Migrations\20211206120844_UpdateTripTableEmployee.Designer.cs" />
-    <Compile Remove="Migrations\20211206121407_UpdateTripTableEmployee_1.cs" />
-    <Compile Remove="Migrations\20211206121407_UpdateTripTableEmployee_1.Designer.cs" />
-    <Compile Remove="Migrations\20211206121716_UpdateTripTableEmployee_2.cs" />
-    <Compile Remove="Migrations\20211206121716_UpdateTripTableEmployee_2.Designer.cs" />
-    <Compile Remove="Migrations\20211206122827_UpdateDriverLicensTypeTable.cs" />
-    <Compile Remove="Migrations\20211206122827_UpdateDriverLicensTypeTable.Designer.cs" />
-  </ItemGroup>
 </Project>

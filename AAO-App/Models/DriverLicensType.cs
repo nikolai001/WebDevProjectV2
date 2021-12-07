@@ -13,12 +13,10 @@ namespace AAO_App.Models
         
         //foreign keys
         public int DriverId { get; set; }
-        public IEnumerable<Driver> Driver { get; set; }
-        //public Driver Driver { get; set; }
+        public Driver Drivers { get; set; }
 
         public int LicensTypeId { get; set; }
-        public IEnumerable<LicensType> LicensType { get; set; }
-        //public LicensType LicensType { get; set; }
+        public LicensType LicensTypes { get; set; }
 
     }
 }

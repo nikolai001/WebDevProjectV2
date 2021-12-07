@@ -34,7 +34,7 @@ namespace AAO_App.Controllers
             }
 
             var employee = await _db.Employees
-                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+                .FirstOrDefaultAsync(m => m.EmpId == id);
             if (employee == null)
             {
                 return NotFound();
