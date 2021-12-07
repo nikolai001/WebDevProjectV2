@@ -15,8 +15,6 @@ namespace AAO_App.Data
         }
         // Setting Up your table here
   
-        public DbSet<AvailabilityType> AvailabilityTypes { get; set; }
-
         public DbSet<LicensType> LicensTypes { get; set; }
 
         public DbSet<DriverLicensType> DriverLicensTypes { get; set; }

@@ -16,15 +16,14 @@ namespace AAO_App.Models
         //Foreign key
         public int DriverId { get; set; }
         public Driver Drivers { get; set; }
-        public int AvailabilityTypeId { get; set; }
-        public AvailabilityType AvailabilityTypes { get; set; }
-
+       
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Start Dato:")]
         public DateTime Start { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Slut Dato:")]
         public DateTime End { get; set; }
+        public int AvailabilityType { get; set; }
     }
 
 }

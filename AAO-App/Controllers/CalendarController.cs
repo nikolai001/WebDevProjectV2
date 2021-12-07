@@ -22,7 +22,7 @@ namespace AAO_App.Controllers
         // GET: Calendar
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _db.Availabilities.Include(a => a.AvailabilityTypes).Include(a => a.Drivers);
+            var applicationDbContext = _db.Availabilities.Include(a => a.Drivers);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace AAO_App.Controllers
             }
 
             var availability = await _db.Availabilities
-                .Include(a => a.AvailabilityTypes)
+                //.Include(a => a.AvailabilityTypes)
                 .Include(a => a.Drivers)
                 .FirstOrDefaultAsync(m => m.AvailabilityId == id);
             if (availability == null)
@@ -49,7 +49,7 @@ namespace AAO_App.Controllers
         // GET: Calendar/Create
         public IActionResult Create()
         {
-            ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId");
+            //ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId");
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId");
             return View();
         }
@@ -67,7 +67,7 @@ namespace AAO_App.Controllers
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
+           // ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
@@ -85,7 +85,7 @@ namespace AAO_App.Controllers
             {
                 return NotFound();
             }
-            ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
+           // ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
@@ -122,7 +122,7 @@ namespace AAO_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
+            //ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
@@ -136,7 +136,7 @@ namespace AAO_App.Controllers
             }
 
             var availability = await _db.Availabilities
-                .Include(a => a.AvailabilityTypes)
+               // .Include(a => a.AvailabilityTypes)
                 .Include(a => a.Drivers)
                 .FirstOrDefaultAsync(m => m.AvailabilityId == id);
             if (availability == null)
