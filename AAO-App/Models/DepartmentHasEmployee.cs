@@ -9,9 +9,8 @@ namespace AAO_App.Models
         public int DepartmentHasEmployeesId { get; set; }
         public int DepId { get; set; }
         public Department Departments { get; set; }
-        public int EmppId { get; set; }
+        public int EmployeeId { get; set; }
         public Employee Employees { get; set; }
-        //har opdateret db
     }
 
 }
