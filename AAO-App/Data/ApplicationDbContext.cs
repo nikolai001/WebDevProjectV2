@@ -13,27 +13,25 @@ namespace AAO_App.Data
         {
 
         }
-        // Setting Up your table here
-  
-        public DbSet<LicensType> LicensTypes { get; set; }
-
-        public DbSet<DriverLicensType> DriverLicensTypes { get; set; }
-
-        public DbSet<Availability> Availabilities { get; set; }
-
-        public DbSet<Driver> Drivers  { get; set; }
-
         public DbSet<Country> Countries { get; set; }
 
         public DbSet<City> Cities { get; set; }
 
-        public DbSet<Trip> Trips { get; set; }       
-        
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Availability> Availabilities { get; set; }
+
+        public DbSet<LicensType> LicensTypes { get; set; }
+
+        public DbSet<DriverLicensType> DriverLicensTypes { get; set; }
+
+        public DbSet<Driver> Drivers { get; set; }
 
         public DbSet<Department> Departments { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
+
         public DbSet<DepartmentHasEmployee> DepartmentHasEmployees { get; set; }
+
+        public DbSet<Trip> Trips { get; set; }
 
         public DbSet<DriverHasTrip> DriverHasTrips { get; set; }
 

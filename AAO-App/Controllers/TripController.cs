@@ -22,7 +22,7 @@ namespace AAO_App
         // GET: Trip
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _db.Trips.Include(t => t.Cities.Countries).Include(t => t.Employees); //.Include(t => t.Drivers)
+            var applicationDbContext = _db.Trips.Include(t => t.Cities.Countries).Include(t => t.Employees);//Include(t => t.Drivers); 
             return View(await applicationDbContext.ToListAsync()); 
         }
         

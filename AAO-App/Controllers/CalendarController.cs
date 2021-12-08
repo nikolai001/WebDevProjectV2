@@ -11,7 +11,7 @@ using AAO_App.Models;
 namespace AAO_App.Controllers
 {
     public class CalendarController : Controller
-    {
+    { 
         private readonly ApplicationDbContext _db;
 
         public CalendarController(ApplicationDbContext db)

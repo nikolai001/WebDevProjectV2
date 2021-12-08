@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AAO_App.Controllers
-{
+{ 
     public class ContactController : Controller
     {
         private readonly ApplicationDbContext _db;

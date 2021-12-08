@@ -47,51 +47,52 @@
 
 <table class="table_container">
     <thead>
+        <!--
         <tr>
             @*<th>
-                @Html.DisplayNameFor(model => model.Drivers)
+                    Html.DisplayNameFor(model => model.Drivers)
+                </th>
+                <th>
+                    Html.DisplayNameFor(model => model.AvailabilityTypes)
+                </th>*@
+            <th>
+                Html.DisplayNameFor(model => model.Start)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AvailabilityTypes)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Start)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.End)
+                Html.DisplayNameFor(model => model.End)
             </th>
             <th>
                 Ændringer
             </th>
-        </tr>
+        </tr>-->
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <!--<tr>
             @*<td>
-                @Html.DisplayFor(modelItem => item.Drivers.DriverId)
+                    @Html.DisplayFor(modelItem => item.Drivers.DriverId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailabilityTypes.AvailabilityTypeId)
+                </td>*@
+            <td>
+                Html.DisplayFor(modelItem => item.Start)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AvailabilityTypes.AvailabilityTypeId)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Start)
+                Html.DisplayFor(modelItem => item.End)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.End)
+                <a asp-action="Edit" asp-route-id="item.AvailabilityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="item.AvailabilityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="item.AvailabilityId">Delete</a>
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AvailabilityId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AvailabilityId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AvailabilityId">Delete</a>
-            </td>
-        </tr>
-}
+        </tr>-->
+        }
     </tbody>
 </table>
 
-<script>
-    const date = new Date();
+<script>const date = new Date();
 
     const renderCalendar = () => {
         date.setDate(1);
@@ -178,5 +179,4 @@
     window.setInterval(function () {
         var elem = document.getElementsByClassName('table_container');
         elem.scrollTop = elem.scrollHeight;
-    }, 5000);
-</script>
+    }, 5000);</script>

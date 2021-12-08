@@ -196,8 +196,6 @@ namespace AAO_App.Migrations
 
                     b.HasIndex("DriverId");
 
-                    b.HasIndex("TripId");
-
                     b.ToTable("DriverHasTrips");
                 });
 
@@ -376,15 +374,7 @@ namespace AAO_App.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AAO_App.Models.Trip", "Trips")
-                        .WithMany()
-                        .HasForeignKey("TripId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Drivers");
-
-                    b.Navigation("Trips");
                 });
 
             modelBuilder.Entity("AAO_App.Models.DriverLicensType", b =>

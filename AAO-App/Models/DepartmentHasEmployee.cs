@@ -12,5 +12,4 @@ namespace AAO_App.Models
         public int EmployeeId { get; set; }
         public Employee Employees { get; set; }
     }
-
 }
