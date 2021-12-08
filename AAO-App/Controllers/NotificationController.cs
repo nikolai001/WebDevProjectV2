@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AAO_App.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,10 +12,19 @@ namespace AAO_App.Controllers
 {
     public class NotificationController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+
+        private readonly ApplicationDbContext _db;
+
+        public NotificationController(ApplicationDbContext db)
         {
-            return View();
+            _db = db;
+        }
+        // GET: /<controller>/
+        // GET: Trip
+        public async Task<IActionResult> Index()
+        {
+            var applicationDbContext = _db.Trips.Include(t => t.Cities.Countries).Include(t => t.Employees);//Include(t => t.Drivers); 
+            return View(await applicationDbContext.ToListAsync());
         }
     }
 }

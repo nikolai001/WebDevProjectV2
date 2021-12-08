@@ -16,10 +16,11 @@ main {
     position: relative;
     z-index: 100;
     display: flex;
-    justify-content: center;
 
     .logo_left {
+        width: 60%;
         margin-top: 10px;
+        text-align: center;
     }
 
     .nav-bar {
@@ -171,3 +172,17 @@ main {
             }
         }
     }
+
+
+.back_list {
+    width:20%;
+    text-decoration: none;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.back_list i {
+    color: $DefaultTextColour;
+    text-decoration: none;
+    font-style: normal;
+}                               

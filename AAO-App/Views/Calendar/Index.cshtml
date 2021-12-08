@@ -46,53 +46,52 @@
 </div>
 
 <table class="table_container">
-    <thead>
-        <!--
-        <tr>
-            @*<th>
-                    Html.DisplayNameFor(model => model.Drivers)
-                </th>
-                <th>
-                    Html.DisplayNameFor(model => model.AvailabilityTypes)
-                </th>*@
+    <thead>       
+        <tr>         
             <th>
-                Html.DisplayNameFor(model => model.Start)
+                @Html.DisplayNameFor(model => model.Start)
             </th>
             <th>
-                Html.DisplayNameFor(model => model.End)
+                @Html.DisplayNameFor(model => model.End)
             </th>
             <th>
                 Ændringer
             </th>
-        </tr>-->
+        </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <!--<tr>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.Drivers.DriverId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AvailabilityTypes.AvailabilityTypeId)
-                </td>*@
+            <tr>
             <td>
-                Html.DisplayFor(modelItem => item.Start)
+                @Html.DisplayFor(modelItem => item.Start)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.End)
+                @Html.DisplayFor(modelItem => item.End)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="item.AvailabilityId">Edit</a> |
                 <a asp-action="Details" asp-route-id="item.AvailabilityId">Details</a> |
                 <a asp-action="Delete" asp-route-id="item.AvailabilityId">Delete</a>
             </td>
-        </tr>-->
+        </tr>
         }
     </tbody>
 </table>
 
-<script>const date = new Date();
+<script>
+
+    const date = new Date();
+
+    const markDateList = [];
+
+    markDateList.push(new Date(2021, 11, 09).getTime());
+    markDateList.push(new Date(2021, 11, 10).getTime());
+
+
+
+
+
 
     const renderCalendar = () => {
         date.setDate(1);
@@ -153,7 +152,10 @@
                 date.getMonth() === new Date().getMonth()
             ) {
                 days += `<div class="today">${i}</div>`;
-            } else {
+            } else if (markDateList.includes(new Date(date.getYear() + 1900, date.getMonth(), i).getTime())) {
+                days += `<div class="today">${i}</div>`;
+            }
+            else{
                 days += `<div>${i}</div>`;
             }
         }

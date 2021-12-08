@@ -16,9 +16,11 @@
 <body>
     @*Master header*@
     <header class="header_container">
-        @*<div class="backbutton">
-            <a asp-action="Index"><i style="font-size:30px" class="fa">&#xf104;</i></a>
-        </div>*@
+        <div class="back_list">
+            <a asp-action="Index" asp-controller="Homepage">
+                <i style="font-size:30px" class="fa">&#xf100;</i>
+            </a>
+        </div>
         <div class="logo_left">
             <a asp-action="Index" asp-controller="Homepage" class="nav-link"><img src="~/images/logo.svg" alt="logo" width="50" height="50" /></a>
         </div>

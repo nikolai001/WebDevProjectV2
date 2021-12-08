@@ -1,0 +1,32 @@
+﻿@model AAO_App.Models.Driver
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Login";
+
+}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+
+<img id="Logo" src="../../images/Logo.svg" alt="Company logo" />
+
+<h2 id="FrontPageHeader">Alex Andersen Ølund A/S</h2>
+
+<img id="UserPic" src="../../images/userpic.svg" alt="User image" />
+
+<p id="Viewbag">@ViewBag.error</p>
+
+<form method="POST" asp-controller="Login" asp-action="Index">
+    <label asp-for="Phone">Mobilnummer:</label>
+    <input asp-for="Phone">
+    <label asp-for="Password">Adgangskode:</label>
+    <input asp-for="Password"><br>
+    <input type="Submit" value="Log ind" class="WideButton">
+</form>
+<button id="Help" class="ButtonModal">Hjælp</button>
+
+
+<h3 id="CreateAccountHeader">Har du endnu ikke en konto?</h3>
+<a id="CreateAccount" asp-controller="NewUser" asp-action="Index">OPRET NY BRUGER</a>

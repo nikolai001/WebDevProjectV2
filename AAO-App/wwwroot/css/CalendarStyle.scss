@@ -62,7 +62,7 @@
 }
 
 .create {
-    font-size: $DefaultTextSize;
+    font-size: 16px;
 }
 
 .create a {
@@ -265,17 +265,6 @@ input[type=submit] {
 
 button:hover {
     background: $CTAColourSecond;
-}
-
-.back_list {
-    margin-top: 20px;
-    text-decoration: none;
-}
-
-.back_list i {
-    color: $DefaultTextColour;
-    text-decoration: none;
-    font-style: normal;
 }
 
 a {
