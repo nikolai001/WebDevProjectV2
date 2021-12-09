@@ -58,7 +58,7 @@ namespace AAO_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DriverId,CityId,CityName,Firstname,Lastname,Address,Phone,Location,Birthday,Password,IsValidated,ProfileImage")] Driver driver)
+        public async Task<IActionResult> Create([Bind("DriverId,CityId,Firstname,Lastname,Address,Phone,Location,Birthday,Password,IsValidated,ProfileImage")] Driver driver)
         {
             if (ModelState.IsValid)
             {
@@ -67,6 +67,7 @@ namespace AAO_App.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", driver.CityId);
+            ViewData["CityName"] = new SelectList(_context.Cities, "CityName", "CityName",driver.CityId);
             return View(driver);
         }
 
