@@ -59,7 +59,7 @@ namespace AAO_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvailabilityId,DriverId,AvailabilityTypeId,Start,End")] Availability availability)
+        public async Task<IActionResult> Create([Bind("AvailabilityId,DriverId,Start,End,AvailabilityType")] Availability availability)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,6 @@ namespace AAO_App.Controllers
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-           // ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
@@ -85,7 +84,6 @@ namespace AAO_App.Controllers
             {
                 return NotFound();
             }
-           // ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
@@ -95,7 +93,7 @@ namespace AAO_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AvailabilityId,DriverId,AvailabilityTypeId,Start,End")] Availability availability)
+        public async Task<IActionResult> Edit(int id, [Bind("AvailabilityId,DriverId,Start,End,AvailabilityType")] Availability availability)
         {
             if (id != availability.AvailabilityId)
             {
@@ -122,7 +120,6 @@ namespace AAO_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId", availability.AvailabilityTypeId);
             ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }

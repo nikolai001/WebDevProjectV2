@@ -1,7 +1,8 @@
 ﻿@model AAO_App.Models.Availability
 
-{
-    ViewData["Title"] = "Details";
+@{
+    ViewData["Title"] = "Calendar Details";
+    Layout = "_CrudLayout";
 }
 
 <h1>Details</h1>
@@ -39,6 +40,6 @@
     </dl>-->
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="Model.AvailabilityId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.AvailabilityId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

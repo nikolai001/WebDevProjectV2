@@ -71,9 +71,9 @@
                 @item.End.ToString("dd/MM/yyyy")
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="item.AvailabilityId">Edit</a> |
-                <a asp-action="Details" asp-route-id="item.AvailabilityId">Details</a> |
-                <a asp-action="Delete" asp-route-id="item.AvailabilityId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.AvailabilityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AvailabilityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AvailabilityId">Delete</a>
             </td>
         </tr>
         }
