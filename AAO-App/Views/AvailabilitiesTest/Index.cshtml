@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AAO_App.Models.Availability>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Drivers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailabilityType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drivers.DriverId)
+            </td>
+            <td>
+                @item.Start.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @item.End.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailabilityType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AvailabilityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AvailabilityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AvailabilityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

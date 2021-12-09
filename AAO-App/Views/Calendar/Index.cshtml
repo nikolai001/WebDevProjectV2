@@ -62,12 +62,13 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+
+        <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Start)
+                @item.Start.ToString("dd/MM/yyyy")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.End)
+                @item.End.ToString("dd/MM/yyyy")
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="item.AvailabilityId">Edit</a> |

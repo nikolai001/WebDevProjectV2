@@ -1,0 +1,36 @@
+﻿@model AAO_App.Models.DriverHasTrip
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DriverHasTrip</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Drivers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Drivers.DriverId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TripId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TripId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequestStatus)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DriverHasTripId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Cities)
+                @Html.DisplayNameFor(model => model.Cities.CityName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Firstname)
@@ -49,7 +49,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Cities.CityId)
+                @Html.DisplayFor(modelItem => item.Cities)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Firstname)
@@ -67,7 +67,7 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Birthday)
+                @item.Birthday.ToString("dd/MM/yyyy")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Password)

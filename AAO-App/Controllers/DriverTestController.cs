@@ -67,7 +67,7 @@ namespace AAO_App.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", driver.CityId);
-            ViewData["CityName"] = new SelectList(_context.Cities, "CityName", "CityName",driver.CityId);
+            ViewData["CityName"] = new SelectList(_context.Cities, nameof(City.CityId), nameof(City.CityName), driver.CityId);
             return View(driver);
         }
 

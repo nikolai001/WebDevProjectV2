@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AAO_App.Data;
 using AAO_App.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

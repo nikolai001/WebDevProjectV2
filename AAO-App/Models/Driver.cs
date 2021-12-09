@@ -16,6 +16,9 @@ namespace AAO_App.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Location { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+        [Display(Name = "BirthDate:")]
         public DateTime Birthday { get; set; }
         public string Password { get; set; }
         public int IsValidated { get; set; }

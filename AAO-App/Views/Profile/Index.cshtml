@@ -1,30 +1,60 @@
-﻿@model IEnumerable<AAO_App.Models.Driver>
+﻿@*@model AAO_App.Models.Driver*@
+@model IEnumerable<AAO_App.Models.Driver>
 
 @{
     ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_Master.cshtml";
-
 }
-
-@*Alle jeres css i skal bruge til siderne tilføjer i _Master Layout - vi skal kun bruge en styling hele vejen igennem*@
-
 
 <link href="~/css/Profile.css" rel="stylesheet" type="text/css" />
 <main>
-    @*@foreach (var item in Model)
-        {*@
+    @foreach (var item in Model)
+    {
+        <h1 id="Profil">Profil</h1>
+        <div class="wrap_around">
+            <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
+            <i style="font-size:24px" class="fa">&#xf040;</i>
+        </div>
+        <div id="TextBody">
+            <div class="wrap_around">
+                <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
+                <i style="font-size:24px" class="fa">&#xf040;</i>
+            </div>
+            <div class="ProfileSpace" id="ProfName">Navn:  @item.Firstname @item.Lastname </div>
+            <div class="ProfileSpace" id="ProfAddress"> Addresse:  @item.Address </div>
+            <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
 
-    <h1 id="Profil">Profil</h1>
-    <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-    <div id="TextBody">
-        <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-        <div class="ProfileSpace" id="ProfName"> @*@Html.DisplayFor(modelItem => item.Firstname)*@ Navn: <input type="text" /></div>
-        <div class="ProfileSpace" id="ProfAddress"> @*@Html.DisplayFor(modelItem => item.Address)*@Addresse: <input type="text" /></div>
-        <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
-        <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-        <div class="ProfileSpace" id="ProfLokation"> @*@Html.DisplayFor(modelItem => item.Location)*@ Lokation: </div>
-        <div class="ProfileSpace" id="ProfType"> @*@Html.DisplayFor(modelItem => item.DriverLicensType)*@Type: </div>
-    </div>
-    @*}*@
+            <div class="wrap_around">
+                <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
+                <i style="font-size:24px" class="fa">&#xf040;</i>
+            </div>
+            <div class="ProfileSpace" id="ProfLokation"> Lokation:  @item.Location </div>
+        </div>
+    }
 </main>
-<hr /> <!-- indtil footer og header er lavet-->
+
+@*<main> DETTE ER DEN RIGTIG KODE NÅR EN DRIVER/USER LOGGI IND 
+
+            <h1 id="Profil">Profil</h1>
+            <div class="wrap_around">
+                <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
+                <i style="font-size:24px" class="fa">&#xf040;</i>
+            </div>
+            <div id="TextBody">
+                <div class="wrap_around">
+                    <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
+                    <i style="font-size:24px" class="fa">&#xf040;</i>
+                </div>
+                <div class="ProfileSpace" id="ProfName">Navn:  @Html.DisplayNameFor(model => model.Firstname) @Html.DisplayNameFor(model => model.Lastname)/></div>
+                <div class="ProfileSpace" id="ProfAddress"> Addresse:  @Html.DisplayNameFor(model => model.Address)</div>
+                <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
+
+                <div class="wrap_around">
+                    <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
+                    <i style="font-size:24px" class="fa">&#xf040;</i>
+                </div>
+                <div class="ProfileSpace" id="ProfLokation"> Lokation:  @Html.DisplayNameFor(model => model.Location)</div>
+            </div>
+
+    </main>*@
+
