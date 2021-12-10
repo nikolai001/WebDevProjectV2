@@ -35,7 +35,7 @@
             </div>
             <ul class="nav-list">
                 <li class="nav-list-item"><a asp-controller="Trip" asp-action="Index" class="nav-link">Ture</a></li>
-                <li class="nav-list-item"><a asp-controller="Calendar" asp-action="Index" class="nav-link">Rådighedskalender</a></li>
+                <li class="nav-list-item"><a asp-controller="Availabilities" asp-action="Index" class="nav-link">Rådighedskalender</a></li>
                 <li class="nav-list-item"><a asp-controller="DriverHistory" asp-action="Index" class="nav-link">Mine Kørte Ture</a></li>
                 <li class="nav-list-item"><a asp-controller="Contact" asp-action="Index" class="nav-link">Kontakter</a></li>
                 <li class="nav-list-item"><a class="nav-link">Intranet</a></li>
@@ -96,4 +96,5 @@
 
     </script>
 </body>
+@RenderSection("Scripts", required: false)
 </html>

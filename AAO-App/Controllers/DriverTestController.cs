@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AAO_App.Data;
 using AAO_App.Models;
-using BC = BCrypt.Net.BCrypt;
+//using BC = BCrypt.Net.BCrypt;
 
 namespace AAO_App.Controllers
 {

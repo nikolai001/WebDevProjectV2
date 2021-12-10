@@ -28,8 +28,8 @@ namespace AAO_App
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: DriverTest/Details/5
-        //public async Task<IActionResult> Index(int? id)
+        ////GET: DriverTest/Details/5
+        //public async Task<IActionResult> Details(int? id)
         //{
         //    if (id == null)
         //    {
@@ -47,7 +47,7 @@ namespace AAO_App
         //    return View(driver);
         //}
 
-        // GET: DriverTest/Edit/5
+        //GET: DriverTest/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

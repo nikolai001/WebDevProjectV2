@@ -132,10 +132,17 @@
 }
 
 .today {
-    background-color: $CTAColourPrim;
+    background-color: lightgray;
     border-radius: 30px;
 }
-
+.lists {
+    background-color: $CTAColourSecond;
+    border-radius: 30px;
+}
+.red {
+    background-color: $DangerColour;
+    border-radius: 30px;
+}
 .month i {
     font-size: $DefaultTextSize;
     cursor: pointer;
@@ -206,12 +213,6 @@ tbody {
     }
 }
 
-
-tbody tr:last-child {
-    background-color: lightgray;
-}
-
-
 /*CRUD STYLING*/
 
 form {
@@ -249,6 +250,7 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 15px;
     box-sizing: border-box;
+    font-size: 20px;
 }
 
 input[type=submit] {
@@ -260,6 +262,7 @@ input[type=submit] {
     border: none;
     border-radius: 15px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 
@@ -272,9 +275,14 @@ a {
 }
 
 a:hover {
-    color: $DangerColour;
+    font-weight: bold;
 }
-
+.rowdelete{
+    display: inline-block;
+}
+.row1{
+   text-align: center;
+}
 
 //Kontakter Styling
 .contact_container, .message_container {

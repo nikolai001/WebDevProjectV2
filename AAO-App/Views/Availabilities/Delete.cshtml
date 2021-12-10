@@ -1,0 +1,49 @@
+﻿@model AAO_App.Models.Availability
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="w3-container">
+    <h1 class="opret_periode">Slette Periode?</h1>
+    <div class="rowdelete">
+        <div class="row1">
+            <h3>
+                @Html.DisplayNameFor(model => model.Drivers)
+            </h3>
+            <p class="col-sm-10">
+                @Html.DisplayFor(model => model.Drivers.DriverId)
+            </p>
+        </div>
+        <div class="row1">
+            <h3 class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Start)
+            </h3>
+            <p class="col-sm-10">
+                @Html.DisplayFor(model => model.Start)
+            </p>
+        </div>
+        <div class="row1">
+            <h3 class="col-sm-2">
+                @Html.DisplayNameFor(model => model.End)
+            </h3>
+            <p class="col-sm-10">
+                @Html.DisplayFor(model => model.End)
+            </p>
+        </div>
+        <div class="row1">
+            <h3 class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AvailabilityType)
+            </h3>
+            <p class="col-sm-10">
+                @Html.DisplayFor(model => model.AvailabilityType)
+            </p>
+        </div>
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AvailabilityId" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a style="font-size:20px" asp-action="Index"> < Back</a>
+    </form>
+</div>

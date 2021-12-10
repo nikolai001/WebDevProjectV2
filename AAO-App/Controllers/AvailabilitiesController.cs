@@ -10,23 +10,23 @@ using AAO_App.Models;
 
 namespace AAO_App.Controllers
 {
-    public class CalendarController : Controller
-    { 
-        private readonly ApplicationDbContext _db;
+    public class AvailabilitiesController : Controller
+    {
+        private readonly ApplicationDbContext _context;
 
-        public CalendarController(ApplicationDbContext db)
+        public AvailabilitiesController(ApplicationDbContext context)
         {
-            _db = db;
+            _context = context;
         }
 
-        // GET: Calendar
+        // GET: AvailabilitiesTest
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _db.Availabilities.Include(a => a.Drivers);
+            var applicationDbContext = _context.Availabilities.Include(a => a.Drivers);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Calendar/Details/5
+        // GET: AvailabilitiesTest/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,8 +34,7 @@ namespace AAO_App.Controllers
                 return NotFound();
             }
 
-            var availability = await _db.Availabilities
-                //.Include(a => a.AvailabilityTypes)
+            var availability = await _context.Availabilities
                 .Include(a => a.Drivers)
                 .FirstOrDefaultAsync(m => m.AvailabilityId == id);
             if (availability == null)
@@ -46,15 +45,14 @@ namespace AAO_App.Controllers
             return View(availability);
         }
 
-        // GET: Calendar/Create
+        // GET: AvailabilitiesTest/Create
         public IActionResult Create()
         {
-            //ViewData["AvailabilityTypeId"] = new SelectList(_db.AvailabilityTypes, "AvailabilityTypeId", "AvailabilityTypeId");
-            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId");
+            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId");
             return View();
         }
 
-        // POST: Calendar/Create
+        // POST: AvailabilitiesTest/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,15 +61,15 @@ namespace AAO_App.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Add(availability);
-                await _db.SaveChangesAsync();
+                _context.Add(availability);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
+            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
 
-        // GET: Calendar/Edit/5
+        // GET: AvailabilitiesTest/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,16 +77,16 @@ namespace AAO_App.Controllers
                 return NotFound();
             }
 
-            var availability = await _db.Availabilities.FindAsync(id);
+            var availability = await _context.Availabilities.FindAsync(id);
             if (availability == null)
             {
                 return NotFound();
             }
-            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
+            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
 
-        // POST: Calendar/Edit/5
+        // POST: AvailabilitiesTest/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -104,8 +102,8 @@ namespace AAO_App.Controllers
             {
                 try
                 {
-                    _db.Update(availability);
-                    await _db.SaveChangesAsync();
+                    _context.Update(availability);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -120,11 +118,11 @@ namespace AAO_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DriverId"] = new SelectList(_db.Drivers, "DriverId", "DriverId", availability.DriverId);
+            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
 
-        // GET: Calendar/Delete/5
+        // GET: AvailabilitiesTest/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -132,8 +130,7 @@ namespace AAO_App.Controllers
                 return NotFound();
             }
 
-            var availability = await _db.Availabilities
-               // .Include(a => a.AvailabilityTypes)
+            var availability = await _context.Availabilities
                 .Include(a => a.Drivers)
                 .FirstOrDefaultAsync(m => m.AvailabilityId == id);
             if (availability == null)
@@ -144,20 +141,20 @@ namespace AAO_App.Controllers
             return View(availability);
         }
 
-        // POST: Calendar/Delete/5
+        // POST: AvailabilitiesTest/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var availability = await _db.Availabilities.FindAsync(id);
-            _db.Availabilities.Remove(availability);
-            await _db.SaveChangesAsync();
+            var availability = await _context.Availabilities.FindAsync(id);
+            _context.Availabilities.Remove(availability);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AvailabilityExists(int id)
         {
-            return _db.Availabilities.Any(e => e.AvailabilityId == id);
+            return _context.Availabilities.Any(e => e.AvailabilityId == id);
         }
     }
 }
