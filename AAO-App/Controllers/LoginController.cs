@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BC = BCrypt.Net.BCrypt;
 
 
 namespace AAO_App.Controllers
@@ -33,7 +34,8 @@ namespace AAO_App.Controllers
         [HttpPost]
         public IActionResult Login(string phone, string password)
         {
-            //var UserId = _db.Drivers.Where(i => i.Phone == phone && i.Password == password); Legacy shit didnt work
+            //var User = _db.Drivers.Select(d => d).Where(d => d.Phone == phone);
+            //bool verified = BC.Verify(password, _db.Drivers.Select(d => d).Where(d => d.Password == d.Password)); Maybe some day
             if (phone != null && password != null && _db.Drivers.Select(d => d).Where(d => d.Phone == phone && d.Password == password).ToList().Count() > 0) // Klam måde at tjekke login på, bør omskrives.. eventually.. Kraftedeme en bootleg måde jeg fandt her
             {
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AAO_App.Data;
 using AAO_App.Models;
+using BC = BCrypt.Net.BCrypt;
 
 namespace AAO_App.Controllers
 {
@@ -62,6 +63,7 @@ namespace AAO_App.Controllers
         {
             if (ModelState.IsValid)
             {
+                //driver.Password = BC.HashPassword(driver.Password); Some day my sweet prince some day
                 _context.Add(driver);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
