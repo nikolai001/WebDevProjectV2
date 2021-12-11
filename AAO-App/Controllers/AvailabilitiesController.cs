@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AAO_App.Data;
 using AAO_App.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace AAO_App.Controllers
 {
@@ -22,11 +23,13 @@ namespace AAO_App.Controllers
         // GET: AvailabilitiesTest
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Availabilities.Include(a => a.Drivers);
-            return View(await applicationDbContext.ToListAsync());
+            var applicationDbContext = _context.Availabilities.Include(a => a.Drivers).Where(m => m.DriverId == int.Parse(this.HttpContext.Session.GetString("DriverId")));
+
+
+             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: AvailabilitiesTest/Details/5
+        //GET: AvailabilitiesTest/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,7 +51,7 @@ namespace AAO_App.Controllers
         // GET: AvailabilitiesTest/Create
         public IActionResult Create()
         {
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId");
+            //ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId");
             return View();
         }
 
@@ -57,10 +60,11 @@ namespace AAO_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvailabilityId,DriverId,Start,End,AvailabilityType")] Availability availability)
+        public async Task<IActionResult> Create([Bind("AvailabilityId,Start,End,AvailabilityType")] Availability availability)
         {
             if (ModelState.IsValid)
             {
+                availability.DriverId = int.Parse(this.HttpContext.Session.GetString("DriverId"));
                 _context.Add(availability);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -76,13 +80,12 @@ namespace AAO_App.Controllers
             {
                 return NotFound();
             }
-
             var availability = await _context.Availabilities.FindAsync(id);
             if (availability == null)
             {
                 return NotFound();
             }
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
+            //ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
 
@@ -91,17 +94,16 @@ namespace AAO_App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AvailabilityId,DriverId,Start,End,AvailabilityType")] Availability availability)
+        public async Task<IActionResult> Edit(int id, [Bind("AvailabilityId,Start,End,AvailabilityType")] Availability availability)
         {
-            if (id != availability.AvailabilityId)
-            {
-                return NotFound();
-            }
+        
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    availability.AvailabilityId = id;
+                    availability.DriverId = int.Parse(this.HttpContext.Session.GetString("DriverId"));
                     _context.Update(availability);
                     await _context.SaveChangesAsync();
                 }
@@ -118,7 +120,7 @@ namespace AAO_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
+            //ViewData["DriverId"] = new SelectList(_context.Drivers, "DriverId", "DriverId", availability.DriverId);
             return View(availability);
         }
 

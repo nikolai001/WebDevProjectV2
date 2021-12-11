@@ -1,7 +1,9 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+
 @{
     ViewData["Title"] = "Homepage";
     Layout = "_Master";
+
 }
 
 @*Alle css i skal bruge til siderne skal tilføje i _Master Layout - vi skal kun bruge en styling hele vejen igennem*@
@@ -14,7 +16,9 @@
 <section>
     <div id="WelcomeMessage">
         <img src="../images/userpic.svg" alt="User image" />
-        <h3>Velkommen Alex</h3>
+        <h3>
+            Velkommen @Context.Session.GetString("Firstname") @Context.Session.GetString("Lastname")
+        </h3>
     </div>
 
     <div id="NewestTrips">
@@ -22,12 +26,7 @@
 
         <div class="TripsHolder">
             <div class="Date">
-                <p class="Number">6</p>
-                <p class="Month">SEP</p>
-            </div>
-            <div class="Info">
-                <p>Afgangsted: Odense</p>
-                <p>Start 6/9 kl.12:30 </p>
+                @model IEnumerable<AAO_App.Models.Availability>
                 <p>Slut 7/9 Kl.12:30</p>
             </div>
             <div class="Time">

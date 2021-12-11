@@ -9,10 +9,6 @@
     <form asp-action="Create">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="DriverId" class="control-label"></label>
-            <select asp-for="DriverId" class="form-control" asp-items="ViewBag.DriverId"></select>
-        </div>
-        <div class="form-group">
             <label asp-for="Start" class="control-label">Start Dato</label>
             <input asp-for="Start" class="form-control" />
             <span asp-validation-for="Start" class="text-danger"></span>
@@ -24,7 +20,10 @@
         </div>
         <div class="form-group">
             <label asp-for="AvailabilityType" class="control-label">Type</label>
-            <input asp-for="AvailabilityType" class="form-control" />
+            <select asp-for="AvailabilityType" class="form-control">
+                <option value="0">Ledig</option>
+                <option value="1">Optaget</option>
+            </select>
             <span asp-validation-for="AvailabilityType" class="text-danger"></span>
         </div>
         <div class="form-group">
@@ -32,10 +31,7 @@
         </div>
     </form>
 </div>
-
-<div>
-    <a style="font-size:20px" asp-action="Index"> < Back</a>
-</div>
+<a class="back_list" style="font-size:20px;color:black;" asp-action="Index">   <i style="font-size:24px" class="fa">&#xf104; Back</i></a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

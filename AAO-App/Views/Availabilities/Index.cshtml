@@ -39,7 +39,7 @@
             <div>Fr</div>
             <div>Lø</div>
         </div>
-        <div class="days">
+        <div class="days" id="DataDays">
 
         </div>
     </div>
@@ -82,7 +82,7 @@
             }
         </tbody>
     </table>
-
+    </div>
     <script>
         // get date
         const date = new Date();
@@ -144,9 +144,9 @@
                 "November",
                 "December",
             ];
-
+            //Show Header Calendar Month
             document.querySelector(".date h2").innerHTML = months[date.getMonth()];
-
+            // show day, month, date and year
             document.querySelector(".date p").innerHTML = new Date().toDateString();
 
             //getting calendar
@@ -162,7 +162,7 @@
 
                 } else if (markDateList.includes(new Date(date.getYear() + 1900, date.getMonth(), i).getTime())) {
 
-                    days += `<div class="today">${i}</div>`;
+                    days += `<div class="lists">${i}</div>`;
                 }
                 else {
                     days += `<div>${i}</div>`;
@@ -186,10 +186,5 @@
         });
 
         renderCalendar();
-
-        window.setInterval(function () {
-            var elem = document.getElementsByClassName('table_container');
-            elem.scrollTop = elem.scrollHeight;
-        }, 8000);
 
     </script>

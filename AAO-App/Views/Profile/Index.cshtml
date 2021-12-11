@@ -1,5 +1,4 @@
-﻿@*@model AAO_App.Models.Driver*@
-@model IEnumerable<AAO_App.Models.Driver>
+﻿@model IEnumerable<AAO_App.Models.Driver>
 
 @{
     ViewData["Title"] = "Profile";
@@ -13,12 +12,16 @@
         <h1 id="Profil">Profil</h1>
         <div class="wrap_around">
             <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-            <i style="font-size:24px" class="fa">&#xf040;</i>
+            <p>
+                <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
+            </p>
         </div>
         <div id="TextBody">
             <div class="wrap_around">
                 <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-                <i style="font-size:24px" class="fa">&#xf040;</i>
+                <p>
+                    <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
+                </p>
             </div>
             <div class="ProfileSpace" id="ProfName">Navn:  @item.Firstname @item.Lastname </div>
             <div class="ProfileSpace" id="ProfAddress"> Addresse:  @item.Address </div>
@@ -26,35 +29,13 @@
 
             <div class="wrap_around">
                 <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-                <i style="font-size:24px" class="fa">&#xf040;</i>
+                <p>
+                    <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
+                </p>
             </div>
             <div class="ProfileSpace" id="ProfLokation"> Lokation:  @item.Location </div>
         </div>
     }
 </main>
 
-@*<main> DETTE ER DEN RIGTIG KODE NÅR EN DRIVER/USER LOGGI IND 
-
-            <h1 id="Profil">Profil</h1>
-            <div class="wrap_around">
-                <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-                <i style="font-size:24px" class="fa">&#xf040;</i>
-            </div>
-            <div id="TextBody">
-                <div class="wrap_around">
-                    <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-                    <i style="font-size:24px" class="fa">&#xf040;</i>
-                </div>
-                <div class="ProfileSpace" id="ProfName">Navn:  @Html.DisplayNameFor(model => model.Firstname) @Html.DisplayNameFor(model => model.Lastname)/></div>
-                <div class="ProfileSpace" id="ProfAddress"> Addresse:  @Html.DisplayNameFor(model => model.Address)</div>
-                <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
-
-                <div class="wrap_around">
-                    <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-                    <i style="font-size:24px" class="fa">&#xf040;</i>
-                </div>
-                <div class="ProfileSpace" id="ProfLokation"> Lokation:  @Html.DisplayNameFor(model => model.Location)</div>
-            </div>
-
-    </main>*@
 
