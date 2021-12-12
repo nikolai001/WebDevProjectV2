@@ -13,42 +13,36 @@
 </div>
 
 <form id="CreateUserForm" method="POST" asp-controller="NewUser" asp-action="Index">
-    
+
     <div class="Formula Displayed">
         <label>Fornavn</label>
-        <input asp-for="@Model.Firstname">
+        <input asp-for="Firstname">
         <label>Efternavn</label>
-        <input asp-for="@Model.Lastname">
+        <input asp-for="Lastname">
         <label>Telefon nr</label>
-        <input asp-for="@Model.Phone">
+        <input asp-for="Phone">
         <label>FødselsDato</label>
-        <input asp-for="@Model.Birthday">
+        <input asp-for="Birthday">
 
         <label>Bopæl</label>
-        <input asp-for="@Model.Address">
+        <input asp-for="Address">
         <div class="ButtonContainer">
             <button type="button" id="Next" onclick="NextSlide()" class="ButtonModal">Næste</button>
         </div>
     </div>
 
     <div class="Formula">
-        <label>Lokation</label>
-        <select asp-for="@Model.Location">
-            <option>Odense</option>
-            <option>Luxemborg</option>
-        </select>
-        
-        <label>Kørekort type</label>
-        <select>
-            <option>BC1</option>
-            <option>CE</option>
-        </select>
+        <label asp-for="Location" class="control-label">Lokation</label>
+        <input asp-for="Location" class="form-control" />
 
-        @*<label>User login</label>
-        <select>
-            asp-for="Model.UserLogin.LoginId"
-            <option>1</option>
-        </select>*@
+        <label asp-for="CityId" class="control-label"></label>
+        <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityName">.xvc</select>
+
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" />
+
+        <label asp-for="ProfileImage" class="control-label"></label>
+        <input asp-for="ProfileImage" class="form-control" />
 
         <div class="ButtonContainer" id="SecondContainer">
             <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
@@ -69,3 +63,7 @@
 
 <script src="../../js/CreateUserScript.min.js"></script>
 <script src="../../js/Modal.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
