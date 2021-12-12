@@ -1,12 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Notification";
-    Layout = "_Master";
-}
-<main>
-    <div class="contact_container">
-        <div class="headingtext">
-            <h1>Notifikationer</h1>
-        </div>
+﻿@model IEnumerable<AAO_App.Models.Trip>
+    @{
+        ViewData["Title"] = "Notification";
+        Layout = "_Master";
+    }
+
+<div class="contact_container">
+    <div class="headingtext">
+        <h1>Notifikationer</h1>
+    </div> 
+
+    @foreach (var item in Model)
+    {
+        DateTime time = DateTime.Now;
         <div class="message_info">
             <div class="wrapper_text">
                 <span>Du har fået denne tur</span>
@@ -14,88 +19,66 @@
             </div>
             <div class="wrapper_message">
                 <div class="item1">
-                    <p>6 Sep</p>
+                    <p class="item_p"> @item.DateStart.Day</p>
+                    <p id="month"> @item.DateStart.Month</p>
                 </div>
                 <div class="item2">
-                    <p>
-                        Afg. Odense - Start kl:12:30
+                    <p class="item_2">
+                        Afg. Odense - Start @item.DateStart.ToShortTimeString()
                     </p>
                 </div>
                 <div class="item3">
-                    <p>DK-DK</p>
+                    <p class="item_p">@item.Cities.Countries.CountryCode - @item.Cities.Countries.CountryCode</p>
                 </div>
                 <div class="item4">
-                    <p>12t</p>
+                    <p class="item_p">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
                 </div>
             </div>
-        </div>
-        <div class="message_info">
-            <div class="wrapper_text">
-                <span>Du har fået denne tur</span>
-                <span>8 t...</span>
-            </div>
-            <div class="wrapper_message">
-                <div class="item1">
-                    <p>10 Sep</p>
-                </div>
-                <div class="item2">
-                    <p>
-                        Afg. Odense - Start kl:12:30
-                    </p>
-                </div>
-                <div class="item3">
-                    <p>DK-DK</p>
-                </div>
-                <div class="item4">
-                    <p>12t</p>
-                </div>
-            </div>
-        </div>
-        <div class="message_info">
-            <div class="wrapper_text">
-                <span>Du har fået denne tur</span>
-                <span>3 d...</span>
-            </div>
-            <div class="wrapper_message">
-                <div class="item1">
-                    <p>12 Sep</p>
-                </div>
-                <div class="item2">
-                    <p>
-                        Afg. Odense - Start kl:12:30
-                    </p>
-                </div>
-                <div class="item3">
-                    <p>DK-DK</p>
-                </div>
-                <div class="item4">
-                    <p>12t</p>
-                </div>
-            </div>
-        </div>
-        <div class="message_info">
-            <div class="wrapper_text">
-                <span>Du har fået denne tur</span>
-                <span>9 d...</span>
-            </div>
-            <div class="wrapper_message">
-                <div class="item1">
-                    <p>15 Sep</p>
-                </div>
-                <div class="item2">
-                    <p>
-                        Afg. Odense - Start kl:12:30
-                    </p>
-                </div>
-                <div class="item3">
-                    <p>DK-DK</p>
-                </div>
-                <div class="item4">
-                    <p>12t</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        </div>
+        }
+    </div>
+<script>
+    //VISER MÅNEDE I BUKSTAVER ISTEDET FOR ID 
+    const ShowMonth = document.getElementById('month');
+    for (let i = 0; i < ShowMonth.length; i++) {
+
+        switch (ShowMonth[i].innerHTML) {
+            case "1":
+                ShowMonth[i].innerHTML = "JAN";
+                break;
+            case "2":
+                ShowMonth[i].innerHTML = "FEB";
+                break;
+            case "3":
+                ShowMonth[i].innerHTML = "MAR";
+                break;
+            case "4":
+                ShowMonth[i].innerHTML = "APR";
+                break;
+            case "5":
+                ShowMonth[i].innerHTML = "MAJ";
+                break;
+            case "6":
+                ShowMonth[i].innerHTML = "JUN";
+                break;
+            case "7":
+                ShowMonth[i].innerHTML = "JUL";
+                break;
+            case "8":
+                ShowMonth[i].innerHTML = "AUG";
+                break;
+            case "9":
+                ShowMonth[i].innerHTML = "SEP";
+                break;
+            case "10":
+                ShowMonth[i].innerHTML = "OKT";
+                break;
+            case "11":
+                ShowMonth[i].innerHTML = "NOV";
+                break;
+            case "12":
+                ShowMonth[i].innerHTML = "DEC";
+        }
+    }
+</script>

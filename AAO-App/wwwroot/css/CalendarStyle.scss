@@ -326,8 +326,8 @@ a:hover {
 .wrapper_message {
     display: flex;
     justify-content: space-between;
-    line-height: 40px;
-    height: 40px;
+    line-height: 70px;
+    height: 70px;
 }
 
 .item1 {
@@ -337,11 +337,19 @@ a:hover {
     background-color: $CTAColourSecond;
     color: $BackgroundColour;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .item2 {
     width: 50%;
     background-color: $DefaultBoxColour;
+   
+}
+.item2 .item_2{
+ font-size: 12px;
 }
 
 .item3 {
@@ -357,6 +365,9 @@ a:hover {
     border-top-right-radius: 10px;
 }
 
-p {
+.item_p {
+    font-size: $ContactBoxTextSize;
+}
+#Month{
     font-size: $ContactBoxTextSize;
 }

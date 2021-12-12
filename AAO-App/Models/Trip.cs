@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace AAO_App.Models

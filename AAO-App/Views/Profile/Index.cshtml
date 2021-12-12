@@ -6,15 +6,15 @@
 }
 
 <link href="~/css/Profile.css" rel="stylesheet" type="text/css" />
-<main>
+
     @foreach (var item in Model)
     {
         <h1 id="Profil">Profil</h1>
         <div class="wrap_around">
             <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-            <p>
+            @*<p>
                 <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
-            </p>
+            </p>*@
         </div>
         <div id="TextBody">
             <div class="wrap_around">
@@ -36,6 +36,6 @@
             <div class="ProfileSpace" id="ProfLokation"> Lokation:  @item.Location </div>
         </div>
     }
-</main>
+
 
 

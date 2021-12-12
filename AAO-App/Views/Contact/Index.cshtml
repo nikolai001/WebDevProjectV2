@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<AAO_App.Models.Employee>
+
 @{
     ViewData["Title"] = "Kontakter";
     Layout = "_Master";
 }
-<main>
     <div class="contact_container">
         <div class="headingtext">
             <h1>Kontakter</h1>
@@ -16,10 +16,8 @@
                     <p>Navn:  @item.Firstname @item.Lastname  </p>
                     <p>Tlf:  @item.Phone</p>
                     <p>Email:  @item.Email</p>
-                    <p>Afdeling:  Admin</p>
+                    <p>Afdeling: </p>
                 </div>
             </div>
         }
     </div>
-
-</main> 
