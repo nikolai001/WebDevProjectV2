@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AAO_App.Models.Trip>
+﻿@model IEnumerable<AAO_App.Models.TripModelView>
 
 @{
     Layout = "~/Views/Shared/_Master.csHtml";
@@ -61,42 +61,39 @@
 
 @foreach (var item in Model)
 {
-   
-       <div id="NewTrips" class="NewTrips">
-           <div class="TripsHolder">
-               <div id="Date" class="Date">
-                   <p class="Number">@Html.DisplayFor(modelItem => item.DateStart.Day)</p>
-                   <p id="Month" class="Month">@Html.DisplayFor(modelItem => item.DateStart.Month)</p>
-               </div>
-               <div class="Info">
-                   <p class="StartPoint">Afgangsted: @Html.DisplayFor(modelItem => item.Cities.CityName)</p>
-                   <p>Start @Html.DisplayFor(modelItem => item.DateStart)</p>
-                   <p>Slut @Html.DisplayFor(modelItem => item.DateEnd)</p>
-               </div>
-               <div class="Time">
-                   <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
-               </div>
-               <div id="Country" class="Country">
-                   <p class="CType">@Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode) - @Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode)</p>
-               </div>
-           </div>
-           <div id="Info" class="MoreInfo" style="display:none">
-               <div class="TripInformation">
-                   <p><span style="text-decoration:underline">Din tur går til:</span> @Html.DisplayFor(modelItem => item.TripInfo)</p>
-                   <p><span style="text-decoration:underline">Besked:</span> @Html.DisplayFor(modelItem => item.MessageContents)</p>
-                   <p><span style="text-decoration:underline">Kontakt person:</span> @Html.DisplayFor(modelItem => item.Employees.Firstname) @Html.DisplayFor(modelItem => item.Employees.Lastname) </p>
-                   <p><span style="text-decoration:underline">Afdeling:</span></p>
-               </div>
+    <div id="NewTrips" class="NewTrips">
+        <div class="TripsHolder">
+            <div id="Date" class="Date">
+                <p class="Number">@item.DateStart.Day</p>
+                <p id="Month" class="Month">@item.DateEnd.Month</p>
+            </div>
+            <div class="Info">
+                <p class="StartPoint">Afgangsted: @item.CityName</p>
+                <p>Start @item.DateStart</p>
+                <p>Slut @item.DateEnd</p>
+            </div>
+            <div class="Time">
+                <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+            </div>
+            <div id="Country" class="Country">
+                <p class="CType">@item.CountryCode - @item.CountryCode</p>
+            </div>
+        </div>
+        <div id="Info" class="MoreInfo" style="display:none">
+            <div class="TripInformation">
+                <p><span style="text-decoration:underline">Din tur går til:</span> @item.TripInfo</p>
+                <p><span style="text-decoration:underline">Besked:</span> @item.MessageContents</p>
+                <p><span style="text-decoration:underline">Kontakt person:</span> @item.Firstname @item.Lastname</p>
+                <p><span style="text-decoration:underline">Afdeling:</span> @item.DepartmentName</p>
+            </div>
 
-               <div class="Contact">
-                   <p><i class="fas fa-phone-alt"></i> @Html.DisplayFor(modelItem => item.Employees.Phone)</p>
-                   <p><i class="fas fa-envelope"></i> @Html.DisplayFor(modelItem => item.Employees.Email)</p>
-               </div>
-               <button class="Btn">Anmod om tur</button>
-           </div>
-       </div>
+            <div class="Contact">
+                <p><i class="fas fa-phone-alt"></i> @item.Phone</p>
+                <p><i class="fas fa-envelope"></i> @item.Email</p>
+            </div>
+            <button class="Btn">Anmod om tur</button>
+        </div>
+    </div>
 }
 
-@*@{
-        @await @Html.PartialAsync("_FooterPartial")
-    }*@
+
