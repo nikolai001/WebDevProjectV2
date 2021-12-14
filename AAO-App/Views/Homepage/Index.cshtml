@@ -1,13 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Http;
-
+@model IEnumerable<AAO_App.Models.Trip>
 @{
     ViewData["Title"] = "Homepage";
     Layout = "_Master";
 }
 
-@model IEnumerable<AAO_App.Models.Trip>
 
-@*Alle css i skal bruge til siderne skal tilføje i _Master Layout - vi skal kun bruge en styling hele vejen igennem*@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,37 +19,28 @@
             Velkommen @Context.Session.GetString("Firstname") @Context.Session.GetString("Lastname")
         </h3>
     </div>
-
-    @foreach (var Item in Model)
+    @*@foreach (var item in Model)
     {
-        
-    }
-
-    <div id="NewestTrips">
-
-        <h3>Nyeste ledige ture</h3>
-
-        <div class="TripsHolder">
-            <div class="Date">
-                <p class="Number">10</p>
-                <p class="Month">SEP</p>
-            </div>
-            <div class="Info">
-                <p>Afgangsted: Odense</p>
-                <p>Start 6/9 kl.12:30 </p>
-                <p>Slut 7/9 Kl.12:30</p>
-            </div>
-            <div class="Time">
-                <p>13t</p>
-            </div>
-            <div class="Country">
-                <p>DK-DK</p>
+        <div id="NewestTrips">
+            <h3>Nyeste ledige ture</h3>
+            <div class="TripsHolder">
+                <div class="Date">
+                    <p class="Number">@item.DateStart.Day</p>
+                    <p id="Month" class="Month">@item.DateEnd.Month</p>
+                </div>
+                <div class="Info">
+                    <p class="StartPoint">Afgangsted: @item.CityId.ToString(item.Cities.CityName)</p>
+                    <p>Start @item.DateStart</p>
+                    <p>Slut @item.DateEnd</p>
+                </div>
+                <div class="Time">
+                    <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+                </div>
+                <div class="Country">
+                    <p class="CType">@item.Cities.Countries.CountryCode - @item.Cities.Countries.CountryCode</p>
+                </div>
             </div>
         </div>
-    </div>
-
-
-
     <div id="MyTrip">
         <h3>Min igangværende tur</h3>
 
@@ -60,12 +49,12 @@
                 <p>Slut 7/9 Kl.12:30</p>
             </div>
             <div class="Time">
-                <p>12t</p>
+                <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
             </div>
             <div class="Country">
-                <p>DK-DK</p>
+                <p class="CType">@item.CityId.ToString(item.Cities.CountryId.ToString(item.Cities.Countries.CountryName)) - @item.CityId.ToString(item.Cities.CountryId.ToString(item.Cities.Countries.CountryName))</p>
             </div>
         </div>
-
     </div>
+    }*@
 </section>

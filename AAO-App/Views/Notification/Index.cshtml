@@ -11,11 +11,11 @@
 
     @foreach (var item in Model)
     {
-        DateTime time = DateTime.Now;
+        
         <div class="message_info">
             <div class="wrapper_text">
                 <span>Du har fået denne tur</span>
-                <span>@item.DateStart.ToString("dd/MM/yyyy")</span>
+                <span>@DateTime.Now.ToString("HH:mm")</span>
             </div>
             <div class="wrapper_message">
                 <div class="item1">

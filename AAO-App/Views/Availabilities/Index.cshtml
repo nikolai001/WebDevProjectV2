@@ -76,8 +76,6 @@
                         <script>
 
                             var days = @((item.End.Date - item.Start.Date).Days) ;
-
-
                             while(days >= 0) {
                                 markDateList.push(@item.AvailabilityType.ToString() + "" + new Date(@item.Start.Date.Year , @item.Start.Date.Month-1, (@item.Start.Date.Day + days)).getTime());
                                 days--;

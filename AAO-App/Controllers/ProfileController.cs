@@ -25,7 +25,7 @@ namespace AAO_App
         // GET: DriverTest
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _db.Drivers.Include(d => d.Cities);
+            var applicationDbContext = _db.Drivers.Include(d => d.Cities).Where(m => m.DriverId == int.Parse(this.HttpContext.Session.GetString("DriverId")));
             return View(await applicationDbContext.ToListAsync());
         }
 
