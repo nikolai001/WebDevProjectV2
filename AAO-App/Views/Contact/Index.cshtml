@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AAO_App.Models.Employee>
+﻿@model IEnumerable<AAO_App.Models.TripModelView>
 
 @{
     ViewData["Title"] = "Kontakter";
@@ -16,7 +16,7 @@
                     <p>Navn:  @item.Firstname @item.Lastname  </p>
                     <p>Tlf:  @item.Phone</p>
                     <p>Email:  @item.Email</p>
-                    <p>Afdeling: </p>
+                    <p>Afdeling: @item.DepartmentName </p>
                 </div>
             </div>
         }

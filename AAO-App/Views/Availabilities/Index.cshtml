@@ -39,11 +39,12 @@
             <div>Fr</div>
             <div>Lø</div>
         </div>
-        <div class="days" id="DataDays">
+        <div class="days" id="CalendarDays">
 
         </div>
     </div>
 </div>
+<div id="table">
     <table class="table_container">
         <thead>
             <tr>
@@ -62,15 +63,28 @@
             </tr>
         </thead>
         <tbody>
+            <script>   var markDateList = [];</script>
             @foreach (var item in Model)
             {
 
-                <tr>
+                <tr class="@string.Concat(new string[] {"avl", item.AvailabilityType.ToString()})">
                     <td>
                         @item.Start.ToString("dd/MM/yyyy")
                     </td>
                     <td>
                         @item.End.ToString("dd/MM/yyyy")
+                        <script>
+
+                            var days = @((item.End.Date - item.Start.Date).Days) ;
+
+
+                            while(days >= 0) {
+                                markDateList.push(@item.AvailabilityType.ToString() + "" + new Date(@item.Start.Date.Year , @item.Start.Date.Month-1, (@item.Start.Date.Day + days)).getTime());
+                                days--;
+                            }
+
+
+                        </script>
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.AvailabilityId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
@@ -82,24 +96,25 @@
             }
         </tbody>
     </table>
-    
+</div>
+
     <script>
         // get date
         const date = new Date();
         // get array
-        const markDateList = [];
+     
 
         //Green
-        markDateList.push(new Date(2021, 11, 09).getTime());
-        markDateList.push(new Date(2021, 11, 10).getTime());
-        markDateList.push(new Date(2021, 11, 11).getTime());
-        markDateList.push(new Date(2021, 11, 12).getTime());
+      //  markDateList.push(new Date(2021, 11, 09).getTime());
+      //  markDateList.push(new Date(2021, 11, 10).getTime());
+      //  markDateList.push(new Date(2021, 11, 11).getTime());
+      //  markDateList.push(new Date(2021, 11, 12).getTime());
 
         //Red
-        markDateList.push(new Date(2021, 11, 13).getTime());
-        markDateList.push(new Date(2021, 11, 14).getTime());
-        markDateList.push(new Date(2021, 11, 15).getTime());
-        markDateList.push(new Date(2021, 11, 16).getTime());
+      //  markDateList.push(new Date(2021, 11, 13).getTime());
+      //  markDateList.push(new Date(2021, 11, 14).getTime());
+      //  markDateList.push(new Date(2021, 11, 15).getTime());
+      //  markDateList.push(new Date(2021, 11, 16).getTime());
 
         // render calendar
         const renderCalendar = () => {
@@ -148,7 +163,7 @@
             document.querySelector(".date h2").innerHTML = months[date.getMonth()];
             // show day, month, date and year
             document.querySelector(".date p").innerHTML = new Date().toDateString();
-         
+
             //getting calendar
             let days = "";
 
@@ -160,9 +175,12 @@
                 if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
                     days += `<div class="today">${i}</div>`;
 
-                } else if (markDateList.includes(new Date(date.getYear() + 1900, date.getMonth(), i).getTime())) {
+                } else if (markDateList.includes("0" + new Date(date.getYear() + 1900, date.getMonth(), i).getTime())) {
 
                     days += `<div class="lists">${i}</div>`;
+                } else if (markDateList.includes("1" + new Date(date.getYear() + 1900, date.getMonth(), i).getTime())) {
+
+                    days += `<div class="listsred">${i}</div>`;
                 }
                 else {
                     days += `<div>${i}</div>`;
@@ -186,5 +204,11 @@
         });
 
         renderCalendar();
+
+        //pure JS
+        function scrollToBottom(div) {
+            var div = document.getElementById('table');
+            div.scrollTop = div.scrollHeight - div.clientHeight;
+        }
 
     </script>

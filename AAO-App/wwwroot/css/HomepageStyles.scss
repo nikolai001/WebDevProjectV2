@@ -6,14 +6,14 @@
     grid-template-columns: 1fr;
     justify-items: center;*/
 
-    main {
-        display: grid;
-        grid-column: 1/-1;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        max-width: 500px;
-        width: 100%;
-        font-family: 'asap';
+main {
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 500px;
+    width: 100%;
+    font-family: 'asap';
 
         #Icon {
             width: 18%;
@@ -215,7 +215,4 @@
         }
     }
 
-  /*  .header_container {
-        height: auto;
-    }*/
-/*}*/
+
