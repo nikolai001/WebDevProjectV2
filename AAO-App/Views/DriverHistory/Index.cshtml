@@ -1,68 +1,28 @@
-﻿@{
+﻿@model IEnumerable<AAO_App.Models.Trip>
+
+@{
     Layout = "_Master";
     ViewData["Title"] = "DriverHistory";
 }
 
-    <div class="container">
-        <h1>Mine kørte ture</h1>
+
+
+<div class="container">
+    <h1>Mine kørte ture</h1>
+
+
+    @foreach (var item in Model)
+    {
         <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
+            <div class="route">Afg.  @Html.DisplayFor(modelItem => item.Cities.CityId) - @Html.DisplayFor(modelItem => item.DateStart) - @Html.DisplayFor(modelItem => item.DateEnd) </div>
+            <div class="code">@Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode) - @Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode)DK-DK</div>
+            <div class="time">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</div>
         </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-        <div class="item">
-            <div class="route">Afg. Ode. -7/9 kl.12:30 - 7/9 kl.12:30</div>
-            <div class="code">DK-DK</div>
-            <div class="time">12t</div>
-        </div>
-    </div>
+
+
+
+        @*@{
+                @await Html.PartialAsync("_FooterPartial")
+            }*@
+    }
+</div>
