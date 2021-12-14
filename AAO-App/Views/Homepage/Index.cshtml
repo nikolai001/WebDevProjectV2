@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Homepage";
     Layout = "_Master";
-
 }
+
+@model IEnumerable<AAO_App.Models.Trip>
 
 @*Alle css i skal bruge til siderne skal tilføje i _Master Layout - vi skal kun bruge en styling hele vejen igennem*@
 
@@ -21,22 +22,14 @@
         </h3>
     </div>
 
+    @foreach (var Item in Model)
+    {
+        
+    }
+
     <div id="NewestTrips">
+
         <h3>Nyeste ledige ture</h3>
-
-        <div class="TripsHolder">
-            <div class="Date">
-                @model IEnumerable<AAO_App.Models.Availability>
-                <p>Slut 7/9 Kl.12:30</p>
-            </div>
-            <div class="Time">
-                <p>12t</p>
-            </div>
-            <div class="Country">
-                <p>DK-DK</p>
-            </div>
-        </div>
-
 
         <div class="TripsHolder">
             <div class="Date">
@@ -64,12 +57,6 @@
 
         <div class="TripsHolder">
             <div class="Date">
-                <p class="Number">6</p>
-                <p class="Month">SEP</p>
-            </div>
-            <div class="Info">
-                <p>Afgangsted: Odense</p>
-                <p>Start 6/9 kl.12:30 </p>
                 <p>Slut 7/9 Kl.12:30</p>
             </div>
             <div class="Time">
