@@ -6,11 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using AAO_App.Data;
 using AAO_App.Models;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< Updated upstream
 using Microsoft.AspNetCore.Mvc.Rendering;
-=======
 using Microsoft.AspNetCore.Http;
->>>>>>> Stashed changes
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AAO_App
@@ -24,11 +21,10 @@ namespace AAO_App
             _context = context;
         }
 
-        [Route("Home")]
         public ActionResult Index(TripModelView model)
         {
 
-            var TripHomeData = (from t in _context.Trips
+            var TripModelData = (from t in _context.Trips
                                  join e in _context.Employees
                                  on t.EmployeeId equals e.EmployeeId
                                  join de in _context.DepartmentHasEmployees
@@ -43,21 +39,15 @@ namespace AAO_App
                                  on t.TripId equals dt.TripId
                                  join dr in _context.Drivers
                                  on dt.DriverId equals dr.DriverId
-                    
-                                select new TripModelView
+
+
+                                 select new TripModelView
                                  {
                                      TripId = t.TripId,
                                      DateStart = t.DateStart,
                                      DateEnd = t.DateEnd,
                                      MessageContents = t.MessageContents,
                                      TripInfo = t.TripInfo,
-<<<<<<< Updated upstream
-                                     EmployeeId = t.EmployeeId,
-                                     DriverBuddy = t.DriverBuddy,
-
-                                 }).Take(2).ToList();
-            return View(TripModelData);
-=======
                                      Firstname = e.Firstname,
                                      Lastname = e.Lastname,
                                      Email = e.Email,
@@ -67,12 +57,11 @@ namespace AAO_App
                                      CountryCode = co.CountryCode,
                                      DriverId = dr.DriverId
 
-                                 });
+                                 }).ToList();
 
 
-            return View(TripHomeData);
+            return View(TripModelData);
 
->>>>>>> Stashed changes
         }
 
     }
