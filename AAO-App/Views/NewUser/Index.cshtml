@@ -4,8 +4,6 @@
     ViewData["Title"] = "Create New User";
 }
 
-<link rel="stylesheet" href="/css/ModalStyles.css" />
-
 <img id="Icon" src="images/logo.svg" alt="Alex Andersen logo" />
 
 <div id="DotHolder">
@@ -52,17 +50,8 @@
     </div>
 </form>
 
-<button id="Help" class="ModalTrigger">Help</button>
-
-<div id="Modal">
-    <button onclick="closeHelp()" id="Cross">X</button>
-    <h3 id="ModalTitle"></h3>
-    <p id="ModalContent"></p>
-    <button onclick="closeHelp()" id="CloseButton">Ok</button>
-</div>
-
+<script src="../../js/Modal.min.js"></script>
 <script src="../../js/CreateUserScript.min.js"></script>
-<script src="../../js/Modal.js"></script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

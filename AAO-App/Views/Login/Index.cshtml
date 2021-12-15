@@ -6,6 +6,8 @@
 
 }
 
+<link rel="stylesheet" href="/css/ModalStyles.css" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Raleway:wght@700&display=swap" rel="stylesheet">
@@ -25,8 +27,17 @@
     <input asp-for="Password"><br>
     <input type="Submit" value="Log ind" class="WideButton">
 </form>
-<button id="Help" class="ButtonModal">Hjælp</button>
 
+<button id="Help" class="ModalTrigger ButtonModal">Help</button>
+
+<div id="Modal">
+    <button onclick="closeHelp()" id="Cross">X</button>
+    <h3 id="ModalTitle"></h3>
+    <p id="ModalContent"></p>
+    <button onclick="closeHelp()" id="CloseButton">Ok</button>
+</div>
+
+<script src="../../js/Modal.js"></script>
 
 <h3 id="CreateAccountHeader">Har du endnu ikke en konto?</h3>
 <a id="CreateAccount" asp-controller="NewUser" asp-action="Index">OPRET NY BRUGER</a>
