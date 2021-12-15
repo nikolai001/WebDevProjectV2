@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AAO_App.Models.Trip>
+﻿@model IEnumerable<AAO_App.Models.TripModelView>
     @{
         ViewData["Title"] = "Notification";
         Layout = "_Master";
@@ -28,7 +28,7 @@
                     </p>
                 </div>
                 <div class="item3">
-                    <p class="item_p">@item.Cities.Countries.CountryCode - @item.Cities.Countries.CountryCode</p>
+                    <p class="item_p">@item.CountryCode - @item.CountryCode</p>
                 </div>
                 <div class="item4">
                     <p class="item_p">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>

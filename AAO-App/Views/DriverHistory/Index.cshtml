@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AAO_App.Models.Trip>
+﻿@model IEnumerable<AAO_App.Models.TripModelView>
 
 @{
     Layout = "_Master";
@@ -13,8 +13,8 @@
     @foreach (var item in Model)
     {
         <div class="item">
-            <div class="route">Afg.  @item.Cities.CityName - @item.DateStart.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm") til @item.DateEnd.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm")  </div>
-            <div class="code">@item.Cities.Countries.CountryCode - @item.Cities.Countries.CountryCode</div>
+            <div class="route">Afg.  @item.CityName - @item.DateStart.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm") til @item.DateEnd.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm")  </div>
+            <div class="code">@item.CountryCode - @item.CountryCode</div>
             <div class="time">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</div>
         </div>
     }

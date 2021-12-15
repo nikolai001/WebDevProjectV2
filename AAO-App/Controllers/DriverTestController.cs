@@ -122,7 +122,9 @@ namespace AAO_App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            
+            ViewData["CityId"] = new SelectList(_context.Cities, "CityId", "CityId", driver.CityId);
+            return View(driver);
+
         }
 
         // GET: DriverTest/Delete/5

@@ -61,7 +61,7 @@ namespace AAO_App
             {
                 return NotFound();
             }
-            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", driver.CityId);
+          //  ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", driver.CityId);
             return View(driver);
         }
 
@@ -70,17 +70,17 @@ namespace AAO_App
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DriverId,CityId,Firstname,Lastname,Address,Phone,Location,Birthday,Password,IsValidated,ProfileImage")] Driver driver)
+        public async Task<IActionResult> Edit(int id, [Bind("DriverId,Firstname,Lastname,Address,Phone,Location,Birthday,Password,IsValidated,ProfileImage")] Driver driver)
         {
-            if (id != driver.DriverId)
-            {
-                return NotFound();
-            }
+         
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    driver.DriverId = id;
+                    driver.DriverId = int.Parse(this.HttpContext.Session.GetString("DriverId"));
+                    driver.CityId = int.Parse(this.HttpContext.Session.GetString("CityId"));
                     _db.Update(driver);
                     await _db.SaveChangesAsync();
                 }
@@ -97,17 +97,13 @@ namespace AAO_App
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", driver.CityId);
+            //ViewData["CityId"] = new SelectList(_db.Cities, "CityId", "CityId", driver.CityId);
             return View(driver);
         }
 
         // GET: DriverTest/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
             
             var driver = await _db.Drivers
                 .Include(d => d.Cities)

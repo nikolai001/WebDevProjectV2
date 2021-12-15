@@ -47,6 +47,7 @@ namespace AAO_App
                 HttpContext.Session.SetString("DriverId", driver[0].DriverId.ToString());
                 HttpContext.Session.SetString("Firstname", driver[0].Firstname);
                 HttpContext.Session.SetString("Lastname", driver[0].Lastname);
+                HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
                 //HttpContext.Session.SetString("Location", driver[0].Location);
                 //HttpContext.Session.SetString("Phone", driver[0].Phone);
 

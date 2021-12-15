@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AAO_App.Data;
 using AAO_App.Models;
+using Microsoft.AspNetCore.Http;
 //using BC = BCrypt.Net.BCrypt;
 
 namespace AAO_App.Controllers
@@ -19,14 +20,14 @@ namespace AAO_App.Controllers
         {
             _context = context;
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         // GET: Settings/Delete/1
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
             var driver = await _context.Drivers
                 .Include(d => d.Cities)
@@ -45,7 +46,7 @@ namespace AAO_App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var driver = await _context.Drivers.FindAsync(id);
+            var driver = await _context.Drivers.FindAsync(int.Parse(this.HttpContext.Session.GetString("DriverId")));
             _context.Drivers.Remove(driver);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

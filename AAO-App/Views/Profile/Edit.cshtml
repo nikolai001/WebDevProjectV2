@@ -8,13 +8,6 @@
 <div class="w3-container">
     <h1 class="opret_periode">Rediger Profile</h1>
     <form asp-action="Edit">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @* <input type="hidden" asp-for="DriverId" />
-            <div class="form-group">
-                 <label asp-for="CityId" class="control-label"></label>
-                 <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityName"></select>
-                 <span asp-validation-for="CityId" class="text-danger"></span>
-             </div>*@
         <div class="form-group">
             <label asp-for="Firstname" class="control-label"></label>
             <input asp-for="Firstname" class="form-control" />
