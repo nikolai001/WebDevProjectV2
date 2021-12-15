@@ -18,5 +18,6 @@ namespace AAO_App.Models
         public string MessageContents { get; set; }
         public string TripInfo { get; set; }
         public string DriverBuddy { get; set; }
+        public int DriverId { get; internal set; }
     }
 }

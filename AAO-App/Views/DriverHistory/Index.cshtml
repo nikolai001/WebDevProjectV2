@@ -10,19 +10,12 @@
 <div class="container">
     <h1>Mine kørte ture</h1>
 
-
     @foreach (var item in Model)
     {
         <div class="item">
-            <div class="route">Afg.  @Html.DisplayFor(modelItem => item.Cities.CityId) - @Html.DisplayFor(modelItem => item.DateStart) - @Html.DisplayFor(modelItem => item.DateEnd) </div>
-            <div class="code">@Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode) - @Html.DisplayFor(modelItem => item.Cities.Countries.CountryCode)DK-DK</div>
+            <div class="route">Afg.  @item.Cities.CityName - @item.DateStart.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm") til @item.DateEnd.ToString("d'/'M") kl.@item.DateStart.ToString("HH:mm")  </div>
+            <div class="code">@item.Cities.Countries.CountryCode - @item.Cities.Countries.CountryCode</div>
             <div class="time">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</div>
         </div>
-
-
-
-        @*@{
-                @await Html.PartialAsync("_FooterPartial")
-            }*@
     }
 </div>

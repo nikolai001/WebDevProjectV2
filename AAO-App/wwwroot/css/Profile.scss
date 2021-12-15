@@ -6,27 +6,36 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+h1#Profil {
+    text-align: center;
+}
+p.edit_icon{
+    color: $DefaultTextColour;
+    margin-left: 10px;
+}
 
-body {
+img#UserPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    h1#Profil {
-        text-align: center;
-    }
+div#TextBody {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 50px;
 
-    img#UserPic {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    div#TextBody {
-        margin-left: 10px;
-    }
-
-    .ProfileSpace{
-        margin-bottom: 10px;
+    div {
+        padding: 10px 0 10px 50px;
     }
 }
+
+.ProfileSpace {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
 .wrap_around {
     display: flex;
 }

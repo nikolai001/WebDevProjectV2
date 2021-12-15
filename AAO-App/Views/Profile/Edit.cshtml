@@ -1,73 +1,69 @@
 ﻿@model AAO_App.Models.Driver
 
 @{
+    Layout = "_CrudLayout";
     ViewData["Title"] = "Edit Profile";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="DriverId" />
+<div class="w3-container">
+    <h1 class="opret_periode">Rediger Profile</h1>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @* <input type="hidden" asp-for="DriverId" />
             <div class="form-group">
-                <label asp-for="CityId" class="control-label"></label>
-                <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityId"></select>
-                <span asp-validation-for="CityId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Firstname" class="control-label"></label>
-                <input asp-for="Firstname" class="form-control" />
-                <span asp-validation-for="Firstname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lastname" class="control-label"></label>
-                <input asp-for="Lastname" class="form-control" />
-                <span asp-validation-for="Lastname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Birthday" class="control-label"></label>
-                <input asp-for="Birthday" class="form-control" />
-                <span asp-validation-for="Birthday" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsValidated" class="control-label"></label>
-                <input asp-for="IsValidated" class="form-control" />
-                <span asp-validation-for="IsValidated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProfileImage" class="control-label"></label>
-                <input asp-for="ProfileImage" class="form-control" />
-                <span asp-validation-for="ProfileImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+                 <label asp-for="CityId" class="control-label"></label>
+                 <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityName"></select>
+                 <span asp-validation-for="CityId" class="text-danger"></span>
+             </div>*@
+        <div class="form-group">
+            <label asp-for="Firstname" class="control-label"></label>
+            <input asp-for="Firstname" class="form-control" />
+            <span asp-validation-for="Firstname" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lastname" class="control-label"></label>
+            <input asp-for="Lastname" class="form-control" />
+            <span asp-validation-for="Lastname" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address" class="control-label"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone" class="control-label"></label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Location" class="control-label"></label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Birthday" class="control-label"></label>
+            <input asp-for="Birthday" class="form-control" />
+            <span asp-validation-for="Birthday" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProfileImage" class="control-label"></label>
+            <input asp-for="ProfileImage" class="form-control" />
+            <span asp-validation-for="ProfileImage" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
 
+
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="back_list" style="font-size:20px;color:black;" asp-action="Index"> < Back </a>
 </div>
 
 @section Scripts {

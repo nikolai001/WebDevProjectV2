@@ -7,35 +7,35 @@
 
 <link href="~/css/Profile.css" rel="stylesheet" type="text/css" />
 
-    @foreach (var item in Model)
-    {
-        <h1 id="Profil">Profil</h1>
-        <div class="wrap_around">
-            <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
-            @*<p>
-                <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
-            </p>*@
-        </div>
-        <div id="TextBody">
-            <div class="wrap_around">
-                <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
-                <p>
-                    <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
-                </p>
-            </div>
-            <div class="ProfileSpace" id="ProfName">Navn:  @item.Firstname @item.Lastname </div>
-            <div class="ProfileSpace" id="ProfAddress"> Addresse:  @item.Address </div>
-            <p class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </p>
 
-            <div class="wrap_around">
-                <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
-                <p>
-                    <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
-                </p>
-            </div>
-            <div class="ProfileSpace" id="ProfLokation"> Lokation:  @item.Location </div>
+<h1 id="Profil">Profil</h1>
+<div class="wrap_around">
+    <img id="UserPic" src="../../../images/userpic.svg" alt="ProfilePic" />
+</div>
+@foreach (var item in Model)
+{
+    <div id="TextBody">
+        <div class="wrap_around">
+            <h2 class="ProfileSpace" id="Stamdata">Stamdata</h2>
+            <p>
+                <a class="edit_icon" asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
+            </p>
         </div>
-    }
+        <div class="ProfileSpace" id="ProfName">Navn:  @item.Firstname @item.Lastname </div>
+        <div class="ProfileSpace" id="ProfAddress"> Addresse:  @item.Address </div>
+        <div class="ProfileSpace" id="ProfKørekort"> Kørekort oplysninger: </div>
+
+        <div class="wrap_around">
+            <h2 class="ProfileSpace" id="ProfPreferencer">Dine præferencer</h2>
+            @*<p>
+                    <a asp-action="Edit" asp-route-id="@item.DriverId"><i style="font-size:24px" class="fa">&#xf040;</i></a>
+                </p>*@
+        </div>
+        <div class="ProfileSpace" id="ProfLokation"> Lokation:  @item.Location </div>
+        <div class="ProfileSpace" id="ProfLokation"> Type: National</div>
+    </div>
+        
+}
 
 
 

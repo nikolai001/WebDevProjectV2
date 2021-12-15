@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AAO_App.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +24,7 @@ namespace AAO_App.Controllers
         // GET: Trip
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _db.Trips.Include(t => t.Cities.Countries).Include(t => t.Employees);//Include(t => t.Drivers); 
+            var applicationDbContext = _db.Trips.Include(t => t.Cities.Countries).Include(t => t.Employees).Where(m => m.DriverId == int.Parse(HttpContext.Session.GetString("DriverId")));
             return View(await applicationDbContext.ToListAsync());
         }
     }
