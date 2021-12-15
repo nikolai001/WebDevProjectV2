@@ -190,10 +190,12 @@ td, th {
 /* Zebra striping */
 .avl1 {
     background: $DangerColour;
+    border-bottom: 1px solid $BackgroundColour;
 }
 /* Zebra striping */
 .avl0 {
     background: $CTAColourPrim;
+    border-bottom: 1px solid $BackgroundColour;
 }
 
 thead {
@@ -209,6 +211,7 @@ thead {
 tbody {
     tr {
         overflow-y: auto;
+       
     }
 
     a {
