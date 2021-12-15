@@ -1,40 +1,44 @@
 ﻿@model IEnumerable<AAO_App.Models.TripModelView>
-    @{
-        ViewData["Title"] = "Notification";
-        Layout = "_Master";
-    }
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "_Master";
+}
 
 <div class="contact_container">
     <div class="headingtext">
         <h1>Notifikationer</h1>
-    </div> 
+    </div>
 
     @foreach (var item in Model)
     {
-        
-        <div class="message_info">
-            <div class="wrapper_text">
-                <span>Du har fået denne tur</span>
-                <span>@DateTime.Now.ToString("HH:mm")</span>
-            </div>
-            <div class="wrapper_message">
-                <div class="item1">
-                    <p class="item_p"> @item.DateStart.Day</p>
-                    <p id="month"> @item.DateStart.ToString("MMM")</p>
+        int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
+        if (thisUserId == item.DriverId)
+        {
+            <div class="message_info">
+                <div class="wrapper_text">
+                    <span>Du har fået denne tur</span>
+                    <span>@DateTime.Now.ToString("HH:mm")</span>
                 </div>
-                <div class="item2">
-                    <p class="item_2">
-                        Afg. Odense - Start @item.DateStart.ToShortTimeString()
-                    </p>
+                <div class="wrapper_message">
+                    <div class="item1">
+                        <p class="item_p"> @item.DateStart.Day</p>
+                        <p id="month"> @item.DateStart.ToString("MMM")</p>
+                    </div>
+                    <div class="item2">
+                        <p class="item_2">
+                            Afg. Odense - Start @item.DateStart.ToShortTimeString()
+                        </p>
+                    </div>
+                    <div class="item3">
+                        <p class="item_p">@item.CountryCode - @item.CountryCode</p>
+                    </div>
+                    <div class="item4">
+                        <p class="item_p">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+                    </div>
                 </div>
-                <div class="item3">
-                    <p class="item_p">@item.CountryCode - @item.CountryCode</p>
-                </div>
-                <div class="item4">
-                    <p class="item_p">@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
-                </div>
-            </div>
 
-        </div>
+            </div>
         }
-    </div>
+    }
+</div>
