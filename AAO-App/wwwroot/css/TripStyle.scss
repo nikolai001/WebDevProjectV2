@@ -7,6 +7,7 @@
     padding: 0;
 }
 
+
 /*Top menu*/
 p, label {
     font-family: $Asap, sans-serif;
@@ -106,6 +107,8 @@ input[type=checkbox] {
     flex-wrap: wrap;
 }
 
+/*Anmod tekst*/
+
 
 /*Tur info*/
 .NewTrips {
@@ -136,6 +139,36 @@ input[type=checkbox] {
             text-align: center;
             border-radius: 0.25em 0 0 0.25em;
             padding: 5% 0 5% 0;
+            position: relative;
+
+            .Request {
+                //background-color: rgba(0, 0, 0, 0.6);
+                position: absolute;
+                top: 0;
+                border-radius: 0.25em 0 0 0;
+            }
+
+            .Request:after {
+                content: ' ';
+                border-top: 70px solid rgba(0, 0, 0, 0.6);
+                border-right: 115px solid transparent;
+                border-left: 0.25em;
+                width: 0;
+                position: absolute;
+                left: 0;
+              
+            }
+
+            .RequestText {
+                position: absolute;
+                transform: rotate(-30deg);
+                text-transform: uppercase;
+                font-weight: 600;
+                top: 13px;
+                font-size: 13px;
+                margin-left: 10px;
+            }
+
 
             .Month {
                 font-size: $DefaultTextSize;
@@ -143,7 +176,7 @@ input[type=checkbox] {
             }
 
             .Number {
-                font-size:$UltraBigNumber;
+                font-size: $UltraBigNumber;
                 font-weight: bold;
             }
         }
@@ -171,7 +204,7 @@ input[type=checkbox] {
             flex-direction: column;
             justify-content: center;
             border-radius: 0 0.25em 0 0;
-            font-size:$ContactBoxTextSize;
+            font-size: $ContactBoxTextSize;
             font-weight: normal;
         }
 
@@ -184,7 +217,7 @@ input[type=checkbox] {
             flex-direction: column;
             justify-content: center;
             border-radius: 0 0 0.25em 0;
-            font-size:$ContactBoxTextSize;
+            font-size: $ContactBoxTextSize;
             font-weight: normal;
         }
     }
