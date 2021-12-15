@@ -37,6 +37,7 @@ namespace AAO_App.Controllers
             }
 
             return View(driver);
+
         }
 
         // POST: Settings/Delete/1
