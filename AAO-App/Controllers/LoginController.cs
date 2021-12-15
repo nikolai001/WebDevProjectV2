@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //using BC = BCrypt.Net.BCrypt;
 
 
-namespace AAO_App.Controllers
+namespace AAO_App
 {
     [Route("login")]
 
@@ -30,6 +30,7 @@ namespace AAO_App.Controllers
         {
             return View();
         }
+
         [Route("index")]
         [HttpPost]
         public IActionResult Login(string phone, string password)
@@ -39,16 +40,18 @@ namespace AAO_App.Controllers
             var driver = _db.Drivers.Select(d => d).Where(d => d.Phone == phone && d.Password == password).ToList();
             if (phone != null && password != null && driver.Count() > 0) // Klam måde at tjekke login på, bør omskrives.. eventually.. Kraftedeme en bootleg måde jeg fandt her
             {
-                HttpContext.Session.SetString("Address", driver[0].Address);
-                HttpContext.Session.SetString("Birthday", driver[0].Birthday.ToString());
-                HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
+              
+               // HttpContext.Session.SetString("Address", driver[0].Address);
+               //HttpContext.Session.SetString("Birthday", driver[0].Birthday.ToString());
+               // HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
                 HttpContext.Session.SetString("DriverId", driver[0].DriverId.ToString());
                 HttpContext.Session.SetString("Firstname", driver[0].Firstname);
                 HttpContext.Session.SetString("Lastname", driver[0].Lastname);
-                HttpContext.Session.SetString("Location", driver[0].Location);
-                HttpContext.Session.SetString("Phone)", driver[0].Phone);
-               
-                return View("~/Views/Homepage/Index.cshtml");
+                //HttpContext.Session.SetString("Location", driver[0].Location);
+                //HttpContext.Session.SetString("Phone", driver[0].Phone);
+
+                //return View("~/Views/Homepage/Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

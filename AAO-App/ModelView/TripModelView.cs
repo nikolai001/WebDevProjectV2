@@ -27,5 +27,9 @@ namespace AAO_App.Models
 
         //Fra Countrey 
         public string CountryCode { get; set; }
+
+        //Fra Driver
+        public int DriverId { get; set; }
+       
     }
 }

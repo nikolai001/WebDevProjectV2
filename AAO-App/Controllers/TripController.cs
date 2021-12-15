@@ -33,6 +33,11 @@ namespace AAO_App
                        on t.CityId equals ci.CityId
                        join co in _db.Countries
                        on ci.CountryId equals co.CountryId
+                       join dt in _db.DriverHasTrips
+                       on t.TripId equals dt.TripId
+                       join dr in _db.Drivers
+                       on dt.DriverId equals dr.DriverId
+                                       
 
                        select new TripModelView
                        {
@@ -47,7 +52,8 @@ namespace AAO_App
                            Phone = e.Phone,
                            DepartmentName = d.DepartmentName,
                            CityName = ci.CityName,
-                           CountryCode = co.CountryCode
+                           CountryCode = co.CountryCode,
+                           DriverId = dr.DriverId
 
                        }).ToList();
             
@@ -58,28 +64,7 @@ namespace AAO_App
 
 
         /*
-        //EKSEMPEL PÅ QUERY
-           public ActionResult Index()
-           {
-            using (ApplicationDbContext db  = new ApplicationDbContext db())
-
-                var dep = new List<Trip>();
-            {
-                dep = (from t in _db.Trips
-                       join e in _db.Employees
-                       on t.EmployeeId equals e.EmployeeId
-                       join de in _db.DepartmentHasEmployees
-                       on t.EmployeeId equals de.DepartmentHasEmployeesId
-                       join d in _db.Departments
-                       on de.DepartmentHasEmployeesId equals d.DepId
-                      
-
-                       select t).ToList();
-            }
-
-               return View(dep);
-
-           }
+       
 
         /*
         DETTE VIRKER!! 

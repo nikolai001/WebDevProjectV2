@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<AAO_App.Models.TripModelView>
+@using Microsoft.AspNetCore.Http;
 
 @{
     Layout = "~/Views/Shared/_Master.csHtml";
@@ -61,39 +62,83 @@
 
 @foreach (var item in Model)
 {
-    <div id="NewTrips" class="NewTrips">
-        <div class="TripsHolder">
-            <div id="Date" class="Date">
-                <p class="Number">@item.DateStart.Day</p>
-                <p id="Month" class="Month">@item.DateEnd.Month</p>
-            </div>
-            <div class="Info">
-                <p class="StartPoint">Afgangsted: @item.CityName</p>
-                <p>Start @item.DateStart</p>
-                <p>Slut @item.DateEnd</p>
-            </div>
-            <div class="Time">
-                <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
-            </div>
-            <div id="Country" class="Country">
-                <p class="CType">@item.CountryCode - @item.CountryCode</p>
-            </div>
-        </div>
-        <div id="Info" class="MoreInfo" style="display:none">
-            <div class="TripInformation">
-                <p><span style="text-decoration:underline">Din tur går til:</span> @item.TripInfo</p>
-                <p><span style="text-decoration:underline">Besked:</span> @item.MessageContents</p>
-                <p><span style="text-decoration:underline">Kontakt person:</span> @item.Firstname @item.Lastname</p>
-                <p><span style="text-decoration:underline">Afdeling:</span> @item.DepartmentName</p>
-            </div>
+  <div id="NewTrips AllNewTrips" class="NewTrips" style="display:flex">
+      <div class="TripsHolder">
+          <div id="Date" class="Date">
+              <p class="Number">@item.DateStart.Day</p>
+              <p id="Month" class="Month">@item.DateStart.Month</p>
+          </div>
+          <div class="Info">
+              <p class="StartPoint">Afgangsted: @item.CityName</p>
+              <p>Start @item.DateStart</p>
+              <p>Slut @item.DateEnd</p>
+          </div>
+          <div class="Time">
+              <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+          </div>
+          <div id="Country" class="Country">
+              <p class="CType">@item.CountryCode - @item.CountryCode</p>
+          </div>
+      </div>
+      <div id="Info" class="MoreInfo" style="display:none">
+          <div class="TripInformation">
+              <p><span style="text-decoration:underline">Din tur går til:</span> @item.TripInfo</p>
+              <p><span style="text-decoration:underline">Besked:</span> @item.MessageContents</p>
+              <p><span style="text-decoration:underline">Kontakt person:</span> @item.Firstname @item.Lastname</p>
+              <p><span style="text-decoration:underline">Afdeling:</span> @item.DepartmentName</p>
+          </div>
 
-            <div class="Contact">
-                <p><i class="fas fa-phone-alt"></i> @item.Phone</p>
-                <p><i class="fas fa-envelope"></i> @item.Email</p>
+          <div class="Contact">
+              <p><i class="fas fa-phone-alt"></i> @item.Phone</p>
+              <p><i class="fas fa-envelope"></i> @item.Email</p>
+          </div>
+          <button class="Btn">Anmod om tur</button>
+      </div>
+  </div>
+
+}
+
+@foreach (var item in Model)
+{
+    int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
+    if (thisUserId == item.DriverId)
+    {
+        <div id="NewTrips MyTrips" class="NewTrips" style="display:none">
+            <div class="TripsHolder">
+                <div id="Date" class="Date">
+                    <p class="Number">@item.DateStart.Day</p>
+                    <p id="Month" class="Month">@item.DateStart.Month</p>
+                </div>
+                <div class="Info">
+                    <p class="StartPoint">Afgangsted: @item.CityName</p>
+                    <p>Start @item.DateStart</p>
+                    <p>Slut @item.DateEnd</p>
+                </div>
+                <div class="Time">
+                    <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+                </div>
+                <div id="Country" class="Country">
+                    <p class="CType">@item.CountryCode - @item.CountryCode</p>
+                </div>
             </div>
-            <button class="Btn">Anmod om tur</button>
+            <div id="Info" class="MoreInfo" style="display:none">
+                <div class="TripInformation">
+                    <p><span style="text-decoration:underline">Din tur går til:</span> @item.TripInfo</p>
+                    <p><span style="text-decoration:underline">Besked:</span> @item.MessageContents</p>
+                    <p><span style="text-decoration:underline">Kontakt person:</span> @item.Firstname @item.Lastname</p>
+                    <p><span style="text-decoration:underline">Afdeling:</span> @item.DepartmentName</p>
+                </div>
+
+                <div class="Contact">
+                    <p><i class="fas fa-phone-alt"></i> @item.Phone</p>
+                    <p><i class="fas fa-envelope"></i> @item.Email</p>
+                </div>
+                <button class="Btn">Anmod om tur</button>
+            </div>
         </div>
-    </div>
+
+    }
+
 }
 
 
