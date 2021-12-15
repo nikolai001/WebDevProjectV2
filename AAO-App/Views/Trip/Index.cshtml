@@ -62,7 +62,7 @@
 
 @foreach (var item in Model)
 {
-  <div id="NewTrips AllNewTrips" class="NewTrips" style="display:flex">
+  <div id="NewTrips" class="NewTrips AllNewTrips" style="display:flex">
       <div class="TripsHolder">
           <div id="Date" class="Date">
               <p class="Number">@item.DateStart.Day</p>
@@ -103,7 +103,7 @@
     int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
     if (thisUserId == item.DriverId)
     {
-        <div id="NewTrips MyTrips" class="NewTrips" style="display:none">
+        <div id="NewTrips" class="NewTrips MyTrips" style="display:none">
             <div class="TripsHolder">
                 <div id="Date" class="Date">
                     <p class="Number">@item.DateStart.Day</p>

@@ -1,7 +1,9 @@
 ﻿
 /*ÅBNER OG LUKKER FILTER*/
+
 function OpenCloseFilter() {
     var filter = document.getElementById("Filter");
+    //var test = document.getElementById("test").addEventListener('click', OpenCloseFilter())
 
     if (filter.style.display == "none") {
         filter.style.display = "flex";
@@ -10,6 +12,44 @@ function OpenCloseFilter() {
     else {
         filter.style.display = "none";
     }
+}
+
+/*VISER LEDIGE OG MINETURE' DATA*/
+var AllTrips = document.getElementsByClassName("AllNewTrips");
+var MyTrips = document.getElementsByClassName("MyTrips");
+
+var AllTripsBtn = document.getElementById("TripItem2"); 
+var MyTripsBtn = document.getElementById("TripItem1");
+
+
+AllTripsBtn.addEventListener('click', ShowTrips);
+MyTripsBtn.addEventListener('click', ShowTrips); 
+
+function ShowTrips() {
+    for (let e = 0; e < AllTrips.length; e++) {
+
+        if (document.getElementById("TripItem1").style.height == "46px") {
+            AllTrips[e].style.display = "none";
+        }
+
+        else {
+            AllTrips[e].style.display = "flex";
+        }
+        
+    }
+
+    for (let e = 0; e < MyTrips.length; e++) {
+
+        if (document.getElementById("TripItem1").style.height == "46px") {
+            MyTrips[e].style.display = "flex";
+        }
+
+        else {
+            MyTrips[e].style.display = "none";
+        }
+
+    }
+ 
 }
 
 /*TOGGLE IMELLEM LEDIGE TURE OG MINE TURE*/
@@ -34,6 +74,7 @@ var n = document.getElementsByClassName('TripsHolder');
 for (let e = 0; e < n.length; e++) {
     n[e].addEventListener('click', function () {
 
+       
         var Info = document.getElementsByClassName("MoreInfo")[e];
         var Date = document.getElementsByClassName("Date")[e];
         var Country = document.getElementsByClassName("Country")[e];
