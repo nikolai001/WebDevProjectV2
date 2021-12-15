@@ -1,48 +1,50 @@
-﻿@{
+﻿@model IEnumerable<AAO_App.Models.Driver>
+@{
     ViewData["Title"] = "Notification";
     Layout = "_Master";
 }
 <script src="/js/Settings.js" defer></script>
 
-    <div class="container">
-        <h1>Indstillinger</h1>
-        <div class="content">
-            <h3>Notifikationer</h3>
-            <div class="row">
-                <p class="notification-text">
-                    Slå push beskeder til, hvis du
-                    vil have besked, når der sker
-                    noget i appen.
-                </p>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+<div class="container">
+    <h1>Indstillinger</h1>
+    <div class="content">
+        <h3>Notifikationer</h3>
+        <div class="row">
+            <p class="notification-text">
+                Slå push beskeder til, hvis du
+                vil have besked, når der sker
+                noget i appen.
+            </p>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
-        <div class="content">
-            <h3>Standard sprog</h3>
-            <div class="row">
-                <p>
-                    Vælg hvilket sprog der skal
-                    være dit standard sprog
-                </p>
-            </div>
+    </div>
+    <div class="content">
+        <h3>Standard sprog</h3>
+        <div class="row">
+            <p>
+                Vælg hvilket sprog der skal
+                være dit standard sprog
+            </p>
         </div>
-        <div class="language">
-            <label> <input type="radio" name="language"> <img src="~/images/uk-flag.png" alt="english"></label>
-            <label> <input type="radio" name="language"> <img src="~/images/DK-Denmark-Flag-icon.png" alt="english"></label>
-        </div>
+    </div>
+    <div class="language">
+        <label> <input type="radio" name="language"> <img src="~/images/uk-flag.png" alt="english"></label>
+        <label> <input type="radio" name="language"> <img src="~/images/DK-Denmark-Flag-icon.png" alt="english"></label>
+    </div>
 
+    <form asp-action="Delete">
         <button class="btn-danger floating-button btn-width-100" onclick="ShowAlert()">Slet profil</button>
+    </form>
         <!-- Button trigger modal -->
         <!-- Modal -->
-        
-                    @*<div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>*@
-                </div>
-           
+        @*<div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>*@
+</div>
+
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
