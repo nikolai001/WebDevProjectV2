@@ -21,6 +21,7 @@ namespace AAO_App
             _context = context;
         }
 
+        [Route("Home")]
         public ActionResult Index(TripModelView model)
         {
 
