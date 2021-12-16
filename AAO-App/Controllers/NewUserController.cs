@@ -37,6 +37,7 @@ namespace AAO_App.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 //driver.Password = BC.HashPassword(driver.Password); Some day my sweet prince some day
                 _context.Add(driver);
                 await _context.SaveChangesAsync();
