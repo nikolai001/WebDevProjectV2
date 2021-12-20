@@ -53,7 +53,8 @@ namespace AAO_App
                            DepartmentName = d.DepartmentName,
                            CityName = ci.CityName,
                            CountryCode = co.CountryCode,
-                           DriverId = dr.DriverId
+                           DriverId = dr.DriverId,
+                           RequestStatus = dt.RequestStatus
 
                        }).ToList();
             

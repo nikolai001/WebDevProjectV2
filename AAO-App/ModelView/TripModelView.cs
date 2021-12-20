@@ -30,6 +30,9 @@ namespace AAO_App.Models
 
         //Fra Driver
         public int DriverId { get; set; }
-       
+
+        //Fra DriverHasTrip
+        public int RequestStatus { get; set; }
+
     }
 }

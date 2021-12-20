@@ -30,6 +30,9 @@
         <h3>Nyeste ledige ture</h3>
         @foreach (var item in Model)
         {
+            int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
+            if (thisUserId != item.DriverId)
+            {
             <div class="TripsHolder">
                 <div class="Date">
                     <p class="Number">@item.DateStart.Day</p>
@@ -47,12 +50,14 @@
                     <p>@item.CountryCode - @item.CountryCode</p>
                 </div>
             </div>
+            }
         }
     </div>
 
+  
     <div id="NewestTrips">
 
-        <h3>Min igangværende tur</h3>
+        <h3>Mine kommende tur</h3>
         @foreach (var item in Model)
         {
             int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
