@@ -8,16 +8,18 @@
         <div class="headingtext">
             <h1>Kontakter</h1>
         </div>
-        @foreach (var item in Model)
-        {
-            <div class="wrapper_contact">
-                <img src="~/images/userpic.svg" alt="employee image" />
-                <div class="contact_info">
-                    <p>Navn:  @item.Firstname @item.Lastname  </p>
-                    <p>Tlf:  @item.Phone</p>
-                    <p>Email:  @item.Email</p>
-                    <p>Afdeling: @item.DepartmentName </p>
+        <div style="height:100vh">
+            @foreach (var item in Model)
+            {
+                <div class="wrapper_contact">
+                    <img src="~/images/userpic.svg" alt="employee image" />
+                    <div class="contact_info">
+                        <p>Navn:  @item.Firstname @item.Lastname  </p>
+                        <p>Tlf:  @item.Phone</p>
+                        <p>Email:  @item.Email</p>
+                        <p>Afdeling: @item.DepartmentName </p>
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
