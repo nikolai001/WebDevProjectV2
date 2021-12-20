@@ -408,7 +408,7 @@ input .rad{
 }
 
 .item1 {
-    width: 20%;
+    width: 16%;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
     background-color: $CTAColourSecond;
@@ -421,23 +421,22 @@ input .rad{
 }
 
 .item2 {
-    width: 50%;
+    width: 60%;
     background-color: $DefaultBoxColour;
-   
 }
 .item2 .item_2{
  font-size: 14px;
 }
 
 .item3 {
-    width: 18%;
+    width: 16%;
     background-color: $DefaultTextColour;
     color: $BackgroundColour;
 }
 
 .item4 {
     background-color: $CTAColourPrim;
-    width: 15%;
+    width: 12%;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     color: white;

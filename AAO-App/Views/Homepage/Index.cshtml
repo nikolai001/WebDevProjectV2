@@ -50,33 +50,35 @@
         }
     </div>
 
-    <div id="NewestTrips">
+    <div class="wrap_trips" style="height: 100vh;">
+        <div id="NewestTrips">
 
-        <h3>Min igangværende tur</h3>
-        @foreach (var item in Model)
-        {
-            int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
-            if (thisUserId == item.DriverId)
+            <h3>Min igangværende tur</h3>
+            @foreach (var item in Model)
             {
-                <div class="TripsHolder">
-                    <div class="Date">
-                        <p class="Number">@item.DateStart.Day</p>
-                        <p id="Month" class="Month">@item.DateStart.Month</p>
+                int thisUserId = Int32.Parse(Context.Session.GetString("DriverId"));
+                if (thisUserId == item.DriverId)
+                {
+                    <div class="TripsHolder">
+                        <div class="Date">
+                            <p class="Number">@item.DateStart.Day</p>
+                            <p id="Month" class="Month">@item.DateStart.Month</p>
+                        </div>
+                        <div class="Info">
+                            <p>Afgangsted:@item.CityName</p>
+                            <p>Start @item.DateStart </p>
+                            <p>Slut @item.DateEnd</p>
+                        </div>
+                        <div class="Time">
+                            <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
+                        </div>
+                        <div class="Country">
+                            <p>@item.CountryCode - @item.CountryCode</p>
+                        </div>
                     </div>
-                    <div class="Info">
-                        <p>Afgangsted:@item.CityName</p>
-                        <p>Start @item.DateStart </p>
-                        <p>Slut @item.DateEnd</p>
-                    </div>
-                    <div class="Time">
-                        <p>@Html.DisplayFor(modelItem => (item.DateEnd - item.DateStart).TotalHours) t</p>
-                    </div>
-                    <div class="Country">
-                        <p>@item.CountryCode - @item.CountryCode</p>
-                    </div>
-                </div>
+                }
             }
-        }
 
+        </div>
     </div>
 </section> 
