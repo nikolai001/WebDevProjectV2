@@ -4,6 +4,8 @@
     ViewData["Title"] = "Create New User";
 }
 
+<link rel="stylesheet" href="/css/ModalStyles.css" />
+
 <img id="Icon" src="images/logo.svg" alt="Alex Andersen logo" />
 
 <div id="DotHolder">
@@ -29,29 +31,36 @@
     </div>
 
     <div class="Formula">
-        <label asp-for="Location" class="control-label">Adresse by</label>
+        <label asp-for="Location" class="control-label">Adresse by <button id="Address" type="button" class="RoundedInfo ModalTrigger">i</button></label>
         <input asp-for="Location" class="form-control" />
 
-        <label asp-for="CityId" class="control-label">Præference for lokation</label>
+        <label asp-for="CityId" class="control-label">Præference for lokation <button id="Location" type="button" class="RoundedInfo ModalTrigger">i</button></label>
         <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityName">.xvc</select>
 
-            <label asp-for="Password" class="control-label"></label>
-            <input asp-for="Password" class="form-control" />
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" />
 
-            <label asp-for="ProfileImage" class="control-label"></label>
-            <input asp-for="ProfileImage" class="form-control" />
+        <label asp-for="ProfileImage" class="control-label"></label>
+        <input asp-for="ProfileImage" class="form-control" />
 
-            <div class="ButtonContainer" id="SecondContainer">
-                <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
+        <div class="ButtonContainer" id="SecondContainer">
+            <button type="button" id="Prev" onclick="PrevSlide()" class="ButtonModal">Tilbage</button>
 
-                <input type="Submit" value="Anmod om registrering" class="WideButton">
-            </div>
+            <input type="Submit" value="Anmod om registrering" class="WideButton">
         </div>
-    </form>
+    </div>
+</form>
 
-    <script src="../../js/Modal.min.js"></script>
-    <script src="../../js/CreateUserScript.min.js"></script>
+<div id="Modal">
+    <button onclick="closeHelp()" id="Cross">X</button>
+    <h3 id="ModalTitle"></h3>
+    <p id="ModalContent"></p>
+    <button onclick="closeHelp()" id="CloseButton">Ok</button>
+</div>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+<script src="../../js/Modal.min.js"></script>
+<script src="../../js/CreateUserScript.min.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

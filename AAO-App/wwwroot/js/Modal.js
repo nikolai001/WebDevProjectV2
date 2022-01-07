@@ -2,7 +2,8 @@
 
 const Scenarios = [
     { Name: "Help", Title: "Få hjælp til login", Content: "Ring til telefon nr. <br> +45 12 13 14 15" },
-    { Name: "Info", Title: "Den gør noget", Content: "Pop" },
+    { Name: "Location", Title: "Lokation", Content: "Præference for Alex Andersen afdeling" },
+    { Name: "Address", Title: "Adresse", Content: "Byen du bor i" },
 ];
 
 function AddListeners(x) {

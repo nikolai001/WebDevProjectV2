@@ -18,3 +18,15 @@
     @include Buttons;
     width:90%;
 }
+
+.RoundedInfo{
+    border-radius:100%;
+    outline:none;
+    border:none;
+    background-color:$CTAColourPrim;
+    width:20px;
+    height:20px;
+    color:$BackgroundColour;
+    text-align:center;
+    margin-left:5px;
+}
