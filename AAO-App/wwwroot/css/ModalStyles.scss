@@ -1,17 +1,45 @@
 ﻿@import '_Colours.scss';
 @import '_ButtonTemplate.scss';
 
-#Modal{
-    background-color:$BackgroundColour;
-    box-shadow:$DefaultTextColour 0 3px 6px 0.16;
-    display:none;
-    #ModalTitle{
+#Modal {
+    background-color: $BackgroundColour;
+    box-shadow: $DefaultTextColour 0 2px 16px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    grid-template-columns: 1fr;
+
+    #Cross {
+        font-size: 20px;
+        justify-self: end;
+        margin-right: 10px;
+        width: fit-content;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        margin-top: 5px;
         font-family:$Raleway;
     }
-    #ModalContent{
-        font-family:$Asap;
+
+    #ModalTitle {
+        font-family: $Raleway;
+        margin-left: 15%;
     }
 
+    #ModalContent {
+        font-family: $Asap;
+        margin-left: 15%;
+    }
+
+    #CloseButton {
+        @include Buttons;
+        width: 15%;
+        padding:8px 0;
+        justify-self: end;
+        margin-right: 4%;
+        margin-bottom: 15px;
+        box-shadow: $DefaultTextColour 0 0px 3px;
+    }
 }
 
 .Display{
