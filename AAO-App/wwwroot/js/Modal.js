@@ -1,21 +1,24 @@
-﻿const Scenarios = [
+﻿let Buttons = document.querySelectorAll(".ModalTrigger");
+
+const Scenarios = [
     { Name: "Help", Title: "Få hjælp til login", Content: "Ring til telefon nr. <br> +45 12 13 14 15" },
+    { Name: "Info", Title: "Den gør noget", Content: "Pop" },
 ];
 
-
-window.addEventListener('load', (event) => {
-    let Button = document.querySelector(".ModalTrigger");
-    Button.addEventListener('click', function (e) {
+function AddListeners(x) {
+    x.addEventListener("click", function (e) {
         var targetId = e.target.getAttribute('id');
-        if (targetId == "Help") {
-            var Modal = document.querySelector("#Modal");
-            Modal.querySelector("#ModalTitle").innerHTML = Scenarios[0].Title
-            Modal.querySelector("#ModalContent").innerHTML = Scenarios[0].Content
-            Modal.classList.add('Display');
-            //Modal.classList.add('Display');
-        }
+        var Modal = document.querySelector("#Modal");
+
+        let index = Scenarios.findIndex(x => x.Name === targetId);
+
+        Modal.querySelector("#ModalTitle").innerHTML = Scenarios[index].Title
+        Modal.querySelector("#ModalContent").innerHTML = Scenarios[index].Content
+        Modal.classList.add('Display');
     });
-});
+};
+
+Buttons.forEach(AddListeners);
 
 function closeHelp() {
     var Modal = document.querySelector("#Modal");
