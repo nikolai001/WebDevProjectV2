@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using BC = BCrypt.Net.BCrypt;
+using BC = BCrypt.Net.BCrypt;
 
 
 namespace AAO_App
@@ -37,27 +37,29 @@ namespace AAO_App
         {
             //var User = _db.Drivers.Select(d => d).Where(d => d.Phone == phone);
             //bool verified = BC.Verify(password, _db.Drivers.Select(d => d).Where(d => d.Password == d.Password)); Maybe some day
-            var driver = _db.Drivers.Select(d => d).Where(d => d.Phone == phone && d.Password == password).ToList();
-            if (phone != null && password != null && driver.Count() > 0) // Klam måde at tjekke login på, bør omskrives.. eventually.. Kraftedeme en bootleg måde jeg fandt her
+            //var driver = _db.Drivers.Select(d => d).Where(d => d.Phone == phone && d.Password == password).ToList();
+
+            var account = _db.Drivers.SingleOrDefault(x => x.Phone == phone);
+
+            if (account == null || !BC.Verify(password,account.Password))
             {
-              
-               // HttpContext.Session.SetString("Address", driver[0].Address);
-               //HttpContext.Session.SetString("Birthday", driver[0].Birthday.ToString());
-               // HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
-                HttpContext.Session.SetString("DriverId", driver[0].DriverId.ToString());
-                HttpContext.Session.SetString("Firstname", driver[0].Firstname);
-                HttpContext.Session.SetString("Lastname", driver[0].Lastname);
-                HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
+                ViewBag.error = "Invalid Account";
+                return View("Index");
+            }
+            else
+            {
+                // HttpContext.Session.SetString("Address", driver[0].Address);
+                //HttpContext.Session.SetString("Birthday", driver[0].Birthday.ToString());
+                // HttpContext.Session.SetString("CityId", driver[0].CityId.ToString());
+                HttpContext.Session.SetString("DriverId", account.DriverId.ToString());
+                HttpContext.Session.SetString("Firstname", account.Firstname);
+                HttpContext.Session.SetString("Lastname", account.Lastname);
+                HttpContext.Session.SetString("CityId", account.CityId.ToString());
                 //HttpContext.Session.SetString("Location", driver[0].Location);
                 //HttpContext.Session.SetString("Phone", driver[0].Phone);
 
                 //return View("~/Views/Homepage/Index");
                 return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.error = "Invalid Account";
-                return View("Index");
             }
         }
         [Route("logout")]

@@ -26,11 +26,3 @@ function closeHelp() {
 
     Modal.classList.remove('Display');
 }
-
-
-
-
-
-
-
-
